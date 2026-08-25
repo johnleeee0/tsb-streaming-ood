@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-DRIFT_027_SEG_4031_008_NAB_id_8_Syntheti",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:37:38",
+  "auroc": 0.5444,
+  "aupr": 0.4986,
+  "fpr95": 0.6154,
+  "det_acc": 0.5,
+  "inference_ms": 6.72728,
+  "extended_metrics": {
+    "indist_score_mean": -651.4168665959285,
+    "indist_score_std": 314.06519717688406,
+    "indist_score_skew": -0.49275792361277726,
+    "indist_score_kurt": 0.07252537471159348,
+    "ood_score_mean": -615.6519587590144,
+    "ood_score_std": 92.73362125245708,
+    "ood_score_skew": 0.977082057725156,
+    "ood_score_kurt": 0.23783110441532251
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

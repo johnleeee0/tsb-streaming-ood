@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-M-STABLE_064_SEG_230400_103_SVDB_id_20_Med",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:47:44",
+  "auroc": 0.83,
+  "aupr": 0.8571,
+  "fpr95": 0.7241,
+  "det_acc": 0.5172,
+  "inference_ms": 0.25929,
+  "extended_metrics": {
+    "indist_score_mean": 0.4736681768232746,
+    "indist_score_std": 0.04663481811582291,
+    "indist_score_skew": 0.6226888357884833,
+    "indist_score_kurt": -0.44943002494774253,
+    "ood_score_mean": 0.5510139827571281,
+    "ood_score_std": 0.06069338457463218,
+    "ood_score_skew": -0.4638778759839487,
+    "ood_score_kurt": -0.35900735271794826
+  },
+  "n_test": 58,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

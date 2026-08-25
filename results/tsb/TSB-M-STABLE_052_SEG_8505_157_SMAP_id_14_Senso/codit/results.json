@@ -1,0 +1,28 @@
+{
+  "method": "codit",
+  "dataset": "TSB-M-STABLE_052_SEG_8505_157_SMAP_id_14_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:57:12",
+  "auroc": 0.5918,
+  "aupr": 0.5761,
+  "fpr95": 0.5714,
+  "det_acc": 0.5714,
+  "inference_ms": 44.19201,
+  "extended_metrics": {
+    "indist_score_mean": -0.5842421461191246,
+    "indist_score_std": 0.28016817835120833,
+    "indist_score_skew": -0.004885199688313884,
+    "indist_score_kurt": -1.6647200492378311,
+    "ood_score_mean": -0.46258322967131127,
+    "ood_score_std": 0.15454211298327816,
+    "ood_score_skew": -0.5315837107535489,
+    "ood_score_kurt": -1.0159380569207486
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "eval_n": 5
+  }
+}

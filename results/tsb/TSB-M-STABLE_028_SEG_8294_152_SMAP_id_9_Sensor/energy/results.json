@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-STABLE_028_SEG_8294_152_SMAP_id_9_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:22:50",
+  "auroc": 0.8,
+  "aupr": 0.71,
+  "fpr95": 0.2,
+  "det_acc": 0.5,
+  "inference_ms": 2.28729,
+  "extended_metrics": {
+    "indist_score_mean": -5.677670955657959,
+    "indist_score_std": 2.217128038406372,
+    "indist_score_skew": 0.3702850043773651,
+    "indist_score_kurt": -0.620891809463501,
+    "ood_score_mean": -3.3402647972106934,
+    "ood_score_std": 0.8438689708709717,
+    "ood_score_skew": -0.35887762904167175,
+    "ood_score_kurt": -1.3959012031555176
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

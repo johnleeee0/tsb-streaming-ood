@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-OOD_085_SEG_2430_147_MSL_id_8_Sensor_tr_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:21:03",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.0,
+  "inference_ms": 2.90235,
+  "extended_metrics": {
+    "indist_score_mean": -36.42900466918945,
+    "indist_score_std": 16.559083938598633,
+    "indist_score_skew": -0.09107571840286255,
+    "indist_score_kurt": -1.5,
+    "ood_score_mean": -456.2803039550781,
+    "ood_score_std": 6.413142204284668,
+    "ood_score_skew": 0.4524609446525574,
+    "ood_score_kurt": -1.4999972581863403
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-OOD_066_SEG_30000_441_UCR_id_139_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:53:26",
+  "auroc": 0.2593,
+  "aupr": 0.3991,
+  "fpr95": 1.0,
+  "det_acc": 0.4444,
+  "inference_ms": 1.35699,
+  "extended_metrics": {
+    "indist_score_mean": -2.4131078720092773,
+    "indist_score_std": 0.8154691457748413,
+    "indist_score_skew": -1.225258708000183,
+    "indist_score_kurt": 0.46417713165283203,
+    "ood_score_mean": -29.181617736816406,
+    "ood_score_std": 50.10595703125,
+    "ood_score_skew": -1.3508365154266357,
+    "ood_score_kurt": -0.15122652053833008
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

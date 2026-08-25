@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-OOD_016_SEG_2499_026_NAB_id_26_Traffic_t",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:55:18",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9091,
+  "inference_ms": 0.99057,
+  "extended_metrics": {
+    "indist_score_mean": 1.1876620284740798,
+    "indist_score_std": 0.2713415843069267,
+    "indist_score_skew": -1.1457975488950076,
+    "indist_score_kurt": 1.124728670413214,
+    "ood_score_mean": 17.963378581183914,
+    "ood_score_std": 0.20585590834955103,
+    "ood_score_skew": -0.8555729184351965,
+    "ood_score_kurt": 0.006310324225867081
+  },
+  "n_test": 22,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

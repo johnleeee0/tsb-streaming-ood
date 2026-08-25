@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-OOD_099_SEG_8184_504_UCR_id_202_Environm",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:21:22",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 5.06755,
+  "extended_metrics": {
+    "indist_score_mean": 1.8971140782038372,
+    "indist_score_std": 0.11421521259002339,
+    "indist_score_skew": 0.7069764665540583,
+    "indist_score_kurt": -1.5000000000000022,
+    "ood_score_mean": 4.521967728932698,
+    "ood_score_std": 1.0647589640367774,
+    "ood_score_skew": -0.7028249408494774,
+    "ood_score_kurt": -1.5000000000000009
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

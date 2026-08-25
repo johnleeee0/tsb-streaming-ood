@@ -1,0 +1,29 @@
+{
+  "method": "srs",
+  "dataset": "TSB-U-STABLE_050_SEG_89155_266_IOPS_id_7_WebSe",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:31:58",
+  "auroc": 0.0,
+  "aupr": 0.3192,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 12.65616,
+  "extended_metrics": {
+    "indist_score_mean": 1.198819875717163,
+    "indist_score_std": 0.10702161490917206,
+    "indist_score_skew": 0.287402868270874,
+    "indist_score_kurt": -0.92044997215271,
+    "ood_score_mean": 0.4890510141849518,
+    "ood_score_std": 0.012244694866240025,
+    "ood_score_skew": 1.032544732093811,
+    "ood_score_kurt": 0.047022342681884766
+  },
+  "n_test": 40,
+  "backbone_epochs": 40,
+  "method_params": {
+    "period": null,
+    "latent_dim": 32,
+    "n_epochs": 10
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-STABLE_091_SEG_11406_344_UCR_id_42_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:12:46",
+  "auroc": 0.4375,
+  "aupr": 0.6179,
+  "fpr95": 0.75,
+  "det_acc": 0.5,
+  "inference_ms": 2.1452,
+  "extended_metrics": {
+    "indist_score_mean": 0.5223799480221796,
+    "indist_score_std": 0.04365257447262721,
+    "indist_score_skew": 0.658617384347355,
+    "indist_score_kurt": -0.9347399388173385,
+    "ood_score_mean": 0.520120616882187,
+    "ood_score_std": 0.047705031850185216,
+    "ood_score_skew": 1.1330862594216147,
+    "ood_score_kurt": -0.6841467172584239
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

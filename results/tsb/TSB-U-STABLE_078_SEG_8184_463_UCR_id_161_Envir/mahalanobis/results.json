@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-STABLE_078_SEG_8184_463_UCR_id_161_Envir",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:17:40",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.75,
+  "inference_ms": 2.81732,
+  "extended_metrics": {
+    "indist_score_mean": 83.80361935871444,
+    "indist_score_std": 24.4209553712331,
+    "indist_score_skew": -0.34854786748480976,
+    "indist_score_kurt": -1.5089777658973156,
+    "ood_score_mean": 428.91739173648045,
+    "ood_score_std": 191.63290468597174,
+    "ood_score_skew": -0.4225695094664799,
+    "ood_score_kurt": -1.0020263969812069
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

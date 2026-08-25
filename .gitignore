@@ -1,0 +1,27 @@
+# ---- Python ----
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- Raw benchmark data (fetch via data/download/; never commit) ----
+data/TSB-StreamingAD-U/
+data/TSB-StreamingAD-M/
+data/**/raw/
+data/download/*.zip
+
+# ---- Generated run outputs / caches ----
+results/tsb/          # large per-run raw cache (scores.npy/labels.npy/results.json) — not committed
+# Final results ARE committed as artifacts for review/reproducibility:
+#   results/benchmark.csv, results/class_d_*.csv, results/findings.md, results/tables/, results/figures/
+
+# ---- Large binaries (keep paper/ PDFs; ignore stray ones elsewhere) ----
+/*.pdf
+*.docx
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db

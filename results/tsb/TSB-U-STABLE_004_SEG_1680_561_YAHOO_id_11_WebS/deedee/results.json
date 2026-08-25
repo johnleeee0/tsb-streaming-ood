@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-STABLE_004_SEG_1680_561_YAHOO_id_11_WebS",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:30:40",
+  "auroc": 0.5,
+  "aupr": 0.5833,
+  "fpr95": 0.5,
+  "det_acc": 0.25,
+  "inference_ms": 2.91405,
+  "extended_metrics": {
+    "indist_score_mean": 0.5381520806297763,
+    "indist_score_std": 0.049371686721585095,
+    "indist_score_skew": 0.0,
+    "indist_score_kurt": 0.0,
+    "ood_score_mean": 0.5497334468179522,
+    "ood_score_std": 0.015286502156862836,
+    "ood_score_skew": 0.0,
+    "ood_score_kurt": 0.0
+  },
+  "n_test": 4,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

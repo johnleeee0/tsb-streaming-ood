@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-STABLE_054_SEG_1421_639_YAHOO_id_89_Synt",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T17:03:53",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 6.50353,
+  "extended_metrics": {
+    "indist_score_mean": 1.8416600823402405,
+    "indist_score_std": 0.11517924070358276,
+    "indist_score_skew": 0.0,
+    "indist_score_kurt": 0.0,
+    "ood_score_mean": 3.308277130126953,
+    "ood_score_std": 0.1201786994934082,
+    "ood_score_skew": 0.0,
+    "ood_score_kurt": 0.0
+  },
+  "n_test": 4,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

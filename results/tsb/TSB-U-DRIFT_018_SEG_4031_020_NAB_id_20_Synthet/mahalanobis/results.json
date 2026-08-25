@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-DRIFT_018_SEG_4031_020_NAB_id_20_Synthet",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:42:53",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6923,
+  "inference_ms": 1.03214,
+  "extended_metrics": {
+    "indist_score_mean": 539.9564121649257,
+    "indist_score_std": 246.76193426236915,
+    "indist_score_skew": 0.6373751623159293,
+    "indist_score_kurt": -1.0476073288040473,
+    "ood_score_mean": 1287.9270606011646,
+    "ood_score_std": 13.475360611061904,
+    "ood_score_skew": 0.09971479590237765,
+    "ood_score_kurt": -1.1512559645028386
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

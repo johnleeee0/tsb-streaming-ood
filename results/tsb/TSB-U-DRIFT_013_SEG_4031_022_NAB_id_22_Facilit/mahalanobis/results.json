@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-DRIFT_013_SEG_4031_022_NAB_id_22_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:22:27",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 0.93554,
+  "extended_metrics": {
+    "indist_score_mean": 1829.2311775238154,
+    "indist_score_std": 264.615151761234,
+    "indist_score_skew": -0.19602184974544284,
+    "indist_score_kurt": -1.4709327971224335,
+    "ood_score_mean": 48632168.8297385,
+    "ood_score_std": 14004993.234192945,
+    "ood_score_skew": -1.851875820491926,
+    "ood_score_kurt": 1.6742614469944836
+  },
+  "n_test": 28,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

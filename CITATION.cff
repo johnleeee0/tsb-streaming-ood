@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the thesis below."
+title: "When Confidence Lies: Deep Feature Modeling versus Post-hoc Softmax Scores for Out-of-Distribution Detection in Streaming Time Series"
+type: software
+authors:
+  - family-names: Giannoulis
+    given-names: Stylianos
+    affiliation: "Aristotle University of Thessaloniki (AUTH), MSc in Data and Web Science"
+year: 2026
+license: MIT
+abstract: >-
+  A reproducible study of out-of-distribution (OOD) detection for streaming time
+  series. It audits OOD detectors for faithfulness to their source papers, evaluates
+  the faithful set on the TSB-StreamingAD benchmark, and shows that distance- and
+  density-based detectors dominate post-hoc softmax detectors.
+references:
+  - type: thesis
+    title: "When Confidence Lies: Deep Feature Modeling versus Post-hoc Softmax Scores for Out-of-Distribution Detection in Streaming Time Series"
+    authors:
+      - family-names: Giannoulis
+        given-names: Stylianos
+    year: 2026
+    institution:
+      name: "Aristotle University of Thessaloniki"

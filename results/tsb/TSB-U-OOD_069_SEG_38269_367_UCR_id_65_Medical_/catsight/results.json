@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-OOD_069_SEG_38269_367_UCR_id_65_Medical_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:37:35",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 2.32716,
+  "extended_metrics": {
+    "indist_score_mean": 1.1774325501874554,
+    "indist_score_std": 0.4584849973684055,
+    "indist_score_skew": -0.010530305019097594,
+    "indist_score_kurt": -1.8460052364182804,
+    "ood_score_mean": 2.141974045508666,
+    "ood_score_std": 0.20825052264480184,
+    "ood_score_skew": -0.8839010754525031,
+    "ood_score_kurt": -0.8328956958888138
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

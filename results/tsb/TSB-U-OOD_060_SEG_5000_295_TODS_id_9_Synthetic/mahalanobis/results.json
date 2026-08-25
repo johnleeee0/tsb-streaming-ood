@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_060_SEG_5000_295_TODS_id_9_Synthetic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:01:34",
+  "auroc": 0.75,
+  "aupr": 0.8176,
+  "fpr95": 1.0,
+  "det_acc": 0.65,
+  "inference_ms": 1.2372,
+  "extended_metrics": {
+    "indist_score_mean": 782.5018332313173,
+    "indist_score_std": 166.42587643849762,
+    "indist_score_skew": 0.28782897389923506,
+    "indist_score_kurt": -1.2860977861614726,
+    "ood_score_mean": 2117.647725753456,
+    "ood_score_std": 3162.0507294929857,
+    "ood_score_skew": 2.605059217900733,
+    "ood_score_kurt": 4.918210139419045
+  },
+  "n_test": 20,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

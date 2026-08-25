@@ -1,0 +1,30 @@
+{
+  "method": "diffad",
+  "dataset": "TSB-M-STABLE_067_SEG_200001_044_GHL_id_13_Sens",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:15:09",
+  "auroc": 0.6713,
+  "aupr": 0.669,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 18.09397,
+  "extended_metrics": {
+    "indist_score_mean": 0.1165402005700504,
+    "indist_score_std": 0.011874194441732013,
+    "indist_score_skew": 1.7344496283241928,
+    "indist_score_kurt": 2.5808404649790972,
+    "ood_score_mean": 0.12382053189417895,
+    "ood_score_std": 0.013200788400906866,
+    "ood_score_skew": 0.1889117804728298,
+    "ood_score_kurt": -0.9726468356776801
+  },
+  "n_test": 34,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_steps": 20,
+    "n_epochs": 8,
+    "hidden_dim": 64,
+    "recon_samples": 2
+  }
+}

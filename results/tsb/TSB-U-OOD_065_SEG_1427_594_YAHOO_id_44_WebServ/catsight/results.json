@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-OOD_065_SEG_1427_594_YAHOO_id_44_WebServ",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:11:55",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6667,
+  "inference_ms": 2.90745,
+  "extended_metrics": {
+    "indist_score_mean": 1.2567394242981658,
+    "indist_score_std": 0.46302066102841766,
+    "indist_score_skew": -0.67663212170755,
+    "indist_score_kurt": -1.4999999999999996,
+    "ood_score_mean": 66.50520982882041,
+    "ood_score_std": 43.939376900136985,
+    "ood_score_skew": -0.7065241188051122,
+    "ood_score_kurt": -1.4999999999999998
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

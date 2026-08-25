@@ -1,0 +1,28 @@
+{
+  "method": "codit",
+  "dataset": "TSB-M-OOD_097_SEG_217624_115_PSM_id_1_Facility",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T19:54:15",
+  "auroc": 0.204,
+  "aupr": 0.3507,
+  "fpr95": 1.0,
+  "det_acc": 0.4792,
+  "inference_ms": 11.86962,
+  "extended_metrics": {
+    "indist_score_mean": -0.26856706924138285,
+    "indist_score_std": 0.27601220114613817,
+    "indist_score_skew": -0.8734856644909608,
+    "indist_score_kurt": -0.5029562253655646,
+    "ood_score_mean": -0.5761797864715964,
+    "ood_score_std": 0.23774491427492267,
+    "ood_score_skew": 0.27648776409870496,
+    "ood_score_kurt": -0.6907388467448121
+  },
+  "n_test": 96,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "eval_n": 5
+  }
+}

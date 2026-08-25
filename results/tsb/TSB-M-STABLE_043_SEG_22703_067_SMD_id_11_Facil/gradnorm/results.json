@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-STABLE_043_SEG_22703_067_SMD_id_11_Facil",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:16:05",
+  "auroc": 0.0,
+  "aupr": 0.3544,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 8.66856,
+  "extended_metrics": {
+    "indist_score_mean": -950.7764282226562,
+    "indist_score_std": 135.06034166281,
+    "indist_score_skew": 0.6690011444868679,
+    "indist_score_kurt": -1.2148419051798025,
+    "ood_score_mean": -123338.2875,
+    "ood_score_std": 209446.74098852335,
+    "ood_score_skew": -1.4824139728769143,
+    "ood_score_kurt": 0.225185103145086
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-STABLE_048_SEG_230400_092_SVDB_id_9_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:18:23",
+  "auroc": 0.6939,
+  "aupr": 0.7233,
+  "fpr95": 0.4286,
+  "det_acc": 0.7143,
+  "inference_ms": 9.55551,
+  "extended_metrics": {
+    "indist_score_mean": -595.1065979003906,
+    "indist_score_std": 362.94112554158727,
+    "indist_score_skew": -0.5700852774153624,
+    "indist_score_kurt": -1.3301344653179503,
+    "ood_score_mean": -314.656729561942,
+    "ood_score_std": 105.22625397963849,
+    "ood_score_skew": 0.3339989141541059,
+    "ood_score_kurt": -1.0939489962367608
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

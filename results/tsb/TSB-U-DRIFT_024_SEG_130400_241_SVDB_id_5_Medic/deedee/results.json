@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-DRIFT_024_SEG_130400_241_SVDB_id_5_Medic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:57:07",
+  "auroc": 0.6995,
+  "aupr": 0.7035,
+  "fpr95": 0.8545,
+  "det_acc": 0.7,
+  "inference_ms": 0.1638,
+  "extended_metrics": {
+    "indist_score_mean": 0.405026124650338,
+    "indist_score_std": 0.052258424895185125,
+    "indist_score_skew": 1.1083846559633033,
+    "indist_score_kurt": 0.352833047146051,
+    "ood_score_mean": 0.4689592626532005,
+    "ood_score_std": 0.11303022052560492,
+    "ood_score_skew": 1.718966619880096,
+    "ood_score_kurt": 2.1028296337103285
+  },
+  "n_test": 110,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

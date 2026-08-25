@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-STABLE_079_SEG_9057_847_OPPORTUNITY_id_6",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T17:06:32",
+  "auroc": 0.44,
+  "aupr": 0.4978,
+  "fpr95": 0.8,
+  "det_acc": 0.6,
+  "inference_ms": 2.59745,
+  "extended_metrics": {
+    "indist_score_mean": -5.675827980041504,
+    "indist_score_std": 2.466055154800415,
+    "indist_score_skew": -0.13115836679935455,
+    "indist_score_kurt": -1.4764397144317627,
+    "ood_score_mean": -5.950162887573242,
+    "ood_score_std": 1.5873368978500366,
+    "ood_score_skew": 0.2835462689399719,
+    "ood_score_kurt": -1.262436032295227
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

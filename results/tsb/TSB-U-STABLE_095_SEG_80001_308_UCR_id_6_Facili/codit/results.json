@@ -1,0 +1,28 @@
+{
+  "method": "codit",
+  "dataset": "TSB-U-STABLE_095_SEG_80001_308_UCR_id_6_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:43:23",
+  "auroc": 0.9645,
+  "aupr": 0.9682,
+  "fpr95": 0.2308,
+  "det_acc": 0.7308,
+  "inference_ms": 17.55902,
+  "extended_metrics": {
+    "indist_score_mean": -0.7910512307617391,
+    "indist_score_std": 0.20603069799673493,
+    "indist_score_skew": 0.7217974753787997,
+    "indist_score_kurt": -0.8793243615928183,
+    "ood_score_mean": -0.24001575774103162,
+    "ood_score_std": 0.19705058253334204,
+    "ood_score_skew": -0.6067507078776121,
+    "ood_score_kurt": -0.5825018338327839
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "eval_n": 5
+  }
+}

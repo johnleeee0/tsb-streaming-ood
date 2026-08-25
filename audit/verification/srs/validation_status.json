@@ -1,0 +1,23 @@
+{
+  "method_id": "srs",
+  "registry_id": "srs",
+  "status": "PASS",
+  "enhanced": false,
+  "validation_auroc": 1.0,
+  "discrepancy_count": {
+    "CRITICAL": 0,
+    "MODERATE": 0,
+    "MINOR": 0
+  },
+  "checks": {
+    "forward_pass_ok": true,
+    "shape_ok": true,
+    "no_nan_inf": true,
+    "auroc_gt_0p5": true
+  },
+  "n_id": 200,
+  "n_ood": 50,
+  "seed": 42,
+  "date": "2026-06-24",
+  "notes": ""
+}

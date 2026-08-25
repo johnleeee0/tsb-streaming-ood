@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-DRIFT_079_SEG_400000_026_MITDB_id_8_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T12:14:36",
+  "auroc": 0.6088,
+  "aupr": 0.6171,
+  "fpr95": 0.9167,
+  "det_acc": 0.5833,
+  "inference_ms": 14.92909,
+  "extended_metrics": {
+    "indist_score_mean": -715.0335494147407,
+    "indist_score_std": 437.95288782497056,
+    "indist_score_skew": -1.4188612085200685,
+    "indist_score_kurt": 3.0325958306210916,
+    "ood_score_mean": -581.9935130013359,
+    "ood_score_std": 395.2340680274226,
+    "ood_score_skew": -1.3484628435355899,
+    "ood_score_kurt": 2.2255903975926206
+  },
+  "n_test": 144,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

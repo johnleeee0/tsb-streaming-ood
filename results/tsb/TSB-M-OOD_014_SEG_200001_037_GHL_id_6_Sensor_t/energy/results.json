@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-OOD_014_SEG_200001_037_GHL_id_6_Sensor_t",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T22:55:19",
+  "auroc": 0.8166,
+  "aupr": 0.6932,
+  "fpr95": 0.2353,
+  "det_acc": 0.7647,
+  "inference_ms": 0.88677,
+  "extended_metrics": {
+    "indist_score_mean": -12.113350868225098,
+    "indist_score_std": 1.4463971853256226,
+    "indist_score_skew": 0.41013452410697937,
+    "indist_score_kurt": -0.8916420936584473,
+    "ood_score_mean": -10.286602020263672,
+    "ood_score_std": 0.45646870136260986,
+    "ood_score_skew": -0.926263689994812,
+    "ood_score_kurt": -0.6415700912475586
+  },
+  "n_test": 34,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

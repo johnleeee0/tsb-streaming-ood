@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-STABLE_036_SEG_230400_087_SVDB_id_4_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:48:06",
+  "auroc": 0.7751,
+  "aupr": 0.8494,
+  "fpr95": 1.0,
+  "det_acc": 0.5385,
+  "inference_ms": 1.30415,
+  "extended_metrics": {
+    "indist_score_mean": 679.2713067263419,
+    "indist_score_std": 125.96993131344607,
+    "indist_score_skew": -0.3825806440548938,
+    "indist_score_kurt": -1.0148193770783083,
+    "ood_score_mean": 829.4099965242638,
+    "ood_score_std": 197.40047846622105,
+    "ood_score_skew": -0.6772803519990466,
+    "ood_score_kurt": -0.33866739457252404
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

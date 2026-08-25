@@ -1,0 +1,28 @@
+{
+  "method": "dimmad",
+  "dataset": "TSB-M-OOD_021_SEG_200001_052_GHL_id_21_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T17:10:01",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6111,
+  "inference_ms": 4.93363,
+  "extended_metrics": {
+    "indist_score_mean": 24.00462277730306,
+    "indist_score_std": 2.969761853623711,
+    "indist_score_skew": -0.6367345308077061,
+    "indist_score_kurt": -0.9335402195600384,
+    "ood_score_mean": 39.60422600640191,
+    "ood_score_std": 1.0073091521256121,
+    "ood_score_skew": 2.125375425653163,
+    "ood_score_kurt": 2.9520534562112273
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {
+    "class_agg": "min",
+    "metric_agg": "median"
+  }
+}

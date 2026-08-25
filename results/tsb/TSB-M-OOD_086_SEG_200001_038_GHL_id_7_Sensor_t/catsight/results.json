@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-OOD_086_SEG_200001_038_GHL_id_7_Sensor_t",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:13:13",
+  "auroc": 0.3644,
+  "aupr": 0.4524,
+  "fpr95": 0.8667,
+  "det_acc": 0.5,
+  "inference_ms": 1.21145,
+  "extended_metrics": {
+    "indist_score_mean": 2.1699558655349587,
+    "indist_score_std": 0.9063461691153274,
+    "indist_score_skew": 1.5301191445024556,
+    "indist_score_kurt": 1.9138102090813884,
+    "ood_score_mean": 1.898307290687542,
+    "ood_score_std": 0.8527437115084678,
+    "ood_score_skew": 2.214887391221328,
+    "ood_score_kurt": 3.094169970223544
+  },
+  "n_test": 30,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-M-OOD_070_SEG_200001_056_GHL_id_25_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T18:20:38",
+  "auroc": 0.5,
+  "aupr": 0.5,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 0.72984,
+  "extended_metrics": {
+    "indist_score_mean": 0.0,
+    "indist_score_std": 0.0,
+    "indist_score_skew": NaN,
+    "indist_score_kurt": NaN,
+    "ood_score_mean": 0.0,
+    "ood_score_std": 0.0,
+    "ood_score_skew": NaN,
+    "ood_score_kurt": NaN
+  },
+  "n_test": 56,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

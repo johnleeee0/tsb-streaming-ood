@@ -1,0 +1,9 @@
+{
+  "method": "invad",
+  "dataset": "TSB-U-STABLE_086_SEG_1680_574_YAHOO_id_24_WebS",
+  "seed": 42,
+  "status": "FAILED",
+  "timestamp": "2026-08-22T17:07:32",
+  "error": "ValueError: non-finite scores or single-class test set",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\THESIS_FINAL\\runners\\pipeline.py\", line 142, in run_one\n    raise ValueError(\"non-finite scores or single-class test set\")\nValueError: non-finite scores or single-class test set\n"
+}

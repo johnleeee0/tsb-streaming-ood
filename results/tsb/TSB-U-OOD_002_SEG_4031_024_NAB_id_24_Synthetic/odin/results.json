@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-U-OOD_002_SEG_4031_024_NAB_id_24_Synthetic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:09:14",
+  "auroc": 0.8935,
+  "aupr": 0.8378,
+  "fpr95": 0.3077,
+  "det_acc": 0.8077,
+  "inference_ms": 3.86962,
+  "extended_metrics": {
+    "indist_score_mean": 0.7487062215805054,
+    "indist_score_std": 0.0005289678811095655,
+    "indist_score_skew": -0.13724470138549805,
+    "indist_score_kurt": -0.7406167984008789,
+    "ood_score_mean": 0.7494150400161743,
+    "ood_score_std": 0.00019986974075436592,
+    "ood_score_skew": -0.6038020849227905,
+    "ood_score_kurt": -0.45621275901794434
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

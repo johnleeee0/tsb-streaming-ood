@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-U-STABLE_092_SEG_46660_818_Exathlon_id_9_F",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:11:42",
+  "auroc": 0.3182,
+  "aupr": 0.3889,
+  "fpr95": 0.6825,
+  "det_acc": 0.5,
+  "inference_ms": 0.31073,
+  "extended_metrics": {
+    "indist_score_mean": 0.22678568959236145,
+    "indist_score_std": 0.139421284198761,
+    "indist_score_skew": 0.15407808125019073,
+    "indist_score_kurt": -1.0983359813690186,
+    "ood_score_mean": 0.1308099627494812,
+    "ood_score_std": 0.0029833237640559673,
+    "ood_score_skew": -0.1625317931175232,
+    "ood_score_kurt": 0.2571601867675781
+  },
+  "n_test": 126,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

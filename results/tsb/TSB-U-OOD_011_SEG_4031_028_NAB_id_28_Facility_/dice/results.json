@@ -1,0 +1,27 @@
+{
+  "method": "dice",
+  "dataset": "TSB-U-OOD_011_SEG_4031_028_NAB_id_28_Facility_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:48:23",
+  "auroc": 0.3,
+  "aupr": 0.5311,
+  "fpr95": 1.0,
+  "det_acc": 0.3,
+  "inference_ms": 0.95126,
+  "extended_metrics": {
+    "indist_score_mean": -2.543370485305786,
+    "indist_score_std": 0.8284785151481628,
+    "indist_score_skew": -1.0772488117218018,
+    "indist_score_kurt": -0.4148862361907959,
+    "ood_score_mean": -2064.848876953125,
+    "ood_score_std": 2555.002685546875,
+    "ood_score_skew": -0.47100141644477844,
+    "ood_score_kurt": -1.7122308015823364
+  },
+  "n_test": 20,
+  "backbone_epochs": 40,
+  "method_params": {
+    "top_k": 20
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_028_SEG_80000_226_MGAB_id_2_Syntheti",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:30:08",
+  "auroc": 0.7278,
+  "aupr": 0.8101,
+  "fpr95": 0.9231,
+  "det_acc": 0.5769,
+  "inference_ms": 0.73337,
+  "extended_metrics": {
+    "indist_score_mean": 11.785681977589364,
+    "indist_score_std": 1.486405974840148,
+    "indist_score_skew": 0.011397852396969502,
+    "indist_score_kurt": -0.6092259284955048,
+    "ood_score_mean": 160787.90479014593,
+    "ood_score_std": 158130.89153958933,
+    "ood_score_skew": 0.13734592212418897,
+    "ood_score_kurt": -1.7459808595500674
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-M-DRIFT_088_SEG_100000_079_LTDB_id_1_Medic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T13:16:37",
+  "auroc": 0.4938,
+  "aupr": 0.5016,
+  "fpr95": 0.8889,
+  "det_acc": 0.5556,
+  "inference_ms": 1.57666,
+  "extended_metrics": {
+    "indist_score_mean": 0.13500633835792542,
+    "indist_score_std": 0.17836898565292358,
+    "indist_score_skew": 0.8113895058631897,
+    "indist_score_kurt": -1.1754227876663208,
+    "ood_score_mean": 0.09076156467199326,
+    "ood_score_std": 0.10193578153848648,
+    "ood_score_skew": 1.1662073135375977,
+    "ood_score_kurt": 0.08265352249145508
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

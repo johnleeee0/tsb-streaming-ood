@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-OOD_025_SEG_70001_388_UCR_id_86_Facility",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:41:26",
+  "auroc": 0.0,
+  "aupr": 0.3257,
+  "fpr95": 1.0,
+  "det_acc": 0.3077,
+  "inference_ms": 8.90353,
+  "extended_metrics": {
+    "indist_score_mean": -283.58269332005426,
+    "indist_score_std": 406.14161895229864,
+    "indist_score_skew": -1.3841432512593839,
+    "indist_score_kurt": 0.25176717011802907,
+    "ood_score_mean": -13738.648888221154,
+    "ood_score_std": 3.2874205670995247,
+    "ood_score_skew": -0.2011855344551339,
+    "ood_score_kurt": -1.702897579946096
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

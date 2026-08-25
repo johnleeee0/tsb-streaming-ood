@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-OOD_060_SEG_5000_295_TODS_id_9_Synthetic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:01:34",
+  "auroc": 0.54,
+  "aupr": 0.5575,
+  "fpr95": 1.0,
+  "det_acc": 0.45,
+  "inference_ms": 1.14963,
+  "extended_metrics": {
+    "indist_score_mean": -4.444713592529297,
+    "indist_score_std": 1.6335862874984741,
+    "indist_score_skew": 0.5370703935623169,
+    "indist_score_kurt": -1.2977399826049805,
+    "ood_score_mean": -5.975815773010254,
+    "ood_score_std": 5.854472637176514,
+    "ood_score_skew": -2.346207857131958,
+    "ood_score_kurt": 4.1147027015686035
+  },
+  "n_test": 20,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

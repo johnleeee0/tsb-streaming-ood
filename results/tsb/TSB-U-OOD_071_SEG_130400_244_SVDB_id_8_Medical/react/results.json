@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-OOD_071_SEG_130400_244_SVDB_id_8_Medical",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:56:49",
+  "auroc": 0.5456,
+  "aupr": 0.5516,
+  "fpr95": 0.9286,
+  "det_acc": 0.5179,
+  "inference_ms": 0.31153,
+  "extended_metrics": {
+    "indist_score_mean": -3.0192930698394775,
+    "indist_score_std": 0.9968233704566956,
+    "indist_score_skew": -0.4882112741470337,
+    "indist_score_kurt": -0.6929547786712646,
+    "ood_score_mean": -2.8534317016601562,
+    "ood_score_std": 0.9756617546081543,
+    "ood_score_skew": -0.8189985156059265,
+    "ood_score_kurt": 0.5412278175354004
+  },
+  "n_test": 168,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

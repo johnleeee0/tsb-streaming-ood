@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-DRIFT_015_SEG_18236_095_WSD_id_67_WebSer",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:23:15",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 1.14725,
+  "extended_metrics": {
+    "indist_score_mean": 926.1961249397181,
+    "indist_score_std": 256.6095970826612,
+    "indist_score_skew": 0.19047496436429273,
+    "indist_score_kurt": -1.191169245727342,
+    "ood_score_mean": 4291476.388199214,
+    "ood_score_std": 2021270.123721007,
+    "ood_score_skew": 0.047419208609890455,
+    "ood_score_kurt": -1.6699829416812968
+  },
+  "n_test": 22,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

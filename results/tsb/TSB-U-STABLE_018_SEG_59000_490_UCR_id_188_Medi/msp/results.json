@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-U-STABLE_018_SEG_59000_490_UCR_id_188_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:46:31",
+  "auroc": 0.4531,
+  "aupr": 0.5468,
+  "fpr95": 0.75,
+  "det_acc": 0.5,
+  "inference_ms": 1.54448,
+  "extended_metrics": {
+    "indist_score_mean": 0.19005635380744934,
+    "indist_score_std": 0.14465497434139252,
+    "indist_score_skew": -0.38677290081977844,
+    "indist_score_kurt": -1.6841557025909424,
+    "ood_score_mean": 0.13990631699562073,
+    "ood_score_std": 0.15889321267604828,
+    "ood_score_skew": 1.385555624961853,
+    "ood_score_kurt": 0.614605188369751
+  },
+  "n_test": 16,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

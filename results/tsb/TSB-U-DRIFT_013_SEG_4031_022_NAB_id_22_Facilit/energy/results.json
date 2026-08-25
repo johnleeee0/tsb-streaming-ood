@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-DRIFT_013_SEG_4031_022_NAB_id_22_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:22:27",
+  "auroc": 0.0,
+  "aupr": 0.3244,
+  "fpr95": 1.0,
+  "det_acc": 0.3929,
+  "inference_ms": 1.00324,
+  "extended_metrics": {
+    "indist_score_mean": -4.120178699493408,
+    "indist_score_std": 1.2094054222106934,
+    "indist_score_skew": -0.18397720158100128,
+    "indist_score_kurt": -0.5805041790008545,
+    "ood_score_mean": -192047.671875,
+    "ood_score_std": 54763.90625,
+    "ood_score_skew": 1.8834491968154907,
+    "ood_score_kurt": 1.77138090133667
+  },
+  "n_test": 28,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

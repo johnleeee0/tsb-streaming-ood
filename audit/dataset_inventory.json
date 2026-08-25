@@ -1,0 +1,73 @@
+{
+  "author": "Stylianos Giannoulis",
+  "institution": "Aristotle University of Thessaloniki, MSc Data and Web Science",
+  "supervisor": "John Paparrizos",
+  "root": "C:\\THESIS\\benchmark1\\datasets",
+  "loaders": {
+    "ucr_uea": "datasets/ucr_loader.py",
+    "tsb_streaming": "datasets/tsb_loader.py (boundary_split=True, normalize per_series|global)",
+    "registry": "datasets/registry.py"
+  },
+  "dataset_groups": [
+    {
+      "group": "UCR/UEA multivariate (core paper Gungor2025, Table 1)",
+      "format": ".ts / UEA archive (loaded via ucr_loader.py)",
+      "ood_protocol": "semantic shift: first half of classes = ID, second half = OOD; test = 50/50 ID/OOD",
+      "labelled_ood_splits": true,
+      "used_by_registry_methods": ["ts_ood_generic (Gungor2025)", "msp", "odin", "energy_ebo", "gradnorm", "react", "dice", "mahalanobis_mds", "dfm"],
+      "datasets": [
+        {"name": "ArticularyWordRecognition", "abbr": "AWR", "train": 275, "test": 300, "dims": 9, "length": 144, "classes": 25},
+        {"name": "Epilepsy", "abbr": "EP", "train": 137, "test": 138, "dims": 3, "length": 206, "classes": 4},
+        {"name": "EthanolConcentration", "abbr": "EC", "train": 261, "test": 263, "dims": 3, "length": 1751, "classes": 4},
+        {"name": "HandMovementDirection", "abbr": "HMD", "train": 160, "test": 74, "dims": 10, "length": 400, "classes": 4},
+        {"name": "Handwriting", "abbr": "HW", "train": 150, "test": 850, "dims": 3, "length": 152, "classes": 26},
+        {"name": "Libras", "abbr": "LIB", "train": 180, "test": 180, "dims": 2, "length": 45, "classes": 15},
+        {"name": "LSST", "abbr": "LSST", "train": 2459, "test": 2466, "dims": 6, "length": 36, "classes": 14},
+        {"name": "NATOPS", "abbr": "NATO", "train": 180, "test": 180, "dims": 24, "length": 51, "classes": 6},
+        {"name": "PEMS-SF", "abbr": "PEMS", "train": 267, "test": 173, "dims": 963, "length": 144, "classes": 7},
+        {"name": "PenDigits", "abbr": "PD", "train": 7494, "test": 3498, "dims": 2, "length": 8, "classes": 10},
+        {"name": "PhonemeSpectra", "abbr": "PS", "train": 3315, "test": 3353, "dims": 11, "length": 217, "classes": 39},
+        {"name": "RacketSports", "abbr": "RS", "train": 151, "test": 152, "dims": 6, "length": 30, "classes": 4},
+        {"name": "UWaveGestureLibrary", "abbr": "UW", "train": 120, "test": 320, "dims": 3, "length": 315, "classes": 8},
+        {"name": "BasicMotions", "abbr": "BM", "train": 40, "test": 40, "dims": 6, "length": 100, "classes": 4, "notes": "bonus dataset, not in paper"}
+      ]
+    },
+    {
+      "group": "TSB-StreamingAD-U (univariate streaming, thesis extension)",
+      "dir": "datasets/TSB-StreamingAD-U",
+      "format": "CSV, one value column + label column; each file concatenates two source recordings",
+      "n_files": 300,
+      "categories": ["DRIFT", "OOD", "STABLE"],
+      "series_structure": "two concatenated sources (S1 normal, S2 introduces shift); anomaly rows mark S1/S2 boundary",
+      "windowing": "window_size and stride per config (e.g. 128/64); pseudo-classes = 4 temporal bins of S1 windows",
+      "ood_protocol": "window-level binary: normal window=ID, anomalous window=OOD; boundary_split trains only on S1 normal windows",
+      "labelled_ood_splits": true,
+      "normalization_rule": "Medical/HumanActivity -> per_series; else global",
+      "domains_observed": ["WebService", "Facility", "Medical", "Synthetic", "HumanActivity", "Sensor", "Environment"],
+      "used_by_registry_methods": "all 24 implemented detectors (large-scale sweep over 183 usable TSB-U files; see THESIS_FINDINGS.md)"
+    },
+    {
+      "group": "TSB-StreamingAD-M (multivariate streaming, thesis extension)",
+      "dir": "datasets/TSB-StreamingAD-M",
+      "format": "CSV, multiple value columns + label column; concatenated two-source recordings",
+      "n_files": 300,
+      "categories": ["DRIFT", "OOD", "STABLE"],
+      "example": "DRIFT_003 = MITDB + SVDB ECG, 2 channels (MLII, V4), ~230,400 timesteps, ~8.5% anomaly, window=128 stride=64",
+      "ood_protocol": "same window-level binary protocol as TSB-U",
+      "labelled_ood_splits": true,
+      "domains_observed": ["Medical (ECG)", "Facility", "Sensor"],
+      "used_by_registry_methods": "implemented detectors (best results on ECG morphological shift, e.g. DRIFT_003 AUROC ~0.97 for divoe)"
+    }
+  ],
+  "auto_generated_configs": {
+    "dir": "configs/tsb_auto",
+    "manifest": "configs/tsb_auto/datasets_manifest.csv",
+    "total_configs": 432,
+    "breakdown": {"TSB-U": 183, "TSB-M": 249, "DRIFT": 167, "OOD": 161, "STABLE": 104},
+    "fields": ["dataset_name", "split", "category", "seq_num", "domain_s1", "n_s1", "s1_1st", "s1_tr", "normalize", "config_file"]
+  },
+  "dataset_characteristics_summary": {
+    "ucr_uea": {"train_samples_min": 120, "train_samples_max": 7494, "classes_min": 4, "classes_max": 39, "dims_min": 2, "dims_max": 963, "length_min": 8, "length_max": 1751},
+    "tsb_streaming_total_files": 600
+  }
+}

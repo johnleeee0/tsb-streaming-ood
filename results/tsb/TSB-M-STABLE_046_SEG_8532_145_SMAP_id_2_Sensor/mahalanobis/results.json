@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-STABLE_046_SEG_8532_145_SMAP_id_2_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:47:03",
+  "auroc": 0.8906,
+  "aupr": 0.9208,
+  "fpr95": 0.5,
+  "det_acc": 0.75,
+  "inference_ms": 1.74459,
+  "extended_metrics": {
+    "indist_score_mean": 710.6132935809118,
+    "indist_score_std": 197.26816305047402,
+    "indist_score_skew": 0.5254378221265199,
+    "indist_score_kurt": -1.144643297686977,
+    "ood_score_mean": 1203.4863301239955,
+    "ood_score_std": 317.86978220164224,
+    "ood_score_skew": -0.5776314587344413,
+    "ood_score_kurt": -1.0149285905685639
+  },
+  "n_test": 16,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

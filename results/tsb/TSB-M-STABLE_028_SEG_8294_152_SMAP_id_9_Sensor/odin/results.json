@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-M-STABLE_028_SEG_8294_152_SMAP_id_9_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:22:50",
+  "auroc": 0.8,
+  "aupr": 0.71,
+  "fpr95": 0.2,
+  "det_acc": 0.5,
+  "inference_ms": 9.51134,
+  "extended_metrics": {
+    "indist_score_mean": 0.7485751509666443,
+    "indist_score_std": 0.0006207501864992082,
+    "indist_score_skew": 0.43565741181373596,
+    "indist_score_kurt": -0.6356794834136963,
+    "ood_score_mean": 0.7491985559463501,
+    "ood_score_std": 0.00022327945043798536,
+    "ood_score_skew": -0.35471898317337036,
+    "ood_score_kurt": -1.4509912729263306
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

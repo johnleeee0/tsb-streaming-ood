@@ -1,0 +1,27 @@
+{
+  "method": "dice",
+  "dataset": "TSB-U-OOD_017_SEG_20000_208_SMD_id_31_Facility",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:49:26",
+  "auroc": 0.6606,
+  "aupr": 0.619,
+  "fpr95": 0.7183,
+  "det_acc": 0.6127,
+  "inference_ms": 0.31445,
+  "extended_metrics": {
+    "indist_score_mean": -1.8774521350860596,
+    "indist_score_std": 0.5442703366279602,
+    "indist_score_skew": -1.1934809684753418,
+    "indist_score_kurt": 0.7481663227081299,
+    "ood_score_mean": -1.5701696872711182,
+    "ood_score_std": 0.2344031184911728,
+    "ood_score_skew": -0.8343018293380737,
+    "ood_score_kurt": 0.6664001941680908
+  },
+  "n_test": 142,
+  "backbone_epochs": 40,
+  "method_params": {
+    "top_k": 20
+  }
+}

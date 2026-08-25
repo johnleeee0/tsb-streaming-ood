@@ -1,0 +1,29 @@
+{
+  "method": "m2n2",
+  "dataset": "TSB-U-STABLE_043_SEG_12000_419_UCR_id_117_Faci",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:27:14",
+  "auroc": 0.75,
+  "aupr": 0.8333,
+  "fpr95": 0.5,
+  "det_acc": 0.5,
+  "inference_ms": 3.51055,
+  "extended_metrics": {
+    "indist_score_mean": 0.3563467189669609,
+    "indist_score_std": 0.14446527510881424,
+    "indist_score_skew": 0.0,
+    "indist_score_kurt": 0.0,
+    "ood_score_mean": 0.49833299219608307,
+    "ood_score_std": 0.04475347697734833,
+    "ood_score_skew": 0.0,
+    "ood_score_kurt": 0.0
+  },
+  "n_test": 4,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 32,
+    "gamma": 0.999
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "method": "scale",
+  "dataset": "TSB-U-STABLE_052_SEG_1421_584_YAHOO_id_34_Synt",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:17:59",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.1667,
+  "inference_ms": 2.9743,
+  "extended_metrics": {
+    "indist_score_mean": -21.518014907836914,
+    "indist_score_std": 8.176421165466309,
+    "indist_score_skew": -0.08216013759374619,
+    "indist_score_kurt": -1.499999761581421,
+    "ood_score_mean": -198.1193084716797,
+    "ood_score_std": 73.41754913330078,
+    "ood_score_skew": 0.6687154173851013,
+    "ood_score_kurt": -1.5000001192092896
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 85
+  }
+}

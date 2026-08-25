@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-DRIFT_048_SEG_65000_314_UCR_id_12_HumanA",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:21:45",
+  "auroc": 0.8299,
+  "aupr": 0.8698,
+  "fpr95": 0.6522,
+  "det_acc": 0.6304,
+  "inference_ms": 0.68106,
+  "extended_metrics": {
+    "indist_score_mean": 1.667629954189546,
+    "indist_score_std": 0.612405279572778,
+    "indist_score_skew": 0.3588461241767805,
+    "indist_score_kurt": -0.8153005224532284,
+    "ood_score_mean": 3.1754525013204016,
+    "ood_score_std": 1.4719621699932728,
+    "ood_score_skew": 0.6602687117063508,
+    "ood_score_kurt": -0.5378323319057343
+  },
+  "n_test": 46,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

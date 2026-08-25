@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-OOD_022_SEG_4031_008_NAB_id_8_Synthetic_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:47:22",
+  "auroc": 0.0,
+  "aupr": 0.3257,
+  "fpr95": 1.0,
+  "det_acc": 0.0,
+  "inference_ms": 1.14918,
+  "extended_metrics": {
+    "indist_score_mean": -4.924646377563477,
+    "indist_score_std": 1.8310291767120361,
+    "indist_score_skew": -0.34327584505081177,
+    "indist_score_kurt": -0.09796428680419922,
+    "ood_score_mean": -6889.3935546875,
+    "ood_score_std": 1631.12548828125,
+    "ood_score_skew": 1.1772992610931396,
+    "ood_score_kurt": 0.4015929698944092
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-STABLE_038_SEG_230400_092_SVDB_id_9_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:57:35",
+  "auroc": 0.2041,
+  "aupr": 0.3953,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 1.75558,
+  "extended_metrics": {
+    "indist_score_mean": 1.8512033599043354,
+    "indist_score_std": 0.8421035169154734,
+    "indist_score_skew": 0.5934726094315975,
+    "indist_score_kurt": -1.350586134274103,
+    "ood_score_mean": 1.1385370125655832,
+    "ood_score_std": 0.33307819464802074,
+    "ood_score_skew": 0.8650212290859602,
+    "ood_score_kurt": -0.7179077596876096
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

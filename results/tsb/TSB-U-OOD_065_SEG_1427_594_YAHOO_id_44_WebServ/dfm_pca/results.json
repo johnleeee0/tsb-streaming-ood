@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-OOD_065_SEG_1427_594_YAHOO_id_44_WebServ",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:11:53",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6667,
+  "inference_ms": 5.06517,
+  "extended_metrics": {
+    "indist_score_mean": 6.02532958984375,
+    "indist_score_std": 0.45724454110249535,
+    "indist_score_skew": 0.11321580766474713,
+    "indist_score_kurt": -1.4999999999999998,
+    "ood_score_mean": 445.13050651550293,
+    "ood_score_std": 298.9968690675601,
+    "ood_score_skew": -0.7063739261319927,
+    "ood_score_kurt": -1.5
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

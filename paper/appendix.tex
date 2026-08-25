@@ -1,0 +1,146 @@
+% Appendix --- supplementary material. Author: Stylianos Giannoulis (AUTH).
+
+\section{Implementation Fidelity Audit}\label{app:fidelity}
+
+Every detector implementation was audited against its published description and,
+where a repository exists, against its official code, before any experiment was run.
+Of the twenty-three candidate detectors, five matched their specification up to
+cosmetic, metric-preserving differences (MSP, ODIN, Mahalanobis/MDS, DFM-PCA, SRS);
+ten exhibited moderate or major deviations (DriftLens, TD-IVDM, DiMMAD, DEEDEE,
+CODiT, M2N2, DIVERSIFY, InvAD, CatSight, AE-ADWIN-LSTM); and eight were \emph{not}
+faithful reproductions (ReAct, DICE, GradNorm, SCALE, Outlier Exposure, DivOE,
+DiffAD, DiverseMix). \Cref{tab:audit} summarises the verdicts by detector.
+
+\begin{table}[h]
+\centering
+\caption{Faithfulness audit verdicts for all twenty-three candidate detectors. The
+verdict states the severity of the discrepancy found between the implementation and
+the source paper (and official code where available). ``Minor'' denotes
+cosmetic/monotone differences that do not change threshold-free metrics; ``Moderate''
+and ``Major'' denote discrepancies that can change rankings; ``Not verified'' denotes
+a discrepancy that materially changes the OOD score.}
+\label{tab:audit}
+\small
+\begin{tabular}{lll}
+\toprule
+Detector & Cluster & Verdict \\
+\midrule
+MSP & post-hoc softmax & Verified, minor deviations \\
+ODIN & post-hoc softmax & Verified, minor deviations \\
+Mahalanobis (MDS) & feature distance & Verified, minor deviations \\
+DFM-PCA & feature density & Verified, minor deviations \\
+SRS & ts-specific & Verified, minor deviation \\
+DriftLens & drift/embedding & Verified, moderate deviation \\
+TD-IVDM & concept drift & Verified, moderate deviation \\
+DiMMAD & feature distance & Verified, moderate deviation \\
+DEEDEE & ts-specific & Verified, major deviation \\
+CODiT & ts-specific & Verified, moderate deviation (orientation) \\
+M2N2 & test-time adaptation & Verified, moderate deviation (order-dependent) \\
+DIVERSIFY & ts-specific & Verified, major deviation \\
+InvAD & ts-specific & Verified, major deviation \\
+CatSight & concept drift & Verified, moderate deviation \\
+AE-ADWIN-LSTM & concept drift & Verified, major deviation \\
+ReAct & activation shaping & Not verified (score family) \\
+DICE & activation shaping & Not verified (abs-sum + MSP) \\
+GradNorm & gradient & Not verified (wrong statistic) \\
+SCALE & activation shaping & Not verified (wrong layer) \\
+Outlier Exposure & augmented training & Not verified (no outlier training) \\
+DivOE & augmented training & Not verified (no synthesis/training) \\
+DiffAD & reconstruction & Not verified (input-independent reverse) \\
+DiverseMix & augmented training & Not verified (score inverted) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The six corrected variants.}
+Six discrepancies admitted a paper-faithful correction, implemented and validated as
+\texttt{\_enh} variants that enter the main sweep as an original-versus-enhanced
+ablation (\cref{tab:ablation_deltas}). \texttt{gradnorm\_enh} computes the $L_1$ norm
+of the last-layer-weight gradient of the KL-to-uniform objective and negates it
+(matching the published confidence orientation). \texttt{dice\_enh} sums the signed
+top-$k$ contributions and computes energy. \texttt{react\_enh} computes energy after
+activation clipping. \texttt{scale\_enh} applies activation scaling at the
+penultimate layer. \texttt{dimmad\_enh} drops the binary set metrics (Hamming,
+Jaccard, Dice) that are ill-defined on continuous features.
+\texttt{diversemix\_enh} negates the score to match the training objective; on the
+synthetic validation task this raised AUROC from \num{0.188} to \num{0.812}, yet on
+real streaming data the same correction lowered mean AUROC from \num{0.633} to
+\num{0.367} --- the regime-dependent orientation result discussed in the main text.
+
+\paragraph{The feature-space relabelling.}
+The audit also established that the per-sample implementations of DriftLens
+(PCA-Mahalanobis), TD-IVDM (KDE density), DiMMAD (distance ensemble), DFM-PCA (PCA
+reconstruction), and Mahalanobis are all variants of distance/density estimation in
+the frozen feature space. The robust winning signal is therefore feature-space
+distance/density surfacing under several names, which reframes the headline result.
+
+\paragraph{The systemic finding.}
+At least seven detectors --- GradNorm, DiverseMix, DiffAD, AE-ADWIN-LSTM, CatSight,
+CODiT, and the M2N2 EMA path --- contained a score negation or orientation choice
+rationalised post-hoc by an observation on small training data rather than following
+the principled score from the paper. Several score below chance on the real sweep
+precisely because the fitted orientation does not generalise. Together with the
+absent OE/DivOE training, GradNorm's wrong statistic, DiffAD's input-independent
+reverse process, and the relabelling above, this means an unaudited ranking would
+substantially reflect implementation artifacts. This is the central methodological
+finding and the rationale for the verify-before-experiment gate.
+
+\section{Original-versus-Corrected Ablation}\label{app:ablation}
+
+\Cref{tab:ablation_deltas} (reproduced in the main text) reports the mean-AUROC
+effect of each correction. A Friedman test over the corrected-variant comparison
+remains significant both before correction ($\chi^2 = 8.687$, $p = 0.0338$) and after
+($\chi^2 = 16.722$, $p = 0.0008$), and the top-five ranking --- SRS, Mahalanobis,
+DriftLens, TD-IVDM, DFM-PCA --- is identical under both. The conclusion is two-part:
+the implementations contained real, conclusion-relevant bugs, and the headline
+finding is robust to fixing them.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{ablation_delta.png}
+\caption{Change in mean AUROC from the original implementation to the paper-faithful
+corrected (\texttt{\_enh}) variant, for the six corrected detectors. Positive bars
+denote improvement. The gradient-norm repair yields the largest gain ($+0.122$) yet
+still lands below chance, while the diversification correction reverses on real data
+($-0.266$); no correction lifts a post-hoc detector into competitiveness with the
+feature-space methods.}
+\label{fig:app_ablation}
+\end{figure}
+
+\section{ROC Curves and Score-Distribution Case Study}\label{app:roc}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{appendix_roc.png}
+\caption{Receiver-operating-characteristic curves for three leading feature/drift
+detectors and three post-hoc softmax detectors on a representative
+global-normalised dataset. The softmax curves fall below the diagonal, the signature
+of score inversion, while the feature-space curves hug the top-left corner.}
+\label{fig:app_roc}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{appendix_violin_case.png}
+\caption{Distribution of out-of-distribution scores for in-distribution versus
+out-of-distribution test windows on a global-normalised dataset. The feature-space
+detector (left) assigns systematically higher scores to OOD windows; the softmax
+detector (right) assigns them \emph{lower} scores, inverting the decision and
+producing an AUROC below chance --- the mechanism analysed in the main text.}
+\label{fig:app_violin}
+\end{figure}
+
+\section{Reproducibility}\label{app:repro}
+
+All experiments fix the random seed to \num{42} and run on CPU under Python~3.13 with
+PyTorch, NumPy, SciPy, and scikit-learn. The backbone is a 1-D ResNet trained for
+\num{40} epochs with cross-entropy over temporal pseudo-classes. The benchmark
+comprises \num{36} datasets (\num{18} TSB-StreamingAD-U and \num{18}
+TSB-StreamingAD-M, six per DRIFT/OOD/STABLE cell), \num{22} detectors, and \num{772}
+completed runs. Per-run configurations and metrics are stored alongside the aggregate
+results matrix, and the tables and figures in this manuscript are regenerated
+directly from it. The reduced epoch budget and the stratified subsample of \num{36}
+of the \num{600} available files are recorded explicitly as scoping decisions; SRS is
+excluded on TSB-StreamingAD-M because it hangs on multivariate input, and Outlier
+Exposure and DivOE are reported as energy baselines because faithful
+auxiliary-outlier training is not available.

@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-OOD_044_SEG_28696_201_SMD_id_24_Facility",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:47:19",
+  "auroc": 0.8148,
+  "aupr": 0.8968,
+  "fpr95": 1.0,
+  "det_acc": 0.6111,
+  "inference_ms": 0.78573,
+  "extended_metrics": {
+    "indist_score_mean": 1.9510401479865283,
+    "indist_score_std": 1.2494834499863723,
+    "indist_score_skew": 0.5038068750116497,
+    "indist_score_kurt": -1.124861908834593,
+    "ood_score_mean": 343599.83712758834,
+    "ood_score_std": 322389.9875575627,
+    "ood_score_skew": 0.043643252363816394,
+    "ood_score_kurt": -1.702724934485224
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

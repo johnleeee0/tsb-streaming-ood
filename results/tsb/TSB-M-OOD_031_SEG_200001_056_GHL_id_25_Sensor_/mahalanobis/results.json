@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-OOD_031_SEG_200001_056_GHL_id_25_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T20:15:22",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9643,
+  "inference_ms": 1.0736,
+  "extended_metrics": {
+    "indist_score_mean": 201.60905615690794,
+    "indist_score_std": 99.2889448444961,
+    "indist_score_skew": 0.7541588665855977,
+    "indist_score_kurt": 0.5096301212528807,
+    "ood_score_mean": 614.3400745383916,
+    "ood_score_std": 25.80688053358912,
+    "ood_score_skew": -1.6061172091941243,
+    "ood_score_kurt": 4.183670571360094
+  },
+  "n_test": 56,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

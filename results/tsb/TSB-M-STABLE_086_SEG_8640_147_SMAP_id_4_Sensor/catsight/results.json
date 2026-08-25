@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-STABLE_086_SEG_8640_147_SMAP_id_4_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:18:43",
+  "auroc": 0.1406,
+  "aupr": 0.3703,
+  "fpr95": 1.0,
+  "det_acc": 0.3125,
+  "inference_ms": 1.41312,
+  "extended_metrics": {
+    "indist_score_mean": 11081.45000151443,
+    "indist_score_std": 16441.063305880507,
+    "indist_score_skew": 1.0563781236278666,
+    "indist_score_kurt": -0.6596245419649662,
+    "ood_score_mean": 1.0871627154725958,
+    "ood_score_std": 0.16536840767042169,
+    "ood_score_skew": -0.22064028728423102,
+    "ood_score_kurt": -1.613322927065757
+  },
+  "n_test": 16,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

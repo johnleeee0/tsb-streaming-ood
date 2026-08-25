@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-STABLE_043_SEG_22703_067_SMD_id_11_Facil",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:16:06",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 2.58992,
+  "extended_metrics": {
+    "indist_score_mean": 2.242517546074991,
+    "indist_score_std": 0.35880828810964593,
+    "indist_score_skew": -0.6213329811579893,
+    "indist_score_kurt": -1.0724206865552373,
+    "ood_score_mean": 216.35791149408215,
+    "ood_score_std": 363.3370450948999,
+    "ood_score_skew": 1.4857170446591634,
+    "ood_score_kurt": 0.22995461021085362
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

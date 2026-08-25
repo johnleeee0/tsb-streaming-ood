@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-STABLE_071_SEG_46660_177_Exathlon_id_4_F",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:57:12",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9844,
+  "inference_ms": 0.97845,
+  "extended_metrics": {
+    "indist_score_mean": 64.64158591209782,
+    "indist_score_std": 12.30116589006929,
+    "indist_score_skew": 1.1576789967457475,
+    "indist_score_kurt": 1.4598202392217665,
+    "ood_score_mean": 3900.789358927823,
+    "ood_score_std": 1562.324385732743,
+    "ood_score_skew": -1.2922908441649057,
+    "ood_score_kurt": 0.3530343506798683
+  },
+  "n_test": 64,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

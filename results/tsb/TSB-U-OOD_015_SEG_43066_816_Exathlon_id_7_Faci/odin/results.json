@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-U-OOD_015_SEG_43066_816_Exathlon_id_7_Faci",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:46:36",
+  "auroc": 0.5108,
+  "aupr": 0.5345,
+  "fpr95": 0.9831,
+  "det_acc": 0.5,
+  "inference_ms": 2.08615,
+  "extended_metrics": {
+    "indist_score_mean": 0.7487669587135315,
+    "indist_score_std": 0.0005274386494420469,
+    "indist_score_skew": -0.2593627870082855,
+    "indist_score_kurt": -0.7354476451873779,
+    "ood_score_mean": 0.7487686276435852,
+    "ood_score_std": 0.0005951810744591057,
+    "ood_score_skew": -0.6000762581825256,
+    "ood_score_kurt": 0.0973358154296875
+  },
+  "n_test": 118,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

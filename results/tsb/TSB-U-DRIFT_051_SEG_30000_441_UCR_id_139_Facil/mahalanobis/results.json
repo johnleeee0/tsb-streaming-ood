@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-DRIFT_051_SEG_30000_441_UCR_id_139_Facil",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:28:31",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9841,
+  "inference_ms": 0.36386,
+  "extended_metrics": {
+    "indist_score_mean": 14.65272078804698,
+    "indist_score_std": 4.285066645602393,
+    "indist_score_skew": 0.7061883693820022,
+    "indist_score_kurt": -0.564837349894109,
+    "ood_score_mean": 75.2030208644781,
+    "ood_score_std": 19.42653759348706,
+    "ood_score_skew": 0.2536133158165483,
+    "ood_score_kurt": -0.272924700625373
+  },
+  "n_test": 126,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

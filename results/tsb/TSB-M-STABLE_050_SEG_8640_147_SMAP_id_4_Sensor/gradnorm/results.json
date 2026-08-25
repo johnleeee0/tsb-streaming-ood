@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-STABLE_050_SEG_8640_147_SMAP_id_4_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:29:30",
+  "auroc": 0.4375,
+  "aupr": 0.5417,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 9.93497,
+  "extended_metrics": {
+    "indist_score_mean": -545.853874206543,
+    "indist_score_std": 276.54147249966195,
+    "indist_score_skew": 0.3517889330041341,
+    "indist_score_kurt": -1.0752851532957217,
+    "ood_score_mean": -509.1149139404297,
+    "ood_score_std": 318.945874715714,
+    "ood_score_skew": -0.10766997861445189,
+    "ood_score_kurt": -1.6576153366534818
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

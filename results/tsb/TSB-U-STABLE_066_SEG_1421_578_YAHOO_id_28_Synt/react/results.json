@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-STABLE_066_SEG_1421_578_YAHOO_id_28_Synt",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:40:04",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.29383,
+  "extended_metrics": {
+    "indist_score_mean": -5.930332183837891,
+    "indist_score_std": 0.3587108850479126,
+    "indist_score_skew": 0.05644544959068298,
+    "indist_score_kurt": -1.5,
+    "ood_score_mean": -16.708276748657227,
+    "ood_score_std": 3.4920549392700195,
+    "ood_score_skew": 0.5654943585395813,
+    "ood_score_kurt": -1.4999995231628418
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

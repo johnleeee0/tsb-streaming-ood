@@ -1,0 +1,27 @@
+{
+  "method": "dice",
+  "dataset": "TSB-U-OOD_001_SEG_18236_118_WSD_id_90_WebServi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:47:57",
+  "auroc": 0.0,
+  "aupr": 0.3195,
+  "fpr95": 1.0,
+  "det_acc": 0.48,
+  "inference_ms": 0.62817,
+  "extended_metrics": {
+    "indist_score_mean": -2.047555446624756,
+    "indist_score_std": 0.26325348019599915,
+    "indist_score_skew": -1.1900302171707153,
+    "indist_score_kurt": 1.96234130859375,
+    "ood_score_mean": -3.7333004474639893,
+    "ood_score_std": 0.002888872753828764,
+    "ood_score_skew": 4.208770751953125,
+    "ood_score_kurt": 16.7038631439209
+  },
+  "n_test": 50,
+  "backbone_epochs": 40,
+  "method_params": {
+    "top_k": 20
+  }
+}

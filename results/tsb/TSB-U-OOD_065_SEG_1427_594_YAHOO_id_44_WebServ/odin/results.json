@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-U-OOD_065_SEG_1427_594_YAHOO_id_44_WebServ",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:11:52",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.3333,
+  "inference_ms": 13.10695,
+  "extended_metrics": {
+    "indist_score_mean": 0.7487311959266663,
+    "indist_score_std": 0.00022552239533979446,
+    "indist_score_skew": 0.6600313186645508,
+    "indist_score_kurt": -1.4997673034667969,
+    "ood_score_mean": 0.696736752986908,
+    "ood_score_std": 0.035777922719717026,
+    "ood_score_skew": 0.7048726081848145,
+    "ood_score_kurt": -1.500001311302185
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

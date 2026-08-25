@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-STABLE_064_SEG_230400_103_SVDB_id_20_Med",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:47:34",
+  "auroc": 0.5993,
+  "aupr": 0.6272,
+  "fpr95": 0.931,
+  "det_acc": 0.5,
+  "inference_ms": 0.6134,
+  "extended_metrics": {
+    "indist_score_mean": -4.365832805633545,
+    "indist_score_std": 1.5381155014038086,
+    "indist_score_skew": -0.402592271566391,
+    "indist_score_kurt": -0.5273809432983398,
+    "ood_score_mean": -3.9501631259918213,
+    "ood_score_std": 1.7168221473693848,
+    "ood_score_skew": -1.1113309860229492,
+    "ood_score_kurt": 0.8407127857208252
+  },
+  "n_test": 58,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

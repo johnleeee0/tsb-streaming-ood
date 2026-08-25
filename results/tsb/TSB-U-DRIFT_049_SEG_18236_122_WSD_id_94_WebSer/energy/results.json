@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-DRIFT_049_SEG_18236_122_WSD_id_94_WebSer",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:59:53",
+  "auroc": 0.0,
+  "aupr": 0.3129,
+  "fpr95": 1.0,
+  "det_acc": 0.4634,
+  "inference_ms": 0.34844,
+  "extended_metrics": {
+    "indist_score_mean": -4.199380874633789,
+    "indist_score_std": 1.6548738479614258,
+    "indist_score_skew": -1.237216830253601,
+    "indist_score_kurt": 1.840599536895752,
+    "ood_score_mean": -17.348812103271484,
+    "ood_score_std": 1.9359698295593262,
+    "ood_score_skew": 0.5016611218452454,
+    "ood_score_kurt": 0.8842921257019043
+  },
+  "n_test": 82,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

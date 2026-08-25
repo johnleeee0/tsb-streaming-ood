@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-STABLE_013_SEG_7500_484_UCR_id_182_Medic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:30:22",
+  "auroc": 0.5,
+  "aupr": 0.6667,
+  "fpr95": 1.0,
+  "det_acc": 0.375,
+  "inference_ms": 2.69586,
+  "extended_metrics": {
+    "indist_score_mean": -1.7902840375900269,
+    "indist_score_std": 0.35829290747642517,
+    "indist_score_skew": -1.0737496614456177,
+    "indist_score_kurt": -0.7233853340148926,
+    "ood_score_mean": -2.0768327713012695,
+    "ood_score_std": 0.879924476146698,
+    "ood_score_skew": -1.1160225868225098,
+    "ood_score_kurt": -0.6963951587677002
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

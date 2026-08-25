@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-STABLE_002_SEG_200001_036_GHL_id_5_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:25:07",
+  "auroc": 0.0175,
+  "aupr": 0.3209,
+  "fpr95": 1.0,
+  "det_acc": 0.475,
+  "inference_ms": 1.00445,
+  "extended_metrics": {
+    "indist_score_mean": 2.0304550525269827,
+    "indist_score_std": 0.3669682059332014,
+    "indist_score_skew": 0.5003587541529482,
+    "indist_score_kurt": 0.07590160223510134,
+    "ood_score_mean": 1.1868961551745156,
+    "ood_score_std": 0.20308135945613787,
+    "ood_score_skew": 1.0387940474408603,
+    "ood_score_kurt": 0.03375953355580519
+  },
+  "n_test": 40,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

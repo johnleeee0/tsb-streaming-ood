@@ -1,0 +1,268 @@
+% =====================================================================
+% RESULTS --- DRAFT (regenerated from results/findings.md; combined
+% TSB-StreamingAD-U + TSB-StreamingAD-M, 2026-08).
+% Compile-safe fragment: no preamble; \input into main.tex in place of
+% the existing \section{Results}. Requires siunitx, booktabs, graphicx,
+% natbib, cleveref (already loaded by main.tex). Tables are \input from
+% tables/ (paper/tables/tsb_main.tex, tsb_by_split.tex, class_d_appendix.tex).
+% Every numeral traces to results/findings.md.
+% =====================================================================
+
+\section{Results}\label{sec:results}
+
+We report the streaming evaluation of the \num{17} detectors that passed the
+verification gate (\cref{sec:setup}) on both target families of the benchmark:
+TSB-StreamingAD-U (\num{260} univariate datasets) and TSB-StreamingAD-M
+(\num{267} multivariate datasets), \num{527} datasets in total, over \num{8668}
+completed runs at seed \num{42}. The \num{7} detectors that could not be
+reproduced faithfully under the shared protocol are excluded from the headline
+ranking and reported separately in \cref{sec:results-classd}. The section is
+organised as an overall leaderboard, a per-family (U versus M) breakdown, a
+per-category analysis, the global-versus-per-series normalisation dichotomy, an
+efficiency analysis, a statistical-significance test, and the class-D appendix
+results. The headline is twofold and we state it plainly at the outset:
+detectors that model the in-distribution feature manifold win decisively and
+cheaply, and every detector that instead reads the classifier's output head or
+gradients fails, several with systematically inverted scores.
+
+\subsection{Overall ranking: a clear feature-manifold winner}\label{sec:results-overall}
+\Cref{tab:tsb_main} reports the mean AUROC across all \num{527} datasets, and
+\cref{fig:heatmap} visualises performance by category. The ordering is
+unambiguous and the top of the table is occupied by a single, coherent family.
+The eight best detectors are \emph{all} distance-, density-, or
+feature-manifold estimators: Mahalanobis distance leads with mean AUROC
+\num{0.826}, followed closely by DFM-PCA (\num{0.812}), and then the corrected
+DiMMAD (\num{0.747}), InvAD (\num{0.740}), CatSight (\num{0.735}), M2N2
+(\num{0.733}), DEEDEE (\num{0.700}), and CODiT (\num{0.684}). These eight form a
+compact high-performing band spanning \numrange{0.684}{0.826}, well clear of the
+\num{0.5} chance line, and there is a pronounced gap of \num{0.15} AUROC between
+the weakest top-tier detector (CODiT, \num{0.684}) and the next entry. The two
+leaders, Mahalanobis and DFM-PCA, are separated from the field by a comfortable
+margin and are the natural default recommendation for streaming time-series OOD
+detection (developed in \cref{sec:discussion}).
+
+Below the feature-manifold tier the picture inverts sharply. A single
+reconstruction detector, DiffAD (\num{0.531}), sits marginally above chance, and
+then every remaining detector falls at or below the \num{0.5} line. Critically,
+\emph{all} post-hoc softmax, logit, activation, and gradient detectors fail
+together: MSP (\num{0.370}), DICE (\num{0.313}), SCALE (\num{0.308}), ODIN
+(\num{0.303}), ReAct (\num{0.303}), energy (\num{0.301}), and GradNorm
+(\num{0.294}). The seasonal-ratio detector SRS (\num{0.352}) fails alongside
+them. An AUROC well below \num{0.5} is not mere weakness but \emph{inversion}:
+these detectors separate ID from OOD windows with the wrong sign, assigning
+higher anomaly scores to in-distribution windows than to genuinely shifted ones.
+The eight post-hoc/gradient detectors cluster tightly within a \num{0.08} band
+(\numrange{0.294}{0.370}), roughly half an AUROC point below the feature-manifold
+leaders --- a separation between the two families so large and so consistent
+that it defines the central finding of this benchmark.
+
+\input{tables/tsb_main.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{tsb_heatmap_category.png}
+\caption{Mean AUROC of every detector (rows, ordered by overall combined mean)
+on the three TSB-StreamingAD categories DRIFT, OOD, and STABLE (columns).
+Brighter cells denote higher AUROC. The top rows --- feature distance/density and
+feature-manifold detectors --- are bright across all three categories, while the
+bottom rows --- post-hoc softmax, logit, activation, and gradient detectors,
+together with the seasonal SRS --- are uniformly dark, indicating scores at or
+below the \num{0.5} chance line. Among the leaders, the STABLE specificity
+controls and the subtle DRIFT regime are separated best (Mahalanobis \num{0.855}
+STABLE, \num{0.858} DRIFT; DFM-PCA \num{0.849} STABLE), while the post-hoc cluster
+is darkest on STABLE, where it over-flags the very control windows a calibrated
+detector should leave alone.}
+\label{fig:heatmap}
+\end{figure}
+
+\subsection{Univariate and multivariate families}\label{sec:results-split}
+\Cref{tab:tsb_split} reports the ranking on each family separately, and
+\cref{fig:splitbar} contrasts the winning and failing clusters directly. The
+leading feature-manifold cluster is stable across both regimes: Mahalanobis and
+DFM-PCA are first and second on both TSB-U (\num{0.865}, \num{0.852}) and TSB-M
+(\num{0.788}, \num{0.774}), and all eight top-tier detectors remain above
+\num{0.59} on both families. The univariate family is somewhat easier for the
+feature leaders --- Mahalanobis, DFM-PCA, DiMMAD, and CatSight each score higher
+on TSB-U than on TSB-M --- with the largest family gap belonging to DEEDEE, which
+drops from \num{0.810} on TSB-U to \num{0.592} on TSB-M, consistent with its
+adjacent-dimension heuristic (\cref{sec:discussion}) transferring poorly to genuinely
+multivariate channels. InvAD is the one leader that is marginally stronger on the
+multivariate family (\num{0.700} versus \num{0.781} on U but rising to third place
+on M). The post-hoc cluster remains inverted on both families, though it is
+slightly \emph{less} inverted on the multivariate family (e.g.\ MSP \num{0.433} on
+M versus \num{0.305} on U; SCALE \num{0.359} versus \num{0.256}), a partial
+recovery that never reaches chance. There is no overlap between the two clusters
+in either family: no post-hoc detector approaches even the weakest feature-manifold
+detector.
+
+\input{tables/tsb_by_split.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{tsb_split_bar.png}
+\caption{Mean AUROC per detector on TSB-StreamingAD-U versus TSB-StreamingAD-M.
+The feature distance/density and feature-manifold detectors (upper band) cluster
+tightly above \num{0.59} on both families, whereas the post-hoc softmax, logit,
+activation, and gradient detectors (lower band) fall below the \num{0.5} chance
+line on both, several with inverted scores. The two clusters are cleanly separated
+with no overlap; the post-hoc cluster is marginally less inverted on the
+multivariate family.}
+\label{fig:splitbar}
+\end{figure}
+
+\subsection{Per-category behaviour and actionable guidance}\label{sec:results-category}
+The category breakdown in \cref{fig:heatmap} turns the difficulty axis designed
+into the benchmark into practical guidance. For the feature-manifold leaders, the
+near-stationary STABLE controls and the subtle near-distribution DRIFT regime are
+handled best --- Mahalanobis reaches \num{0.855} on STABLE and \num{0.858} on
+DRIFT, DFM-PCA \num{0.849} and \num{0.825}, and DiMMAD peaks at \num{0.801} on
+STABLE --- demonstrating both strong false-positive control on the specificity
+controls and clean separation of a merely drifted second source. The
+strong-shift OOD category is separated well but is, perhaps counterintuitively,
+the most stressful for the leaders (Mahalanobis \num{0.761}, DFM-PCA \num{0.762},
+InvAD \num{0.709}), indicating that a clearly different S2 regime can push feature
+representations into a region where the tied-covariance model is slightly less
+calibrated than on drifted or stable data. The practical reading is favourable:
+the feature-manifold family is dependable across all three regimes and especially
+trustworthy on the STABLE controls, so it will not raise spurious alarms on
+near-stationary streams. The inverted post-hoc detectors show the mirror-image
+pattern: they are darkest on STABLE (energy \num{0.260}, GradNorm \num{0.255},
+ODIN \num{0.266}, ReAct \num{0.261}, SCALE \num{0.276}), meaning they most
+aggressively over-flag exactly the control windows a well-calibrated detector
+should ignore; MSP is least-worst on the strong-shift OOD category (\num{0.403})
+but still inverted.
+
+\subsection{The normalisation dichotomy}\label{sec:results-norm}
+\Cref{fig:norm} reports mean AUROC under global versus per-series normalisation,
+and the split is dramatic and directional. The feature-manifold methods peak under
+\emph{global} normalisation, which preserves the second source's amplitude and
+level gap: Mahalanobis reaches \num{0.867} global versus \num{0.755} per-series,
+DFM-PCA \num{0.863} versus \num{0.726}, DiMMAD \num{0.832} versus \num{0.600},
+InvAD \num{0.827} versus \num{0.588}, and CatSight \num{0.797} versus \num{0.630}.
+The post-hoc methods invert under \emph{both} schemes but are, strikingly,
+\emph{less} inverted under per-series normalisation --- the mirror image of the
+feature methods: MSP \num{0.309} global against \num{0.475} per-series, energy
+\num{0.214} against \num{0.452}, ODIN \num{0.218} against \num{0.451}, and
+GradNorm \num{0.213} against \num{0.433}. The two clusters move in opposite
+directions under the same preprocessing knob, a genuine dichotomy rather than a
+shared preference. This is the empirical signature of the overconfidence mechanism
+analysed in \cref{sec:discussion}: global normalisation preserves the level gap
+that lets the feature geometry separate cleanly while driving the output head
+further into overconfident inversion. The actionable corollary is that the winning
+feature methods should be paired with global (Source-1) normalisation for
+amplitude/level shifts, which is where they are strongest.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{tsb_norm_dichotomy.png}
+\caption{Mean AUROC under global (Source-1) normalisation versus per-series
+normalisation, per detector. Feature distance/density detectors (upper points)
+gain sharply under global normalisation; post-hoc softmax/logit/gradient detectors
+(lower points) remain inverted under both schemes and are slightly less inverted
+under per-series normalisation. The two clusters move in opposite directions --- a
+dichotomy, not a shared preprocessing preference.}
+\label{fig:norm}
+\end{figure}
+
+\subsection{Efficiency: accurate and cheap}\label{sec:results-efficiency}
+\Cref{fig:efficiency} plots mean AUROC against per-sample inference time (per
+\cref{tab:tsb_main}), and the winning family is Pareto-optimal: it is
+simultaneously the most accurate and among the cheapest. Mahalanobis attains the
+top AUROC (\num{0.826}) at just \SI{1.871}{\milli\second} per window, DFM-PCA
+reaches \num{0.812} at \SI{3.502}{\milli\second}, and DEEDEE is the fastest
+detector in the benchmark (\SI{1.036}{\milli\second}) while still ranking seventh
+(\num{0.700}); CatSight (\SI{1.675}{\milli\second}) and InvAD
+(\SI{2.088}{\milli\second}) are likewise both accurate and inexpensive. By
+contrast, the three slowest detectors are all uncompetitive on accuracy: CODiT
+(\SI{27.843}{\milli\second}, \num{0.684}), DiffAD (\SI{21.663}{\milli\second},
+\num{0.531}), and SRS (\SI{15.893}{\milli\second}, \num{0.352}) pay an
+order-of-magnitude latency premium without a corresponding accuracy gain, and
+GradNorm (\SI{11.790}{\milli\second}) and ODIN (\SI{8.016}{\milli\second}) are
+both slow \emph{and} inverted. For streaming deployment, where accuracy and latency
+matter jointly, the feature-manifold detectors are therefore the clear default:
+they hold the accuracy--efficiency front at roughly \SIrange{1}{4}{\milli\second}
+per window, so the usual accuracy--latency tension does not arise. They also carry
+no auxiliary-data or retraining cost, being fit on ID features alone.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{tsb_efficiency.png}
+\caption{Accuracy versus inference cost (time axis on log scale). Each point is a
+detector; the upper-left region is best. Mahalanobis, DFM-PCA, DEEDEE, and CatSight
+hold the Pareto front, attaining the highest mean AUROC at roughly
+\SIrange{1}{4}{\milli\second} per window, whereas CODiT
+($\sim$\SI{28}{\milli\second}), DiffAD ($\sim$\SI{22}{\milli\second}), and SRS
+($\sim$\SI{16}{\milli\second}) are far slower without a corresponding accuracy
+gain.}
+\label{fig:efficiency}
+\end{figure}
+
+\subsection{Statistical significance}\label{sec:results-stats}
+A Friedman test over the detectors is very highly significant:
+$\chi^2 = \num{1674.97}$, $p < \num{1e-16}$ ($k = \num{17}$ detectors,
+$N = \num{250}$ datasets), so the ranking differences are not attributable to
+chance at any conventional level \citep{Demsar2006}. The magnitude of the
+statistic, orders of magnitude beyond the $\alpha = 0.05$ threshold, reflects the
+extreme and consistent spread between the feature-manifold leaders and the
+inverted post-hoc cluster visible in \cref{tab:tsb_main} and \cref{fig:heatmap}.
+We state one caveat honestly. The test uses complete-case pruning: only datasets
+on which \emph{all} \num{17} detectors produced a score enter the test. Because SRS
+is univariate-seasonal and its multivariate run is still pending, the complete-case
+pool reduces to $N = \num{250}$ datasets, all univariate; the significance result
+is therefore effectively univariate-complete. Given the identical rank ordering
+across both families (\cref{tab:tsb_split}) we do not expect the multivariate data
+to alter the conclusion, but the definitive combined-family Friedman test awaits
+the SRS multivariate run.
+
+\subsection{Class-D appendix results}\label{sec:results-classd}
+Seven detectors could not be reproduced faithfully under the shared streaming
+protocol --- per-window shuffled evaluation, a frozen ResNet backbone, and no
+auxiliary outlier corpus --- and are excluded from the headline ranking rather
+than reported under an implementation that does not match the source paper
+(\cref{tab:classd}). Three augmented-training methods (Outlier Exposure, DivOE,
+DiverseMix) require training against an auxiliary outlier set that the protocol
+does not provide; two temporal/drift methods (AE-ADWIN-LSTM, DIVERSIFY) require an
+ordered stream or retrain the feature extractor, both incompatible with a frozen
+backbone on shuffled windows; and two (DriftLens, TD-IVDM) collapse under their
+per-sample implementations to detectors already present in the benchmark. The
+reason and disposition for each is recorded in \cref{tab:classd}; the audit
+narrative behind these verdicts is developed in \cref{sec:discussion} and
+\cref{app:fidelity}.
+
+For completeness we ran these seven on TSB-StreamingAD-U under the evaluation arm
+most appropriate to each (the multivariate arms are pending) and report the
+outcome in \cref{tab:class_d_appendix}. The result reinforces rather than
+complicates the headline: no detector in this group rises clearly above chance and
+none is a winner. Their mean AUROC clusters between \num{0.398} and \num{0.662},
+with the strongest arm (TD-IVDM as generic KDE density, \num{0.662}) still well
+below the feature-manifold leaders and the weakest (DIVERSIFY with an energy score,
+\num{0.398}) inverted; the augmented-training methods hover near \num{0.44}--\num{0.62}
+depending on whether the head only or the full network is fine-tuned. Evaluated
+even under their own favourable protocols, these methods do not challenge the
+feature-manifold family, and the two that reduce to feature-space distance/density
+(DriftLens, TD-IVDM) merely re-confirm the winning principle under other names.
+
+\input{tables/class_d_appendix.tex}
+
+\begin{table}[t]
+\centering
+\caption{The seven detectors excluded from the headline ranking as not faithfully
+reproducible under the streaming protocol. Each is audited per-method
+(\cref{app:fidelity}); the disposition column states how the benchmark accounts for
+it.}
+\label{tab:classd}
+\small
+\begin{tabular}{lll}
+\toprule
+Detector & Reason it is protocol-incompatible & Disposition \\
+\midrule
+Outlier Exposure & OE trains on an auxiliary outlier set; none available & Folded into Energy (EBO) \\
+DivOE & Needs auxiliary outliers + PGD synthesis + training & Excluded (redundant with Energy) \\
+DiverseMix & Needs auxiliary outliers + end-to-end training; at chance either orientation & Excluded; negative result \\
+DriftLens & Official score is batch/window-level Fr\'echet drift; per-sample $=$ PCA-Mahalanobis & Excluded (duplicate of Mahalanobis) \\
+TD-IVDM & Multi-scale drift pillars need ordered windows; per-sample $=$ generic KDE density & Excluded (would be KDE-density) \\
+AE-ADWIN-LSTM & LSTM + ADWIN need an ordered stream; eval shuffles windows & Excluded \\
+DIVERSIFY & Adversarial representation learning retrains the extractor; defines no OOD score & Excluded \\
+\bottomrule
+\end{tabular}
+\end{table}

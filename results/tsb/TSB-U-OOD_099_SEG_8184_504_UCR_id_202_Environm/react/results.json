@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-OOD_099_SEG_8184_504_UCR_id_202_Environm",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:21:26",
+  "auroc": 0.1111,
+  "aupr": 0.4111,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.36912,
+  "extended_metrics": {
+    "indist_score_mean": -3.9390804767608643,
+    "indist_score_std": 2.1987874507904053,
+    "indist_score_skew": -0.5874423980712891,
+    "indist_score_kurt": -1.5,
+    "ood_score_mean": -7.676670074462891,
+    "ood_score_std": 1.396323561668396,
+    "ood_score_skew": 0.6867851614952087,
+    "ood_score_kurt": -1.4999994039535522
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

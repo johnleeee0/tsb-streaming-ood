@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-M-STABLE_055_SEG_8310_150_SMAP_id_7_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:02:08",
+  "auroc": 0.0,
+  "aupr": 0.3468,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 2.14741,
+  "extended_metrics": {
+    "indist_score_mean": -2.7085297107696533,
+    "indist_score_std": 1.238128662109375,
+    "indist_score_skew": -1.376652479171753,
+    "indist_score_kurt": 0.4310932159423828,
+    "ood_score_mean": -22.27081871032715,
+    "ood_score_std": 0.32973045110702515,
+    "ood_score_skew": 0.6686879992485046,
+    "ood_score_kurt": -1.2931358814239502
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

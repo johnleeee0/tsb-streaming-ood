@@ -1,0 +1,28 @@
+{
+  "method": "codit",
+  "dataset": "TSB-U-DRIFT_062_SEG_180400_245_SVDB_id_9_Medic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:33:15",
+  "auroc": 0.4144,
+  "aupr": 0.4522,
+  "fpr95": 0.9333,
+  "det_acc": 0.5083,
+  "inference_ms": 2.55136,
+  "extended_metrics": {
+    "indist_score_mean": -0.5461112847959482,
+    "indist_score_std": 0.3179528431536048,
+    "indist_score_skew": 0.268783347936741,
+    "indist_score_kurt": -1.324112826711255,
+    "ood_score_mean": -0.6372905368709346,
+    "ood_score_std": 0.2958395682816245,
+    "ood_score_skew": 0.7419009593410996,
+    "ood_score_kurt": -0.6620517784887725
+  },
+  "n_test": 120,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "eval_n": 5
+  }
+}

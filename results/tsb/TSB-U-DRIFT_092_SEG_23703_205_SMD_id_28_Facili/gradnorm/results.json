@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-DRIFT_092_SEG_23703_205_SMD_id_28_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:44:35",
+  "auroc": 0.0,
+  "aupr": 0.3371,
+  "fpr95": 1.0,
+  "det_acc": 0.0,
+  "inference_ms": 9.32995,
+  "extended_metrics": {
+    "indist_score_mean": -155.2565070092678,
+    "indist_score_std": 167.38111020087058,
+    "indist_score_skew": -0.9599710221845857,
+    "indist_score_kurt": -0.5132297991821879,
+    "ood_score_mean": -916128.732421875,
+    "ood_score_std": 540024.3034850364,
+    "ood_score_skew": -0.046396060135436096,
+    "ood_score_kurt": -1.0514394632620734
+  },
+  "n_test": 16,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

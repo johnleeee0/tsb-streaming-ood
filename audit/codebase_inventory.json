@@ -1,0 +1,70 @@
+{
+  "project": "benchmark1 (TS-OOD replication + TSB-StreamingAD extension)",
+  "author": "Stylianos Giannoulis",
+  "institution": "Aristotle University of Thessaloniki, MSc Data and Web Science",
+  "supervisor": "John Paparrizos",
+  "root": "C:\\THESIS\\benchmark1",
+  "entry_point": "main.py",
+  "runner_scripts": {
+    "single_experiment": "main.py --config <config.yaml>",
+    "batch": "scripts/run_tsb_batch.py --config_dir configs/tsb_auto",
+    "summarize": "scripts/summarize_results.py [--latex] [--metric test_auroc]",
+    "plots": "scripts/plot_results.py",
+    "config_generation": "scripts/generate_tsb_configs.py"
+  },
+  "evaluation": {
+    "module": "eval/metrics.py",
+    "metrics": ["compute_auroc (sklearn roc_auc_score)", "compute_aupr (sklearn average_precision_score)", "compute_fpr95 (custom, 95% TPR threshold)", "compute_id_accuracy"],
+    "evaluator": "eval/evaluator.py"
+  },
+  "backbones": [
+    {"id": "resnet", "file": "models/backbones/resnet.py", "notes": "1-D ResNet, base_channels=64, embedding_dim=128. Primary backbone per Gungor2025."},
+    {"id": "transformer", "file": "models/backbones/transformer.py", "notes": "TST encoder."},
+    {"id": "lstm", "file": "models/backbones/lstm.py", "notes": "LSTM; weakest backbone per paper."}
+  ],
+  "base_class": {"id": "BaseOODDetector", "file": "models/ood_methods/base_ood.py", "notes": "ABC with score(); helpers _forward_logits, _forward_features, _softmax_max, _energy."},
+  "methods": [
+    {"registry_key": "msp", "class": "MSPDetector", "file": "models/ood_methods/msp.py", "registry_id": "msp", "category": "post_hoc_softmax", "default_params": {"temperature": 1.0}},
+    {"registry_key": "odin", "class": "ODINDetector", "file": "models/ood_methods/odin.py", "registry_id": "odin", "category": "post_hoc_softmax", "default_params": {"temperature": 1000.0, "epsilon": 0.001}},
+    {"registry_key": "react", "class": "ReACTDetector", "file": "models/ood_methods/react.py", "registry_id": "react", "category": "post_hoc_activation", "default_params": {"percentile": 90}},
+    {"registry_key": "dice", "class": "DICEDetector", "file": "models/ood_methods/dice.py", "registry_id": "dice", "category": "post_hoc_activation", "default_params": {"top_k": 20}},
+    {"registry_key": "gradnorm", "class": "GradNormDetector", "file": "models/ood_methods/gradnorm.py", "registry_id": "gradnorm", "category": "post_hoc_gradient", "default_params": {}},
+    {"registry_key": "scale", "class": "SCALEDetector", "file": "models/ood_methods/scale.py", "registry_id": "scale", "category": "post_hoc_activation", "default_params": {}},
+    {"registry_key": "mahalanobis / mds", "class": "MahalanobisDetector", "file": "models/ood_methods/mahalanobis.py", "registry_id": "mahalanobis_mds", "category": "feature_distance", "default_params": {}},
+    {"registry_key": "dfm_pca", "class": "DFMPcaDetector", "file": "models/ood_methods/dfm_pca.py", "registry_id": "dfm", "category": "feature_density", "default_params": {"n_components": 32}, "notes": "DFM-PCA variant; best-performing family per Gungor2025."},
+    {"registry_key": "outlier_exposure / oe", "class": "OutlierExposureDetector", "file": "models/ood_methods/outlier_exposure.py", "registry_id": "outlier_exposure", "category": "augmented_training", "default_params": {"score_type": "energy"}},
+    {"registry_key": "divoe", "class": "DivOEDetector", "file": "models/ood_methods/divoe.py", "registry_id": "divoe", "category": "augmented_training", "default_params": {}},
+    {"registry_key": "codit", "class": "CODiTDetector", "file": "models/ood_methods/codit.py", "registry_id": "codit", "category": "ts_specific", "default_params": {"n_epochs": 30, "eval_n": 5}},
+    {"registry_key": "srs", "class": "SRSDetector", "file": "models/ood_methods/srs.py", "registry_id": "srs", "category": "ts_specific", "default_params": {"period": null, "latent_dim": 32, "n_epochs": 30}},
+    {"registry_key": "diffad", "class": "DiffADDetector", "file": "models/ood_methods/diffad.py", "registry_id": "diffad", "category": "reconstruction", "default_params": {"n_steps": 50, "n_epochs": 20, "hidden_dim": 64}, "helper_classes": ["DenoisingNetwork"]},
+    {"registry_key": "diversify", "class": "DIVERSIFYDetector", "file": "models/ood_methods/diversify.py", "registry_id": "diversify", "category": "ts_specific", "default_params": {"latent_domain_num": 10, "n_epochs": 30, "alpha": 0.1}},
+    {"registry_key": "invad", "class": "InvADDetector", "file": "models/ood_methods/invad.py", "registry_id": "invad", "category": "ts_specific", "default_params": {"n_epochs": 30, "hidden_dim": 128, "n_layers": 2}, "helper_classes": ["AffineCouplingLayer", "InvADNetwork"]},
+    {"registry_key": "m2n2", "class": "M2N2Detector", "file": "models/ood_methods/m2n2.py", "registry_id": "m2n2", "category": "test_time_adaptation", "default_params": {"n_epochs": 30, "hidden_dim": 64, "gamma": 0.999}, "helper_classes": ["FeatureAutoencoder"]},
+    {"registry_key": "tdivdm", "class": "TDIVDMDetector", "file": "models/ood_methods/tdivdm.py", "registry_id": "tdivdm", "category": "concept_drift", "default_params": {"bandwidth": "scott", "n_samples_kde": 1000}},
+    {"registry_key": "catsight", "class": "CatSightDetector", "file": "models/ood_methods/catsight.py", "registry_id": "catsight", "category": "concept_drift", "default_params": {"n_components": 6, "reg": 0.0001}},
+    {"registry_key": "ae_adwin_lstm", "class": "AEADWINLSTMDetector", "file": "models/ood_methods/ae_adwin_lstm.py", "registry_id": "ae_adwin_lstm", "category": "concept_drift", "default_params": {"n_epochs_ae": 20, "n_epochs_lstm": 20, "hidden_dim": 64, "lstm_layers": 2, "seq_len": 10, "adwin_delta": 0.002}, "helper_classes": ["ADWIN", "FeatureAutoencoder", "LSTMPredictor"]},
+    {"registry_key": "dimmad", "class": "DiMMADDetector", "file": "models/ood_methods/dimmad.py", "registry_id": "dimmad", "category": "feature_distance", "default_params": {"class_agg": "min", "metric_agg": "median"}},
+    {"registry_key": "deedee", "class": "DEEDEEDetector", "file": "models/ood_methods/deedee.py", "registry_id": "deedee", "category": "ts_specific", "default_params": {"window_size": 10, "sigma": 1.0, "s": 1.5, "n_estimators": 100, "contamination": 0.1}, "notes": "O(N^2) KDE scoring; omitted on large datasets for runtime."},
+    {"registry_key": "diversemix", "class": "DiverseMixDetector", "file": "models/ood_methods/diversemix.py", "registry_id": "diversify (variant)", "category": "augmented_training", "default_params": {"n_epochs": 30, "alpha": 2.0, "temperature": 0.5, "omega": 0.5}, "helper_classes": ["EnergyHead"], "notes": "Codebase-specific energy/diversity hybrid; no single 1:1 catalogue entry."},
+    {"registry_key": "driftlens", "class": "DriftLensDetector", "file": "models/ood_methods/driftlens.py", "registry_id": "driftlens", "category": "embedding_drift", "default_params": {"n_components": 150, "n_threshold_samples": 1000, "threshold_sensitivity": 0.01, "window_size": 100}},
+    {"registry_key": "srs (cvae helper)", "class": "_Conv1dCVAE", "file": "models/ood_methods/srs.py", "registry_id": "srs", "category": "ts_specific", "notes": "Conditional VAE backbone used inside SRS."}
+  ],
+  "registry_methods_not_yet_implemented": [
+    "ash", "energy_ebo (standalone; energy used via OE score_type)", "tranad", "drocc", "incdfm", "orsa_cd", "poa",
+    "sigllm", "llmad", "logprompt", "openood", "alibi_detect", "river",
+    "lfr", "fedd", "studd", "rmiddm", "straem_dd", "os_elm_dd",
+    "aci", "aci_ts", "bocpd", "pelt", "cusum", "ruptures", "changeforest", "ot_cpd", "diversification_provable", "diversify_neurips"
+  ],
+  "method_count_implemented": 24,
+  "datasets_tested": {
+    "ucr_uea": ["PEMS-SF", "LSST", "BasicMotions", "Epilepsy (configured)", "+10 other UCR/UEA configured"],
+    "tsb_streaming": ["TSB-M-DRIFT003", "TSB-U-DRIFT008/009/010/010v2/011/024", "TSB-U-OOD009", "TSB-U-STABLE001", "+432 auto-generated configs"]
+  },
+  "existing_tests_and_eval": {
+    "summarize": "scripts/summarize_results.py",
+    "plots": "scripts/plot_results.py",
+    "pilot_runner": "run_pilot_experiments.bat",
+    "results_dir": "results/ (per-dataset metrics.json; currently unpopulated on this checkout)"
+  },
+  "prior_findings_docs": ["THESIS_FINDINGS.md", "PROJECT_OVERVIEW.md", "DATASETS_SUMMARY.md", "PIPELINE_ARCHITECTURE.md", "BUGS_FIXED.md"]
+}

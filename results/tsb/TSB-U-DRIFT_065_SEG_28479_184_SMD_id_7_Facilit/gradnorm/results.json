@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-DRIFT_065_SEG_28479_184_SMD_id_7_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:19:03",
+  "auroc": 0.1702,
+  "aupr": 0.3544,
+  "fpr95": 1.0,
+  "det_acc": 0.4091,
+  "inference_ms": 8.59096,
+  "extended_metrics": {
+    "indist_score_mean": -504.75159593061966,
+    "indist_score_std": 277.04110395571456,
+    "indist_score_skew": -0.35346212588526166,
+    "indist_score_kurt": -0.8699937546294159,
+    "ood_score_mean": -8762710.969340932,
+    "ood_score_std": 18710116.889383152,
+    "ood_score_skew": -1.704763393269986,
+    "ood_score_kurt": 1.0088789504173983
+  },
+  "n_test": 110,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

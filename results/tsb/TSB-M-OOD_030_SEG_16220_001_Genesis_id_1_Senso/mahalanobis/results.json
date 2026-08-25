@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-OOD_030_SEG_16220_001_Genesis_id_1_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T20:09:21",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9865,
+  "inference_ms": 1.20154,
+  "extended_metrics": {
+    "indist_score_mean": 25.284192999318275,
+    "indist_score_std": 4.7802477402204495,
+    "indist_score_skew": 0.14994814802093023,
+    "indist_score_kurt": -0.18518149904530423,
+    "ood_score_mean": 2907029358.8631983,
+    "ood_score_std": 62632848.27731124,
+    "ood_score_skew": -1.9675398240926678,
+    "ood_score_kurt": 2.6081459701542373
+  },
+  "n_test": 74,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

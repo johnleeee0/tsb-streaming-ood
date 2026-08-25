@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-M-STABLE_030_SEG_3535_003_MSL_id_2_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:22:05",
+  "auroc": 0.4444,
+  "aupr": 0.6667,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.61982,
+  "extended_metrics": {
+    "indist_score_mean": 0.0460628867149353,
+    "indist_score_std": 0.06372906267642975,
+    "indist_score_skew": 0.7065981030464172,
+    "indist_score_kurt": -1.4999996423721313,
+    "ood_score_mean": 0.1286126971244812,
+    "ood_score_std": 0.1818261444568634,
+    "ood_score_skew": 0.7071065902709961,
+    "ood_score_kurt": -1.5000001192092896
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

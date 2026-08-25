@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-OOD_060_SEG_5000_295_TODS_id_9_Synthetic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:01:37",
+  "auroc": 0.5,
+  "aupr": 0.517,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 7.6538,
+  "extended_metrics": {
+    "indist_score_mean": -605.3291763305664,
+    "indist_score_std": 297.3526758541615,
+    "indist_score_skew": 0.6029808285672611,
+    "indist_score_kurt": -1.1937576520248903,
+    "ood_score_mean": -801.3814636230469,
+    "ood_score_std": 831.5844720622187,
+    "ood_score_skew": -2.2473150628319147,
+    "ood_score_kurt": 3.8310665378857864
+  },
+  "n_test": 20,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

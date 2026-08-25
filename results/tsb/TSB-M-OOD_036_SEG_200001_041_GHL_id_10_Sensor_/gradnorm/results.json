@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-OOD_036_SEG_200001_041_GHL_id_10_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T21:16:03",
+  "auroc": 0.0,
+  "aupr": 0.3213,
+  "fpr95": 1.0,
+  "det_acc": 0.1471,
+  "inference_ms": 19.17392,
+  "extended_metrics": {
+    "indist_score_mean": -1475.9435281192555,
+    "indist_score_std": 285.9003271802192,
+    "indist_score_skew": 1.5025499156160234,
+    "indist_score_kurt": 1.2591607862844478,
+    "ood_score_mean": -2443.007999195772,
+    "ood_score_std": 79.9209160916409,
+    "ood_score_skew": 0.5992608251848263,
+    "ood_score_kurt": -0.6973530226455522
+  },
+  "n_test": 34,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

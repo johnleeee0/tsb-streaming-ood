@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-OOD_060_SEG_5000_295_TODS_id_9_Synthetic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:01:38",
+  "auroc": 0.46,
+  "aupr": 0.5846,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 0.78917,
+  "extended_metrics": {
+    "indist_score_mean": 2.1095818321701385,
+    "indist_score_std": 0.7349143392302787,
+    "indist_score_skew": 0.5272633851826415,
+    "indist_score_kurt": -0.2759862124778847,
+    "ood_score_mean": 2.7465256920938965,
+    "ood_score_std": 2.511549536187859,
+    "ood_score_skew": 2.3188795626952268,
+    "ood_score_kurt": 3.931712857677015
+  },
+  "n_test": 20,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

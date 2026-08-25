@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-DRIFT_063_SEG_23703_179_SMD_id_2_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:03:54",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 1.75918,
+  "extended_metrics": {
+    "indist_score_mean": 1.4715837933335716,
+    "indist_score_std": 0.29623755066349083,
+    "indist_score_skew": 0.6534066121827719,
+    "indist_score_kurt": -0.9389768228270241,
+    "ood_score_mean": 2314.447307894503,
+    "ood_score_std": 2289.920150464817,
+    "ood_score_skew": 1.1103880328429656,
+    "ood_score_kurt": 0.2000339048664821
+  },
+  "n_test": 16,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

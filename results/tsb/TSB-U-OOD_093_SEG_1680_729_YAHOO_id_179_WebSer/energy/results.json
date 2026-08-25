@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-OOD_093_SEG_1680_729_YAHOO_id_179_WebSer",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:58:30",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.50518,
+  "extended_metrics": {
+    "indist_score_mean": -28.568199157714844,
+    "indist_score_std": 0.26842981576919556,
+    "indist_score_skew": 0.5092506408691406,
+    "indist_score_kurt": -1.4999953508377075,
+    "ood_score_mean": -248.0646514892578,
+    "ood_score_std": 240.98931884765625,
+    "ood_score_skew": -0.6968691349029541,
+    "ood_score_kurt": -1.5
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

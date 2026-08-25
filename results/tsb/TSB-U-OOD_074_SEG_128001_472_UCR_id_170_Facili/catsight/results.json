@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-OOD_074_SEG_128001_472_UCR_id_170_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:06:30",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 2.90192,
+  "extended_metrics": {
+    "indist_score_mean": 2.1136245199736865,
+    "indist_score_std": 1.60922221968068,
+    "indist_score_skew": 0.6465437767676983,
+    "indist_score_kurt": -1.5000000000000004,
+    "ood_score_mean": 235.09655868844106,
+    "ood_score_std": 85.43383277141263,
+    "ood_score_skew": -0.048045072328536366,
+    "ood_score_kurt": -1.5000000000000002
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

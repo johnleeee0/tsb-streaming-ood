@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-STABLE_015_SEG_2625_008_MSL_id_7_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:15:09",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.625,
+  "inference_ms": 3.45546,
+  "extended_metrics": {
+    "indist_score_mean": 1494466.453125,
+    "indist_score_std": 569519.7269138636,
+    "indist_score_skew": -0.5992356330150409,
+    "indist_score_kurt": -1.232822943938424,
+    "ood_score_mean": 3895907.375,
+    "ood_score_std": 51175.64136429435,
+    "ood_score_skew": 0.05011612225637643,
+    "ood_score_kurt": -1.0579700517951613
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

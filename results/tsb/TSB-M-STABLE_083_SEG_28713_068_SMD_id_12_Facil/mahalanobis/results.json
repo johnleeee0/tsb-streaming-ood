@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-STABLE_083_SEG_28713_068_SMD_id_12_Facil",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:48:18",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 3.1486,
+  "extended_metrics": {
+    "indist_score_mean": 2267.6597247975465,
+    "indist_score_std": 268.75608083596245,
+    "indist_score_skew": -0.483097136917222,
+    "indist_score_kurt": -1.4999999999999993,
+    "ood_score_mean": 1737347.177899062,
+    "ood_score_std": 1004801.3307676784,
+    "ood_score_skew": -0.47549835758387526,
+    "ood_score_kurt": -1.5000000000000004
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

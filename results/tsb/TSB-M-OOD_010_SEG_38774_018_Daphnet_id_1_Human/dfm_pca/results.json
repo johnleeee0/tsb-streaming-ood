@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-OOD_010_SEG_38774_018_Daphnet_id_1_Human",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T19:16:11",
+  "auroc": 0.2703,
+  "aupr": 0.3759,
+  "fpr95": 0.9796,
+  "det_acc": 0.5,
+  "inference_ms": 3.11921,
+  "extended_metrics": {
+    "indist_score_mean": 1.1287815814115563,
+    "indist_score_std": 0.18863887327451642,
+    "indist_score_skew": 0.774090909641711,
+    "indist_score_kurt": 1.6470038954195925,
+    "ood_score_mean": 0.9810129172947942,
+    "ood_score_std": 0.15520553820083988,
+    "ood_score_skew": 0.3518874980162262,
+    "ood_score_kurt": -0.2623178571692919
+  },
+  "n_test": 98,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

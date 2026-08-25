@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-STABLE_091_SEG_11406_344_UCR_id_42_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:12:41",
+  "auroc": 0.4375,
+  "aupr": 0.6179,
+  "fpr95": 0.75,
+  "det_acc": 0.625,
+  "inference_ms": 8.01111,
+  "extended_metrics": {
+    "indist_score_mean": -590.4187088012695,
+    "indist_score_std": 193.5858192454604,
+    "indist_score_skew": -0.5327475875752814,
+    "indist_score_kurt": -0.939416739336504,
+    "ood_score_mean": -534.8898468017578,
+    "ood_score_std": 201.56272963242967,
+    "ood_score_skew": 0.8940583776189149,
+    "ood_score_kurt": -0.8274903126339028
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

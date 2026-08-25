@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-OOD_021_SEG_10524_310_UCR_id_8_HumanActi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:39:35",
+  "auroc": 0.5,
+  "aupr": 0.7321,
+  "fpr95": 1.0,
+  "det_acc": 0.625,
+  "inference_ms": 2.00309,
+  "extended_metrics": {
+    "indist_score_mean": -7.080907821655273,
+    "indist_score_std": 1.7171645164489746,
+    "indist_score_skew": -0.2970103323459625,
+    "indist_score_kurt": -1.1745065450668335,
+    "ood_score_mean": -8.311967849731445,
+    "ood_score_std": 4.775169372558594,
+    "ood_score_skew": 0.023910824209451675,
+    "ood_score_kurt": -1.9563130140304565
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

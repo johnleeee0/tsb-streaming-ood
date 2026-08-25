@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-OOD_074_SEG_128001_472_UCR_id_170_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:05:18",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.1667,
+  "inference_ms": 2.66105,
+  "extended_metrics": {
+    "indist_score_mean": -1.557216763496399,
+    "indist_score_std": 0.03505096957087517,
+    "indist_score_skew": 0.7070098519325256,
+    "indist_score_kurt": -1.5000066757202148,
+    "ood_score_mean": -132.2561798095703,
+    "ood_score_std": 29.247371673583984,
+    "ood_score_skew": 0.6648492217063904,
+    "ood_score_kurt": -1.5000005960464478
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

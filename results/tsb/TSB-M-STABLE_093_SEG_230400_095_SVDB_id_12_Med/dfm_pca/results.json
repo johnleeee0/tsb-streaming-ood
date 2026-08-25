@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-STABLE_093_SEG_230400_095_SVDB_id_12_Med",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:14:45",
+  "auroc": 0.8222,
+  "aupr": 0.8579,
+  "fpr95": 0.8667,
+  "det_acc": 0.7333,
+  "inference_ms": 3.7209,
+  "extended_metrics": {
+    "indist_score_mean": 0.9568376501401266,
+    "indist_score_std": 0.17102411400769157,
+    "indist_score_skew": 0.6273045177897217,
+    "indist_score_kurt": 0.6576618321579066,
+    "ood_score_mean": 1.375402045249939,
+    "ood_score_std": 0.5540197616195608,
+    "ood_score_skew": 2.112220764588045,
+    "ood_score_kurt": 4.315244902687065
+  },
+  "n_test": 30,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-OOD_002_SEG_16220_001_Genesis_id_1_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:23:58",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 0.69481,
+  "extended_metrics": {
+    "indist_score_mean": 1.6648679168177862,
+    "indist_score_std": 0.6993731511224913,
+    "indist_score_skew": 1.2387705312134432,
+    "indist_score_kurt": 1.2691860966937876,
+    "ood_score_mean": 106316168.84481703,
+    "ood_score_std": 2621826.538493385,
+    "ood_score_skew": -0.08359854527429521,
+    "ood_score_kurt": -1.652446100055719
+  },
+  "n_test": 58,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-OOD_010_SEG_38774_018_Daphnet_id_1_Human",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T19:16:11",
+  "auroc": 0.299,
+  "aupr": 0.3813,
+  "fpr95": 0.9592,
+  "det_acc": 0.5,
+  "inference_ms": 0.94264,
+  "extended_metrics": {
+    "indist_score_mean": 21.543333216721884,
+    "indist_score_std": 2.234971827785104,
+    "indist_score_skew": -0.3350691209430601,
+    "indist_score_kurt": -0.3324362423835745,
+    "ood_score_mean": 20.00814992124297,
+    "ood_score_std": 1.8970777880198446,
+    "ood_score_skew": -0.02794182447985059,
+    "ood_score_kurt": -0.8694210812309318
+  },
+  "n_test": 98,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

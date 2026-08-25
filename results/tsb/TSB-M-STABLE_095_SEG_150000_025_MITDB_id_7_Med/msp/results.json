@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-M-STABLE_095_SEG_150000_025_MITDB_id_7_Med",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:52:03",
+  "auroc": 0.7012,
+  "aupr": 0.6163,
+  "fpr95": 0.5429,
+  "det_acc": 0.6857,
+  "inference_ms": 0.93114,
+  "extended_metrics": {
+    "indist_score_mean": 0.10087290406227112,
+    "indist_score_std": 0.16534151136875153,
+    "indist_score_skew": 1.6836825609207153,
+    "indist_score_kurt": 1.3853087425231934,
+    "ood_score_mean": 0.15249916911125183,
+    "ood_score_std": 0.15685659646987915,
+    "ood_score_skew": 1.0783908367156982,
+    "ood_score_kurt": 0.009540319442749023
+  },
+  "n_test": 70,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-STABLE_021_SEG_3922_007_MSL_id_6_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:25:05",
+  "auroc": 0.0,
+  "aupr": 0.3655,
+  "fpr95": 1.0,
+  "det_acc": 0.125,
+  "inference_ms": 16.2421,
+  "extended_metrics": {
+    "indist_score_mean": -226.69510650634766,
+    "indist_score_std": 56.27588293489715,
+    "indist_score_skew": -0.5108580525628671,
+    "indist_score_kurt": -1.1550664991235584,
+    "ood_score_mean": -9862519.175888062,
+    "ood_score_std": 5884043.722243713,
+    "ood_score_skew": 0.9277190458201109,
+    "ood_score_kurt": -0.8001504346100141
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

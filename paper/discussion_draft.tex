@@ -1,0 +1,306 @@
+% =====================================================================
+% DISCUSSION --- DRAFT (regenerated from results/findings.md,
+% audit/METHOD_VERIFICATION_FULL.md, audit/CLASS_D_EXCLUSIONS.md; 2026-08).
+% Combined TSB-StreamingAD-U + TSB-StreamingAD-M. Compile-safe fragment:
+% no preamble; \input into main.tex in place of \section{Discussion}.
+% Requires siunitx, natbib, cleveref. Every numeral traces to findings.md.
+% =====================================================================
+
+\section{Discussion}\label{sec:discussion}
+
+The benchmark yields a constructive result, not merely a cautionary one. It
+identifies a single detector family that works, explains why it works, quantifies
+how cheaply it works, and turns the fidelity audit that made the ranking
+trustworthy into a reusable methodology. We open with the takeaways, then develop
+the positive findings before analysing, in depth, why the confidence-based family
+fails.
+
+\subsection{Key findings and takeaways}\label{sec:disc-takeaways}
+\begin{itemize}
+  \item \textbf{There is a clear winner.} On the combined \num{527}-dataset
+  benchmark, detectors that model the in-distribution feature manifold occupy the
+  entire top tier; Mahalanobis distance (\num{0.826}) and DFM-PCA (\num{0.812})
+  lead decisively across both univariate and multivariate families.
+  \item \textbf{A concrete recommendation.} For streaming time-series OOD
+  detection, \emph{model the geometry and density of the in-distribution feature
+  manifold} (Mahalanobis or DFM-PCA) rather than trusting the classifier's
+  confidence; pair the detector with global normalisation for amplitude/level
+  shifts.
+  \item \textbf{The winners are cheap and self-contained.} They attain top accuracy
+  at $\sim$\SIrange{1}{4}{\milli\second} per window (Mahalanobis
+  \SI{1.9}{\milli\second}, DEEDEE \SI{1.0}{\milli\second}), require no auxiliary
+  outlier data and no retraining, and are Pareto-optimal in accuracy versus latency.
+  \item \textbf{Dependable across regimes.} The feature-manifold family is strong on
+  the STABLE specificity controls (Mahalanobis \num{0.855}) and the subtle DRIFT
+  regime (\num{0.858}), so it neither misses drift nor over-flags near-stationary
+  streams.
+  \item \textbf{The audit is a first-class contribution.} CatSight, InvAD, DEEDEE,
+  and even Mahalanobis reach the top tier \emph{only} after principled,
+  paper-checked corrections; the verify-before-experiment gate is a transferable
+  methodology that most baseline studies omit.
+  \item \textbf{A streaming extension of prior work.} These results independently
+  confirm and extend the recommendation of TS-OOD \citep{Gungor2025} from the
+  static, same-dataset semantic-shift setting to streaming, window-level
+  distributional shift, across \num{527} datasets and \num{17} detectors.
+  \item \textbf{A disciplined cautionary result.} Every post-hoc softmax, logit,
+  activation, and gradient detector falls \emph{below chance} with systematically
+  inverted scores; this is a genuine, audited failure of the confidence premise,
+  not an implementation artifact.
+\end{itemize}
+
+\subsection{What works, and why: the feature-manifold family}\label{sec:disc-why}
+The central positive result is that detectors which model the in-distribution
+\emph{feature} manifold dominate, and the mechanism is clean and general. These
+methods characterise the geometry and density of ID pre-logit features directly ---
+Mahalanobis by a tied-covariance class-conditional Gaussian, DFM-PCA by
+per-class principal-component reconstruction error, DiMMAD by a continuous-metric
+distance ensemble --- and score a test window by how far it lies from that learned
+manifold. Because they never consult the overconfident output head, they are
+structurally immune to the overconfidence pathology that sinks the post-hoc family
+(\cref{sec:disc-fail}): even when the classifier saturates on a far-out window, the
+feature vector still records the distributional gap, and distance/density in that
+space grows monotonically with the shift. The normalisation dichotomy of
+\cref{fig:norm} is the direct fingerprint of this mechanism: under global
+normalisation the second source retains its amplitude and level gap, so S2 windows
+sit many standard deviations outside the ID feature cloud, and the feature methods
+separate them cleanly (Mahalanobis \num{0.867}, DFM-PCA \num{0.863} global). The
+practical virtues compound the accuracy advantage. The winners need no auxiliary
+outlier corpus and no retraining --- they are fit on ID features alone --- and they
+are among the cheapest detectors in the benchmark (\cref{sec:results-efficiency}),
+so the accuracy--latency tradeoff that usually forces a compromise simply does not
+arise. For a practitioner the recommendation is therefore unambiguous and
+low-risk: default to Mahalanobis distance or DFM-PCA.
+
+\subsection{Category-level strengths as deployment guidance}\label{sec:disc-category}
+The per-category breakdown (\cref{fig:heatmap}) converts the winning family's
+robustness into actionable guidance. The feature-manifold detectors are strongest
+precisely where deployment demands reliability: on the STABLE specificity controls,
+where a well-calibrated detector must \emph{not} raise alarms, Mahalanobis
+(\num{0.855}), DFM-PCA (\num{0.849}), and DiMMAD (\num{0.801}) all maintain strong
+false-positive control; and on the subtle near-distribution DRIFT regime, where a
+gradual shift is easiest to miss, Mahalanobis reaches \num{0.858} and DFM-PCA
+\num{0.825}. The strong-shift OOD category is the family's (relatively) weakest,
+around \num{0.76} for the two leaders --- still comfortably above chance, but a
+useful reminder that a cleanly different S2 regime can push representations into a
+less-calibrated region of the tied-covariance model. The deployment reading is
+favourable and specific: use the feature-manifold family as a default; expect its
+highest confidence on stable and drifting streams; and, where the deployment is
+dominated by abrupt regime changes, consider ensembling the tied-covariance
+Mahalanobis with the reconstruction-based DFM-PCA, whose principal-subspace view is
+complementary.
+
+\subsection{The fidelity audit and its corrections as a methodology}\label{sec:disc-audit}
+A defining methodological contribution of this thesis is that implementation
+faithfulness is treated as a \emph{measured precondition} rather than an
+assumption. We audited every candidate detector against its source paper and,
+where a repository exists, its official code (\cref{app:fidelity}). Of the
+\num{24} audited candidates, \num{17} were faithful or admitted a validated,
+paper-faithful correction and entered the benchmark; the remaining \num{7} were
+protocol-incompatible and excluded (\cref{tab:classd}). This is not bookkeeping:
+several of the top-tier results exist \emph{only because} of the audit. CatSight
+(\num{0.735}) reaches the top tier after correcting an asserted orientation on its
+common-spatial-pattern distance; InvAD (\num{0.740}) is competitive once its
+affine-coupling invertibility is recognised to reduce the score to a feature-space
+statistic; DEEDEE (\num{0.700}) required its adjacent-dimension variant to be
+labelled and validated; and even Mahalanobis reaches the sole top position only
+after its within-class-scatter (tied-covariance) estimation was corrected. Most
+baseline studies never audit their baselines; by converting faithfulness from an
+unstated assumption into a per-method verdict with a synthetic-validation gate, we
+obtain a ranking whose top entries are trustworthy and whose failures are
+attributable. The audit is thus a reusable protocol --- verify, correct where a
+paper-faithful fix exists, exclude where it does not, and report the ablation ---
+as much as a set of results.
+
+\subsection{Honest corrections to the prior write-up}\label{sec:disc-corrections}
+Reporting how the audit changed the headline is itself a result; four corrections
+stand out, each traceable to a specific per-method fix (\cref{app:fidelity}).
+\paragraph{(a) Mahalanobis is the sole top method.}
+An earlier write-up reported a tie at the top between Mahalanobis and DriftLens.
+The audit established that the per-sample DriftLens implementation is a
+PCA-whitened Mahalanobis detector correlating at $\rho \approx 0.999$ with
+Mahalanobis proper --- the same method under another name --- and that the official
+DriftLens score is batch/window-level Fr\'echet drift, which the shuffled
+per-window protocol cannot realise. With DriftLens excluded as
+protocol-incompatible and the tied-covariance estimation corrected, Mahalanobis
+(\num{0.826}) stands alone ahead of DFM-PCA (\num{0.812}); the earlier tie was a
+relabelling artifact, not two independent methods converging.
+\paragraph{(b) SRS falls below chance once restored to its true form.}
+A prior write-up promoted SRS as the faithful, mechanistically distinct
+time-series method and reported it near the top. Restored to its true
+seasonal-ratio form --- STL decomposition plus conditional-VAE scoring on the raw
+series --- SRS falls to \num{0.352}, below the chance line and behind even DiffAD
+(\num{0.531}). The seasonal-ratio assumption presumes a stable seasonal template
+learned from the ID regime, which the abrupt two-source boundary violates; the one
+genuinely distinct time-series-specific method does not generalise to streaming
+shift. This is the most consequential reversal, and we report it plainly.
+\paragraph{(c) CatSight, InvAD, and DEEDEE rank high only after fixes.}
+These three now sit in the top tier (\numlist{0.735;0.740;0.700}) but owe their
+standing to orientation, reduction, and variant corrections rather than to the
+mechanisms their names advertise; each is labelled an adaptation in
+\cref{app:fidelity}. Reporting them under their original names without these caveats
+would overstate the fidelity of the result, so we do not.
+\paragraph{(d) Faithful DICE (energy) fails with the post-hoc family.}
+The corrected, paper-faithful DICE --- signed top-$k$ contribution sum followed by
+an energy score, matching \citet{Sun2022} --- does not escape the collapse: it
+scores \num{0.313}, squarely inside the inverted cluster alongside MSP
+(\num{0.370}), SCALE (\num{0.308}), ODIN (\num{0.303}), energy (\num{0.301}), and
+GradNorm (\num{0.294}). This is the crucial control on the audit: the post-hoc
+failure is \emph{not} an artifact of buggy code. Even repaired to match its paper,
+the family inverts, because its defining assumption breaks under streaming shift.
+
+\subsection{Why post-hoc confidence fails below chance}\label{sec:disc-fail}
+The failure of the confidence-based family is deep enough to warrant a dedicated
+analysis, because ``below chance'' is a far stronger statement than ``ineffective.''
+We develop seven interlocking mechanisms.
+
+\paragraph{1. Below chance means systematically inverted, not random.}
+A detector at AUROC $\approx 0.5$ is uninformative; the post-hoc cluster sits at
+\numrange{0.294}{0.370}, well \emph{below} chance. By the probabilistic reading of
+AUROC, an in-distribution window receives a \emph{higher} OOD score than a genuinely
+shifted window the majority of the time. These detectors are therefore reliably
+\emph{wrong}, not noisy --- there is real, exploitable signal, but it points the
+wrong way. A detector that is consistently inverted is more dangerous in deployment
+than one that is merely uninformative, because its confident answers are
+anti-correlated with the truth.
+
+\paragraph{2. The overconfidence dichotomy.}
+The inversion has a well-documented root: deep networks are frequently \emph{more}
+confident on shifted or far-out inputs than on in-distribution ones. A deep ReLU
+network is provably free to be arbitrarily confident far from the training manifold
+\citep{Hein2019, Nguyen2015}. When an S2 window arrives many standard deviations
+outside the ID region, the network can emit a near-maximal softmax probability;
+MSP, ODIN, energy, and ReAct then read that saturated confidence as strong evidence
+of \emph{in}-distribution, assigning the OOD window a low anomaly score and the
+genuinely ID window a comparatively higher one. The confidence signal is not weak;
+it is pointed backwards.
+
+\paragraph{3. The backbone is trained on temporal pseudo-classes.}
+The pathology is sharpened by how the backbone is trained. There are no semantic
+labels in a streaming series, so the backbone is trained with cross-entropy over
+$K$ \emph{temporal pseudo-classes} formed by binning the ID training windows into
+arbitrary contiguous segments. The resulting confidence measures which temporal
+bin a window resembles, a quantity with no principled relationship to true
+distributional novelty. An OOD window can be assigned confidently to some
+pseudo-class simply because it happens to align with one arbitrary bin; confidence
+is decoupled from, and empirically anti-correlated with, genuine novelty.
+
+\paragraph{4. Distribution shift is not semantic novelty.}
+The post-hoc methods were designed for image classification, where OOD means a
+\emph{new semantic class} and low confidence is a reasonable proxy for ``none of my
+classes.'' Streaming distributional shift is a covariate shift within a
+label-free stream: there is no semantic class to be uncertain about. The premise
+that low confidence signals novelty simply does not transfer to this setting. Our
+result confirms and extends \citet{Gungor2025}, who found post-hoc scores weak
+under static semantic shift, to the harder streaming regime where they do not merely
+weaken but invert.
+
+\paragraph{5. A shared broken signal explains the tight cluster.}
+MSP, ODIN, energy, ReAct, SCALE, DICE, and GradNorm all read the same
+over-confident logits (or their gradients), differing only in post-processing. Since
+the underlying signal is the same inverted confidence, they fail \emph{together} and
+cluster within a narrow \num{0.08}-wide band (\numrange{0.294}{0.370}). This
+co-location is itself evidence for the mechanism: independent weaknesses would
+scatter, whereas a shared broken input produces a tight, correlated failure. By the
+same logic the feature-manifold family, which reads a different and intact signal,
+separates cleanly and wins together.
+
+\paragraph{6. Global normalisation amplifies the inversion.}
+The normalisation dichotomy (\cref{fig:norm}) shows the mechanism operating as a
+dial. Under global normalisation the post-hoc cluster is most inverted (energy
+\num{0.214}, GradNorm \num{0.213}, ODIN \num{0.218}), because the preserved
+out-of-range magnitudes push the logits to their most saturated, most overconfident
+extreme; under per-series normalisation, which rescales away the level gap, the same
+detectors recover toward --- but never reach --- chance (energy \num{0.452},
+GradNorm \num{0.433}). The very preprocessing that most helps the feature methods
+most hurts the confidence methods, because a larger level gap is simultaneously
+cleaner geometry and stronger overconfidence.
+
+\paragraph{7. This is not an orientation bug, and we do not flip the sign.}
+It would be tempting to ``fix'' an inverted detector by negating its score. We do
+not, and the reason is a matter of scientific integrity. The Pass-1 audit verified
+that MSP and ODIN are faithful implementations with the \emph{correct},
+paper-defined orientation (\cref{app:fidelity}); their inversion is the method's own
+behaviour, not a coding error. Negating the score to recover AUROC would be
+post-hoc orientation-fitting --- choosing the sign after seeing the labels --- which
+is precisely the malpractice the audit was built to catch (we document its danger in
+the regime-dependent DiverseMix correction, whose principled orientation reverses
+between synthetic and real data). The honest conclusion is that the method's own
+defined orientation genuinely fails on streaming shift; reporting the true,
+below-chance number is the point, not a problem to be papered over.
+
+\subsection{A single winning principle}\label{sec:disc-principle}
+A publication-relevant subtlety is that several detectors marketed as distinct ---
+DFM-PCA (PCA reconstruction), DiMMAD (distance ensemble), the excluded DriftLens
+(PCA-Mahalanobis) and TD-IVDM (KDE density), and Mahalanobis itself --- are, in
+their per-sample implementations, all variants of distance or density estimation in
+the frozen feature space. The impression that ``a diverse set of methods wins'' is
+therefore partly an artifact of relabelling: the robust signal is feature-space
+distance/density, surfacing under several names. This sharpens rather than weakens
+the headline --- it identifies a single winning principle rather than a coincidence
+of unrelated methods, and it is the reason two of the seven exclusions
+(\cref{tab:classd}) are protocol-incompatible duplicates rather than genuinely new
+detectors. For the practitioner it is reassuring: the recommendation reduces to one
+idea, robustly instantiated.
+
+\subsection{Extending TS-OOD to the streaming regime}\label{sec:disc-extension}
+The study sits in the empirical-benchmark lineage of \citet{Gungor2025} and extends
+it along three axes. Where TS-OOD evaluated eight detectors on thirteen datasets
+under a static, same-dataset semantic-shift protocol, we evaluate \num{17} audited
+detectors on \num{527} datasets under a leakage-free, window-level streaming-shift
+protocol spanning univariate and multivariate families. The core recommendation ---
+that deep feature modeling is the most promising direction for time-series OOD
+detection --- not only survives this much harder setting but is stated more
+strongly: under streaming shift the post-hoc alternatives do not merely lag, they
+invert. The breadth of coverage (\num{527} datasets, both modalities, three
+difficulty categories, two normalisation schemes) and the strongly significant
+Friedman result together make this, to our knowledge, the most comprehensive fair
+evaluation of OOD detectors on streaming time series to date, and a positive,
+constructive corroboration of the feature-modeling thesis.
+
+\subsection{Threats to validity and limitations}\label{sec:disc-limits}
+We state the scope honestly; these are scoping decisions that define the natural
+next experiments rather than undermining the present conclusions, which rest on the
+very strongly significant Friedman result and the consistent rank ordering across
+both families, categories, and normalisation schemes.
+\begin{enumerate}
+  \item \textbf{CPU-only.} All experiments run on CPU; the inference-time comparisons
+  (\cref{fig:efficiency}) are CPU latencies and would change in absolute terms,
+  though not in ranking, on accelerated hardware.
+  \item \textbf{Friedman complete-case caveat.} Because SRS is univariate-seasonal
+  and its multivariate run is pending, the complete-case Friedman pool is $N =
+  \num{250}$ univariate datasets; the significance result is effectively
+  univariate-complete. The identical rank ordering across families
+  (\cref{tab:tsb_split}) makes a reversal on the combined pool very unlikely, but the
+  definitive combined-family test awaits the SRS multivariate run.
+  \item \textbf{Small Source-1 training windows.} The source-boundary split trains
+  only on the pre-boundary Source-1 region, typically a small leading fraction of
+  each file; the resulting ID pool is modest, which particularly constrains density
+  estimators fit on few windows.
+  \item \textbf{Class-D methods run under separate protocols.} The seven excluded
+  detectors (\cref{tab:classd}) are reported in \cref{tab:class_d_appendix} under
+  their own protocol-appropriate arms on TSB-U only; their multivariate arms are
+  pending, and their behaviour under a protocol they \emph{are} designed for
+  (ordered streams, auxiliary outlier corpora, batch-level drift) remains untested
+  here. Reporting them separately is the honest choice, but it means the comparison
+  to the headline set is indicative, not like-for-like.
+  \item \textbf{Single seed.} All splits and initialisations use seed \num{42}; a
+  multi-seed study would attach confidence intervals to every AUROC.
+\end{enumerate}
+
+\subsection{Promise and future directions}\label{sec:disc-future}
+The limitations map directly onto concrete next steps. Completing the SRS
+multivariate run would close the Friedman complete-case gap and yield a definitive
+combined-family significance test. A multi-seed study would replace point estimates
+with confidence intervals. Re-training the backbone with a multi-positive
+contrastive loss is expected, per \citet{Gungor2025}, to lift the activation-based
+detectors specifically, testing whether the post-hoc collapse is intrinsic to the
+confidence premise or an artifact of the pseudo-class backbone. An
+orientation-stability study would formalise when energy-based scores can be trusted
+without post-hoc sign-fitting. Finally, an online deployment of the Pareto-optimal
+feature-manifold detectors --- Mahalanobis and DFM-PCA with incremental covariance
+updates --- would test their promise under true streaming conditions. For
+practitioners deploying OOD detection on streaming time series today, the
+recommendation is already concrete and positive: \emph{default to Mahalanobis
+distance or DFM-PCA}, prefer global normalisation for amplitude/level shifts, and do
+not rely on post-hoc softmax, logit, or gradient scores, which invert under exactly
+the far-out inputs they are meant to flag.

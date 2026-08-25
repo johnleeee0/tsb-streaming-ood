@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-OOD_065_SEG_1427_594_YAHOO_id_44_WebServ",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:11:54",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.3333,
+  "inference_ms": 1.77643,
+  "extended_metrics": {
+    "indist_score_mean": -4.388570308685303,
+    "indist_score_std": 0.7742940783500671,
+    "indist_score_skew": 0.6713356971740723,
+    "indist_score_kurt": -1.499999761581421,
+    "ood_score_mean": -118.15125274658203,
+    "ood_score_std": 77.46552276611328,
+    "ood_score_skew": 0.7054666876792908,
+    "ood_score_kurt": -1.5000001192092896
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

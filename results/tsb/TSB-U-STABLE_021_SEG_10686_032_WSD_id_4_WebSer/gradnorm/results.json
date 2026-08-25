@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-STABLE_021_SEG_10686_032_WSD_id_4_WebSer",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:30:57",
+  "auroc": 0.5938,
+  "aupr": 0.595,
+  "fpr95": 0.875,
+  "det_acc": 0.5,
+  "inference_ms": 8.93948,
+  "extended_metrics": {
+    "indist_score_mean": -716.0504760742188,
+    "indist_score_std": 382.5526505642923,
+    "indist_score_skew": -0.8028417968055417,
+    "indist_score_kurt": -0.10280515045796612,
+    "ood_score_mean": -595.6659297943115,
+    "ood_score_std": 261.1002441375535,
+    "ood_score_skew": -0.5670515449964754,
+    "ood_score_kurt": -0.5748359084638377
+  },
+  "n_test": 16,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

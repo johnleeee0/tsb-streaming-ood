@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-DRIFT_066_SEG_650000_173_MITDB_id_4_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:25:37",
+  "auroc": 0.5025,
+  "aupr": 0.5004,
+  "fpr95": 0.8154,
+  "det_acc": 0.5231,
+  "inference_ms": 1.39198,
+  "extended_metrics": {
+    "indist_score_mean": 1.0844857225051292,
+    "indist_score_std": 0.3269462070215001,
+    "indist_score_skew": 0.7040179987509546,
+    "indist_score_kurt": 0.3533909395450401,
+    "ood_score_mean": 1.0851182946792015,
+    "ood_score_std": 0.3009865077219455,
+    "ood_score_skew": 1.199202455091436,
+    "ood_score_kurt": 1.3084513203005024
+  },
+  "n_test": 130,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

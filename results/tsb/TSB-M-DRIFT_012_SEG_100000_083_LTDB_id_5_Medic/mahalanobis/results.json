@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-DRIFT_012_SEG_100000_083_LTDB_id_5_Medic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T15:15:13",
+  "auroc": 0.929,
+  "aupr": 0.9057,
+  "fpr95": 0.1923,
+  "det_acc": 0.7308,
+  "inference_ms": 1.12397,
+  "extended_metrics": {
+    "indist_score_mean": 24.073812801098327,
+    "indist_score_std": 3.113441281527706,
+    "indist_score_skew": 1.0506988999816307,
+    "indist_score_kurt": 1.2579053068888948,
+    "ood_score_mean": 30.631409779148214,
+    "ood_score_std": 3.366219546465368,
+    "ood_score_skew": 0.6118601436609908,
+    "ood_score_kurt": -0.31513001758289283
+  },
+  "n_test": 52,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

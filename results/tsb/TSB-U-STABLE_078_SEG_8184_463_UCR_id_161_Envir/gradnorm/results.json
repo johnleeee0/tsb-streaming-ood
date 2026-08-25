@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-STABLE_078_SEG_8184_463_UCR_id_161_Envir",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:17:46",
+  "auroc": 0.0,
+  "aupr": 0.3655,
+  "fpr95": 1.0,
+  "det_acc": 0.375,
+  "inference_ms": 6.95262,
+  "extended_metrics": {
+    "indist_score_mean": -706.2179412841797,
+    "indist_score_std": 410.45207698668725,
+    "indist_score_skew": -0.6533543667933275,
+    "indist_score_kurt": -1.0134729481085971,
+    "ood_score_mean": -2862.883270263672,
+    "ood_score_std": 1539.6673573999756,
+    "ood_score_skew": -0.9416865070702263,
+    "ood_score_kurt": -0.7988880286472906
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

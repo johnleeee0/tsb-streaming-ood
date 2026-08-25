@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-STABLE_066_SEG_1421_578_YAHOO_id_28_Synt",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:40:05",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.20138,
+  "extended_metrics": {
+    "indist_score_mean": 2.4382038013923437,
+    "indist_score_std": 0.11284107269192954,
+    "indist_score_skew": 0.23663784457407855,
+    "indist_score_kurt": -1.5000000000000016,
+    "ood_score_mean": 8.706438642453827,
+    "ood_score_std": 2.6491386303086064,
+    "ood_score_skew": -0.6862921186206814,
+    "ood_score_kurt": -1.4999999999999993
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

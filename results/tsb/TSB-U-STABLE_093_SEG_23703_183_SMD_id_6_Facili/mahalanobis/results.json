@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-STABLE_093_SEG_23703_183_SMD_id_6_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:25:30",
+  "auroc": 0.9161,
+  "aupr": 0.9219,
+  "fpr95": 0.3333,
+  "det_acc": 0.7857,
+  "inference_ms": 0.81818,
+  "extended_metrics": {
+    "indist_score_mean": 9.844301916803088,
+    "indist_score_std": 6.854350932752411,
+    "indist_score_skew": 0.9182358267481219,
+    "indist_score_kurt": -0.05011137184491776,
+    "ood_score_mean": 67.17408676007366,
+    "ood_score_std": 80.40248380275442,
+    "ood_score_skew": 1.7169335060143611,
+    "ood_score_kurt": 1.7946831364758387
+  },
+  "n_test": 42,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

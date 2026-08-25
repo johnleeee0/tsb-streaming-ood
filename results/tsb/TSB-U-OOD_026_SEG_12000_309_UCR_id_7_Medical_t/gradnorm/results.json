@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-OOD_026_SEG_12000_309_UCR_id_7_Medical_t",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:53:15",
+  "auroc": 0.125,
+  "aupr": 0.3988,
+  "fpr95": 1.0,
+  "det_acc": 0.375,
+  "inference_ms": 5.79744,
+  "extended_metrics": {
+    "indist_score_mean": -406.0211410522461,
+    "indist_score_std": 111.09879600687526,
+    "indist_score_skew": -0.27678663191280994,
+    "indist_score_kurt": -1.4052180130826117,
+    "ood_score_mean": -588.6634521484375,
+    "ood_score_std": 135.18767270162672,
+    "ood_score_skew": 0.2832145200898002,
+    "ood_score_kurt": -0.9888777756556433
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

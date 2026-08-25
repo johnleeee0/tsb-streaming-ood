@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-STABLE_020_SEG_7361_153_SMAP_id_10_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:49:25",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.0,
+  "inference_ms": 3.64722,
+  "extended_metrics": {
+    "indist_score_mean": -6.331079483032227,
+    "indist_score_std": 4.846376419067383,
+    "indist_score_skew": -0.6843380928039551,
+    "indist_score_kurt": -1.500000238418579,
+    "ood_score_mean": -226277.796875,
+    "ood_score_std": 7735.18896484375,
+    "ood_score_skew": -0.48929283022880554,
+    "ood_score_kurt": -1.499998688697815
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

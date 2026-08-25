@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-U-OOD_073_SEG_30000_356_UCR_id_54_Medical_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:42:53",
+  "auroc": 0.1875,
+  "aupr": 0.4125,
+  "fpr95": 1.0,
+  "det_acc": 0.25,
+  "inference_ms": 10.60133,
+  "extended_metrics": {
+    "indist_score_mean": 0.7489933967590332,
+    "indist_score_std": 0.0005057971575297415,
+    "indist_score_skew": 0.22745564579963684,
+    "indist_score_kurt": -1.4066013097763062,
+    "ood_score_mean": 0.7483041286468506,
+    "ood_score_std": 0.00043847758206538856,
+    "ood_score_skew": -1.1347066164016724,
+    "ood_score_kurt": -0.6816005706787109
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-DRIFT_099_SEG_5000_294_TODS_id_8_Synthet",
+  "seed": 42,
+  "status": "FAILED",
+  "timestamp": "2026-08-22T14:10:31",
+  "error": "ValueError: non-finite scores or single-class test set",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\THESIS_FINAL\\runners\\pipeline.py\", line 142, in run_one\n    raise ValueError(\"non-finite scores or single-class test set\")\nValueError: non-finite scores or single-class test set\n"
+}

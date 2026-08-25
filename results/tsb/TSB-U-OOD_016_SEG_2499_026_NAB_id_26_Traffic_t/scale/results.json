@@ -1,0 +1,27 @@
+{
+  "method": "scale",
+  "dataset": "TSB-U-OOD_016_SEG_2499_026_NAB_id_26_Traffic_t",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:55:18",
+  "auroc": 0.0,
+  "aupr": 0.3291,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 0.96524,
+  "extended_metrics": {
+    "indist_score_mean": -20.130678176879883,
+    "indist_score_std": 9.066765785217285,
+    "indist_score_skew": -0.40930357575416565,
+    "indist_score_kurt": -0.06284928321838379,
+    "ood_score_mean": -326.4924621582031,
+    "ood_score_std": 3.3752529621124268,
+    "ood_score_skew": 0.9602025151252747,
+    "ood_score_kurt": 0.12128281593322754
+  },
+  "n_test": 22,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 85
+  }
+}

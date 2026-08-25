@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-STABLE_078_SEG_200001_045_GHL_id_14_Sens",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:56:17",
+  "auroc": 0.0625,
+  "aupr": 0.3353,
+  "fpr95": 0.9375,
+  "det_acc": 0.5,
+  "inference_ms": 9.15584,
+  "extended_metrics": {
+    "indist_score_mean": -6080.564239501953,
+    "indist_score_std": 513.5487630548081,
+    "indist_score_skew": -2.623677299108118,
+    "indist_score_kurt": 6.829006191809894,
+    "ood_score_mean": -7299.536315917969,
+    "ood_score_std": 203.38753374849765,
+    "ood_score_skew": 0.892217076436683,
+    "ood_score_kurt": 0.668531109908924
+  },
+  "n_test": 32,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

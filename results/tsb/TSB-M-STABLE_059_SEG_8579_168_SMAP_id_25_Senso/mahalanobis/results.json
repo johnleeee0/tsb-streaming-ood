@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-STABLE_059_SEG_8579_168_SMAP_id_25_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:19:03",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 2.24581,
+  "extended_metrics": {
+    "indist_score_mean": 882.7262033416171,
+    "indist_score_std": 397.3807564865288,
+    "indist_score_skew": -0.16696893908342217,
+    "indist_score_kurt": -1.6900355120295958,
+    "ood_score_mean": 190637407.1984086,
+    "ood_score_std": 242265065.91511068,
+    "ood_score_skew": 0.6180590675776231,
+    "ood_score_kurt": -1.3846424995067181
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

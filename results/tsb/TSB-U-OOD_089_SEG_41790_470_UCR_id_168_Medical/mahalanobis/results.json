@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_089_SEG_41790_470_UCR_id_168_Medical",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:49:04",
+  "auroc": 0.72,
+  "aupr": 0.6683,
+  "fpr95": 0.6,
+  "det_acc": 0.6,
+  "inference_ms": 1.85865,
+  "extended_metrics": {
+    "indist_score_mean": 26.827276301565924,
+    "indist_score_std": 13.536323924628512,
+    "indist_score_skew": 1.1534743821634248,
+    "indist_score_kurt": -0.12045457228612211,
+    "ood_score_mean": 27.85355647619109,
+    "ood_score_std": 6.219969990196439,
+    "ood_score_skew": 0.9721486320206255,
+    "ood_score_kurt": -0.2448163812130404
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

@@ -1,0 +1,23 @@
+{
+  "method_id": "dfm_pca",
+  "registry_id": "dfm",
+  "status": "PASS",
+  "enhanced": false,
+  "validation_auroc": 1.0,
+  "discrepancy_count": {
+    "CRITICAL": 0,
+    "MODERATE": 0,
+    "MINOR": 4
+  },
+  "checks": {
+    "forward_pass_ok": true,
+    "shape_ok": true,
+    "no_nan_inf": true,
+    "auroc_gt_0p5": true
+  },
+  "n_id": 200,
+  "n_ood": 50,
+  "seed": 42,
+  "date": "2026-06-24",
+  "notes": "Faithful to the TS-OOD (Gungor2025) per-class DFM-PCA: one PCA per ID class, min feature reconstruction error. Differs from anomalib's global-PCA DFM variant and uses fixed n_components vs variance-ratio selection; all MINOR/variant choices. No enhancement needed. See discrepancy_report.md."
+}

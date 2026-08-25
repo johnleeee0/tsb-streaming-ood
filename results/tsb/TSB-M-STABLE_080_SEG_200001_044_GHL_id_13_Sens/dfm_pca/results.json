@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-STABLE_080_SEG_200001_044_GHL_id_13_Sens",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:48:01",
+  "auroc": 0.7924,
+  "aupr": 0.7594,
+  "fpr95": 0.2941,
+  "det_acc": 0.5882,
+  "inference_ms": 2.65611,
+  "extended_metrics": {
+    "indist_score_mean": 3.747973960988662,
+    "indist_score_std": 1.3239698805094837,
+    "indist_score_skew": -0.08113898517708208,
+    "indist_score_kurt": -1.2448846589059654,
+    "ood_score_mean": 5.130416224984562,
+    "ood_score_std": 0.4002286828921135,
+    "ood_score_skew": 0.5878335015645955,
+    "ood_score_kurt": -1.2846889532420622
+  },
+  "n_test": 34,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

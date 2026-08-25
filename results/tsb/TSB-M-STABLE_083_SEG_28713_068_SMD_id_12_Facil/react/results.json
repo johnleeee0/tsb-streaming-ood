@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-M-STABLE_083_SEG_28713_068_SMD_id_12_Facil",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:48:18",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.41752,
+  "extended_metrics": {
+    "indist_score_mean": -7.082897663116455,
+    "indist_score_std": 0.49994176626205444,
+    "indist_score_skew": -0.7027164101600647,
+    "indist_score_kurt": -1.499998927116394,
+    "ood_score_mean": -731.3085327148438,
+    "ood_score_std": 395.796875,
+    "ood_score_skew": 0.3866485059261322,
+    "ood_score_kurt": -1.5
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-STABLE_077_SEG_1421_605_YAHOO_id_55_Synt",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:39:54",
+  "auroc": 0.5,
+  "aupr": 0.75,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 4.79625,
+  "extended_metrics": {
+    "indist_score_mean": 2256.8281719211764,
+    "indist_score_std": 86.42933771229104,
+    "indist_score_skew": 0.0,
+    "indist_score_kurt": 0.0,
+    "ood_score_mean": 1972.0362814514865,
+    "ood_score_std": 411.5773304790215,
+    "ood_score_skew": 0.0,
+    "ood_score_kurt": 0.0
+  },
+  "n_test": 4,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-U-DRIFT_066_SEG_650000_173_MITDB_id_4_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:25:36",
+  "auroc": 0.6097,
+  "aupr": 0.6357,
+  "fpr95": 0.9077,
+  "det_acc": 0.5154,
+  "inference_ms": 1.87232,
+  "extended_metrics": {
+    "indist_score_mean": 0.7490634322166443,
+    "indist_score_std": 0.0004985463456250727,
+    "indist_score_skew": -1.4374054670333862,
+    "indist_score_kurt": 3.047785758972168,
+    "ood_score_mean": 0.7492207884788513,
+    "ood_score_std": 0.00047322578029707074,
+    "ood_score_skew": -1.5582231283187866,
+    "ood_score_kurt": 3.8137717247009277
+  },
+  "n_test": 130,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

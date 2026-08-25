@@ -1,0 +1,23 @@
+% auto-generated from results/class_d_group{1,2,3}.csv (TSB-StreamingAD-U)
+\begin{table}[t]\centering
+\caption{Class-D appendix detectors, evaluated under their own
+protocol-appropriate arms on TSB-StreamingAD-U (the multivariate arms are
+pending). These detectors are excluded from the headline ranking because they are
+not faithfully reproducible under the shared frozen-backbone protocol
+(\cref{tab:classd}); reported here under the arm most favourable to each, no
+detector rises clearly above chance and none is a winner.}
+\label{tab:class_d_appendix}
+\small\begin{tabular}{llrrr}\toprule
+Method & Arm & Mean AUROC & Std & $n$ \\\midrule
+tdivdm & none & 0.662 & 0.181 & 161 \\
+diversemix & head-only & 0.620 & 0.275 & 158 \\
+diversify & cosine-centroid & 0.587 & 0.266 & 158 \\
+driftlens & none & 0.573 & 0.368 & 146 \\
+divoe & full-net & 0.572 & 0.233 & 158 \\
+outlier-exposure & full-net & 0.564 & 0.232 & 158 \\
+ae-adwin-lstm & none & 0.556 & 0.211 & 160 \\
+diversemix & full-net & 0.550 & 0.246 & 158 \\
+outlier-exposure & head-only & 0.442 & 0.259 & 158 \\
+divoe & head-only & 0.438 & 0.258 & 158 \\
+diversify & energy & 0.398 & 0.269 & 158 \\
+\bottomrule\end{tabular}\end{table}

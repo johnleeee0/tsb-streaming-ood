@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-OOD_062_SEG_650000_176_MITDB_id_7_Medica",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:59:36",
+  "auroc": 0.6878,
+  "aupr": 0.7243,
+  "fpr95": 0.7667,
+  "det_acc": 0.5333,
+  "inference_ms": 2.08192,
+  "extended_metrics": {
+    "indist_score_mean": 1.0786522020896276,
+    "indist_score_std": 0.2959472790623571,
+    "indist_score_skew": 0.08203186202624684,
+    "indist_score_kurt": -0.9173929362235804,
+    "ood_score_mean": 1.2885860006014507,
+    "ood_score_std": 0.31297931014309555,
+    "ood_score_skew": -0.1004408047685152,
+    "ood_score_kurt": -0.9999781849391574
+  },
+  "n_test": 60,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

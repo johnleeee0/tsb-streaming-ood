@@ -1,0 +1,29 @@
+{
+  "method": "srs",
+  "dataset": "TSB-U-OOD_054_SEG_1421_564_YAHOO_id_14_Synthet",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:43:33",
+  "auroc": 0.0,
+  "aupr": 0.3833,
+  "fpr95": 1.0,
+  "det_acc": 0.1667,
+  "inference_ms": 28.68638,
+  "extended_metrics": {
+    "indist_score_mean": 2.3343935012817383,
+    "indist_score_std": 0.1513240933418274,
+    "indist_score_skew": 0.5064141750335693,
+    "indist_score_kurt": -1.5000019073486328,
+    "ood_score_mean": 1.2489923238754272,
+    "ood_score_std": 0.532380998134613,
+    "ood_score_skew": 0.6509501338005066,
+    "ood_score_kurt": -1.5000004768371582
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "period": null,
+    "latent_dim": 32,
+    "n_epochs": 10
+  }
+}

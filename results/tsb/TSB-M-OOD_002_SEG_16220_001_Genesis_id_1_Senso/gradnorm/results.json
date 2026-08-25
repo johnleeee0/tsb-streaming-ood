@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-OOD_002_SEG_16220_001_Genesis_id_1_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:23:56",
+  "auroc": 0.0,
+  "aupr": 0.3154,
+  "fpr95": 1.0,
+  "det_acc": 0.3966,
+  "inference_ms": 6.08491,
+  "extended_metrics": {
+    "indist_score_mean": -606.922243315598,
+    "indist_score_std": 313.4145066154707,
+    "indist_score_skew": -0.6217527838851559,
+    "indist_score_kurt": -0.2609236593938622,
+    "ood_score_mean": -10036487909.51724,
+    "ood_score_std": 269809972.6859783,
+    "ood_score_skew": 0.20880742411412265,
+    "ood_score_kurt": -1.480287218258591
+  },
+  "n_test": 58,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

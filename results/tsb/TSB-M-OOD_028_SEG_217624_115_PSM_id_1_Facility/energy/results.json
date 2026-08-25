@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-OOD_028_SEG_217624_115_PSM_id_1_Facility",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T20:57:55",
+  "auroc": 0.8524,
+  "aupr": 0.8277,
+  "fpr95": 0.3542,
+  "det_acc": 0.5521,
+  "inference_ms": 0.93264,
+  "extended_metrics": {
+    "indist_score_mean": -11.9397611618042,
+    "indist_score_std": 6.504763603210449,
+    "indist_score_skew": -1.655281901359558,
+    "indist_score_kurt": 2.5868277549743652,
+    "ood_score_mean": -6.0357232093811035,
+    "ood_score_std": 1.7490164041519165,
+    "ood_score_skew": -0.27477145195007324,
+    "ood_score_kurt": -0.19697356224060059
+  },
+  "n_test": 96,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

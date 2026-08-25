@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-M-OOD_002_SEG_16220_001_Genesis_id_1_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T23:24:07",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9828,
+  "inference_ms": 0.42795,
+  "extended_metrics": {
+    "indist_score_mean": 0.5005593556809501,
+    "indist_score_std": 0.041508316271155504,
+    "indist_score_skew": -0.3020261991786022,
+    "indist_score_kurt": -0.06400195835680833,
+    "ood_score_mean": 0.6967991833518746,
+    "ood_score_std": 0.007757227021431607,
+    "ood_score_skew": -1.02660910233956,
+    "ood_score_kurt": -0.07660383499817058
+  },
+  "n_test": 58,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

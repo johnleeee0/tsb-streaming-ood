@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-DRIFT_027_SEG_4031_008_NAB_id_8_Syntheti",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:37:34",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9615,
+  "inference_ms": 1.21428,
+  "extended_metrics": {
+    "indist_score_mean": 1052.0174202222972,
+    "indist_score_std": 354.21263245101665,
+    "indist_score_skew": 0.15469707514566983,
+    "indist_score_kurt": -0.7815038029798771,
+    "ood_score_mean": 2033.090767030838,
+    "ood_score_std": 129.6614262636608,
+    "ood_score_skew": 0.4654778086241064,
+    "ood_score_kurt": -1.026555948684738
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

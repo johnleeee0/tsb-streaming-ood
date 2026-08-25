@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-U-STABLE_001_SEG_10524_310_UCR_id_8_HumanA",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:24:09",
+  "auroc": 0.6122,
+  "aupr": 0.6437,
+  "fpr95": 0.7143,
+  "det_acc": 0.5714,
+  "inference_ms": 3.11414,
+  "extended_metrics": {
+    "indist_score_mean": -5.742000102996826,
+    "indist_score_std": 2.0464589595794678,
+    "indist_score_skew": 0.02482048235833645,
+    "indist_score_kurt": -1.3313361406326294,
+    "ood_score_mean": -4.823012828826904,
+    "ood_score_std": 1.644979476928711,
+    "ood_score_skew": -0.2750217616558075,
+    "ood_score_kurt": -1.1807113885879517
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

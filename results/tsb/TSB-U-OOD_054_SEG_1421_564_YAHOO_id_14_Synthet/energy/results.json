@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-OOD_054_SEG_1421_564_YAHOO_id_14_Synthet",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:43:33",
+  "auroc": 0.4444,
+  "aupr": 0.6667,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 4.56035,
+  "extended_metrics": {
+    "indist_score_mean": -4.347404956817627,
+    "indist_score_std": 0.7445469498634338,
+    "indist_score_skew": -0.6941297650337219,
+    "indist_score_kurt": -1.4999985694885254,
+    "ood_score_mean": -10.23513126373291,
+    "ood_score_std": 9.089780807495117,
+    "ood_score_skew": -0.6737414002418518,
+    "ood_score_kurt": -1.4999998807907104
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

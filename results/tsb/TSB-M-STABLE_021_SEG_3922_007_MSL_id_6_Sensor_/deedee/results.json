@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-M-STABLE_021_SEG_3922_007_MSL_id_6_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:25:10",
+  "auroc": 0.9375,
+  "aupr": 0.95,
+  "fpr95": 0.25,
+  "det_acc": 0.5,
+  "inference_ms": 2.71885,
+  "extended_metrics": {
+    "indist_score_mean": 0.45771152983958274,
+    "indist_score_std": 0.031167660934293503,
+    "indist_score_skew": 0.5836706833217983,
+    "indist_score_kurt": -1.1270481917374116,
+    "ood_score_mean": 0.6416899511967239,
+    "ood_score_std": 0.09838540128179377,
+    "ood_score_skew": -1.143916650596729,
+    "ood_score_kurt": -0.6750751306355327
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

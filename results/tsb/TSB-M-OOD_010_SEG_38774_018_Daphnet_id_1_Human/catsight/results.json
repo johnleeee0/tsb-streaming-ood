@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-OOD_010_SEG_38774_018_Daphnet_id_1_Human",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T19:16:17",
+  "auroc": 0.4136,
+  "aupr": 0.4347,
+  "fpr95": 0.898,
+  "det_acc": 0.5204,
+  "inference_ms": 0.72966,
+  "extended_metrics": {
+    "indist_score_mean": 1.3955883814897987,
+    "indist_score_std": 0.5141199809078911,
+    "indist_score_skew": 1.1051902470431014,
+    "indist_score_kurt": 0.9797073609447438,
+    "ood_score_mean": 1.2434693660923006,
+    "ood_score_std": 0.33374637955647773,
+    "ood_score_skew": 1.3493794373826367,
+    "ood_score_kurt": 1.8401314715707437
+  },
+  "n_test": 98,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

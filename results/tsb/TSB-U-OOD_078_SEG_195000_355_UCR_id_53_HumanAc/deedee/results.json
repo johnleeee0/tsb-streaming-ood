@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-OOD_078_SEG_195000_355_UCR_id_53_HumanAc",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:11:41",
+  "auroc": 0.8889,
+  "aupr": 0.9167,
+  "fpr95": 0.3333,
+  "det_acc": 0.8333,
+  "inference_ms": 1.48812,
+  "extended_metrics": {
+    "indist_score_mean": 0.4723180408574388,
+    "indist_score_std": 0.09148463281513582,
+    "indist_score_skew": -0.14010067544284013,
+    "indist_score_kurt": -1.4999999999999998,
+    "ood_score_mean": 0.6363497584375143,
+    "ood_score_std": 0.0819223180850545,
+    "ood_score_skew": -0.48217589402229516,
+    "ood_score_kurt": -1.5000000000000002
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

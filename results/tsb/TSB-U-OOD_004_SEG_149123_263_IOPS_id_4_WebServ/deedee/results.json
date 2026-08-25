@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-OOD_004_SEG_149123_263_IOPS_id_4_WebServ",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:13:43",
+  "auroc": 0.3322,
+  "aupr": 0.4485,
+  "fpr95": 1.0,
+  "det_acc": 0.4706,
+  "inference_ms": 0.30765,
+  "extended_metrics": {
+    "indist_score_mean": 0.6299121186729415,
+    "indist_score_std": 0.05779774481299026,
+    "indist_score_skew": -1.1474751983681615,
+    "indist_score_kurt": 0.07668392156804238,
+    "ood_score_mean": 0.5996642298659365,
+    "ood_score_std": 0.06322325566051794,
+    "ood_score_skew": -0.3223142366734611,
+    "ood_score_kurt": -0.9074080317931652
+  },
+  "n_test": 34,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

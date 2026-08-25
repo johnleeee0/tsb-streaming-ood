@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-M-STABLE_079_SEG_8532_145_SMAP_id_2_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:18:15",
+  "auroc": 0.8182,
+  "aupr": 0.7357,
+  "fpr95": 0.2727,
+  "det_acc": 0.8182,
+  "inference_ms": 0.72664,
+  "extended_metrics": {
+    "indist_score_mean": 0.43886359626045607,
+    "indist_score_std": 0.04584980814410006,
+    "indist_score_skew": 0.41873591021458456,
+    "indist_score_kurt": -1.0088953252412378,
+    "ood_score_mean": 0.49204699696292825,
+    "ood_score_std": 0.014139698159076874,
+    "ood_score_skew": -1.0548394555985183,
+    "ood_score_kurt": 0.5630743713255022
+  },
+  "n_test": 22,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

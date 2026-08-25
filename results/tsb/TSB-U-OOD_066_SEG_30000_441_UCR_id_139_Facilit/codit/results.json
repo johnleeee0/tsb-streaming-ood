@@ -1,0 +1,28 @@
+{
+  "method": "codit",
+  "dataset": "TSB-U-OOD_066_SEG_30000_441_UCR_id_139_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:53:39",
+  "auroc": 0.5556,
+  "aupr": 0.6091,
+  "fpr95": 1.0,
+  "det_acc": 0.4444,
+  "inference_ms": 25.83006,
+  "extended_metrics": {
+    "indist_score_mean": -0.6350254405420015,
+    "indist_score_std": 0.3852648114419105,
+    "indist_score_skew": 0.6191554847061849,
+    "indist_score_kurt": -1.3930594028496928,
+    "ood_score_mean": -0.5909658584677326,
+    "ood_score_std": 0.3722435919217966,
+    "ood_score_skew": 0.6225250721403635,
+    "ood_score_kurt": -1.2659839454117727
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "eval_n": 5
+  }
+}

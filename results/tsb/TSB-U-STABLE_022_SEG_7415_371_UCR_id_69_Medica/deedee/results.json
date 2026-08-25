@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-STABLE_022_SEG_7415_371_UCR_id_69_Medica",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:48:38",
+  "auroc": 0.5556,
+  "aupr": 0.6462,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 1.48047,
+  "extended_metrics": {
+    "indist_score_mean": 0.5138993041360674,
+    "indist_score_std": 0.12177310327478395,
+    "indist_score_skew": 0.8446206349135249,
+    "indist_score_kurt": -0.7357177855468606,
+    "ood_score_mean": 0.5668470863273892,
+    "ood_score_std": 0.15228461200509077,
+    "ood_score_skew": -0.05251968905903841,
+    "ood_score_kurt": -1.9277187768109751
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

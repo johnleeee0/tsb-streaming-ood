@@ -1,0 +1,29 @@
+{
+  "method": "invad",
+  "dataset": "TSB-M-STABLE_057_SEG_100000_027_MITDB_id_9_Med",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:46:08",
+  "auroc": 0.6,
+  "aupr": 0.7889,
+  "fpr95": 1.0,
+  "det_acc": 0.3,
+  "inference_ms": 3.38118,
+  "extended_metrics": {
+    "indist_score_mean": 0.03769376128911972,
+    "indist_score_std": 0.013116623274981976,
+    "indist_score_skew": 0.30325543880462646,
+    "indist_score_kurt": -1.7075631618499756,
+    "ood_score_mean": 0.0910872370004654,
+    "ood_score_std": 0.08196420967578888,
+    "ood_score_skew": 0.6778191328048706,
+    "ood_score_kurt": -0.8472509384155273
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 128,
+    "n_layers": 2
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-STABLE_001_SEG_10524_310_UCR_id_8_HumanA",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:24:02",
+  "auroc": 0.6122,
+  "aupr": 0.5679,
+  "fpr95": 0.7143,
+  "det_acc": 0.5714,
+  "inference_ms": 3.31272,
+  "extended_metrics": {
+    "indist_score_mean": 1.0180378300803048,
+    "indist_score_std": 0.3560502784536363,
+    "indist_score_skew": 0.3817088058424573,
+    "indist_score_kurt": -1.3373820839225745,
+    "ood_score_mean": 1.169082590511867,
+    "ood_score_std": 0.24348750031988356,
+    "ood_score_skew": -0.29438912186404764,
+    "ood_score_kurt": -1.7375411156565648
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

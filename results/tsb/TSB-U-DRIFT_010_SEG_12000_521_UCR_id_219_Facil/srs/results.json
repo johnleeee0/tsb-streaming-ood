@@ -1,0 +1,29 @@
+{
+  "method": "srs",
+  "dataset": "TSB-U-DRIFT_010_SEG_12000_521_UCR_id_219_Facil",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:02:24",
+  "auroc": 0.8044,
+  "aupr": 0.6628,
+  "fpr95": 0.2581,
+  "det_acc": 0.8226,
+  "inference_ms": 13.61943,
+  "extended_metrics": {
+    "indist_score_mean": 0.9587616324424744,
+    "indist_score_std": 0.40614813566207886,
+    "indist_score_skew": 1.5248183012008667,
+    "indist_score_kurt": 1.623633861541748,
+    "ood_score_mean": 1.2277464866638184,
+    "ood_score_std": 0.05138107389211655,
+    "ood_score_skew": -0.8987550139427185,
+    "ood_score_kurt": 0.3805837631225586
+  },
+  "n_test": 62,
+  "backbone_epochs": 40,
+  "method_params": {
+    "period": null,
+    "latent_dim": 32,
+    "n_epochs": 10
+  }
+}

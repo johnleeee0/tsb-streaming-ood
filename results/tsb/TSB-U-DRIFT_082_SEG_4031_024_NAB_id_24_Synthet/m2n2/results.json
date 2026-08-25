@@ -1,0 +1,29 @@
+{
+  "method": "m2n2",
+  "dataset": "TSB-U-DRIFT_082_SEG_4031_024_NAB_id_24_Synthet",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:31:38",
+  "auroc": 0.4734,
+  "aupr": 0.4624,
+  "fpr95": 0.5385,
+  "det_acc": 0.5385,
+  "inference_ms": 0.60499,
+  "extended_metrics": {
+    "indist_score_mean": 0.8966418046217698,
+    "indist_score_std": 0.6198904697065124,
+    "indist_score_skew": 0.9380592097285165,
+    "indist_score_kurt": 0.10519803355705815,
+    "ood_score_mean": 0.7071230365679815,
+    "ood_score_std": 0.01948752078471077,
+    "ood_score_skew": 0.12736757565032578,
+    "ood_score_kurt": -0.702987303017975
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 32,
+    "gamma": 0.999
+  }
+}

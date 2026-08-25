@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-STABLE_015_SEG_2625_008_MSL_id_7_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:15:09",
+  "auroc": 0.0,
+  "aupr": 0.3655,
+  "fpr95": 1.0,
+  "det_acc": 0.0,
+  "inference_ms": 2.98862,
+  "extended_metrics": {
+    "indist_score_mean": -714594.5,
+    "indist_score_std": 269693.3125,
+    "indist_score_skew": 0.611793577671051,
+    "indist_score_kurt": -1.228957176208496,
+    "ood_score_mean": -1688611.5,
+    "ood_score_std": 54129.5078125,
+    "ood_score_skew": 0.3171621859073639,
+    "ood_score_kurt": -1.4341633319854736
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

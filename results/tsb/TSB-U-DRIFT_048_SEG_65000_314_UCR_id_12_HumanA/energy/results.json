@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-DRIFT_048_SEG_65000_314_UCR_id_12_HumanA",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:21:13",
+  "auroc": 0.2836,
+  "aupr": 0.3872,
+  "fpr95": 1.0,
+  "det_acc": 0.3696,
+  "inference_ms": 0.63326,
+  "extended_metrics": {
+    "indist_score_mean": -3.64491868019104,
+    "indist_score_std": 1.8262999057769775,
+    "indist_score_skew": -0.5750754475593567,
+    "indist_score_kurt": -0.9415512084960938,
+    "ood_score_mean": -5.433737754821777,
+    "ood_score_std": 2.5061018466949463,
+    "ood_score_skew": -1.0527065992355347,
+    "ood_score_kurt": 1.6354470252990723
+  },
+  "n_test": 46,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

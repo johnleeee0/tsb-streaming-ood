@@ -1,0 +1,28 @@
+{
+  "method": "dimmad",
+  "dataset": "TSB-M-STABLE_098_SEG_230400_085_SVDB_id_2_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:03:59",
+  "auroc": 0.6765,
+  "aupr": 0.6796,
+  "fpr95": 0.8205,
+  "det_acc": 0.5128,
+  "inference_ms": 1.89046,
+  "extended_metrics": {
+    "indist_score_mean": 4.383891022929624,
+    "indist_score_std": 1.7527375003766752,
+    "indist_score_skew": 0.41684410329560867,
+    "indist_score_kurt": -0.04389467606320396,
+    "ood_score_mean": 5.5664116358145685,
+    "ood_score_std": 1.9346314094633534,
+    "ood_score_skew": 0.5117223981050337,
+    "ood_score_kurt": -0.1420569777881373
+  },
+  "n_test": 78,
+  "backbone_epochs": 40,
+  "method_params": {
+    "class_agg": "min",
+    "metric_agg": "median"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-U-STABLE_026_SEG_10028_366_UCR_id_64_Medic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:33:04",
+  "auroc": 0.0,
+  "aupr": 0.3468,
+  "fpr95": 1.0,
+  "det_acc": 0.25,
+  "inference_ms": 7.48667,
+  "extended_metrics": {
+    "indist_score_mean": 0.7487571835517883,
+    "indist_score_std": 0.0003408095217309892,
+    "indist_score_skew": 0.2877829968929291,
+    "indist_score_kurt": -1.458059549331665,
+    "ood_score_mean": 0.7476093769073486,
+    "ood_score_std": 0.0004627032612916082,
+    "ood_score_skew": -0.3258820176124573,
+    "ood_score_kurt": -1.4174212217330933
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

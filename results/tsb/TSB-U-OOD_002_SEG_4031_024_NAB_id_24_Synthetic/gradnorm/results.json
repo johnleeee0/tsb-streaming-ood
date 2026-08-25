@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-OOD_002_SEG_4031_024_NAB_id_24_Synthetic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:09:18",
+  "auroc": 0.8639,
+  "aupr": 0.8162,
+  "fpr95": 0.4615,
+  "det_acc": 0.7692,
+  "inference_ms": 8.97214,
+  "extended_metrics": {
+    "indist_score_mean": -643.1370450533353,
+    "indist_score_std": 263.7365184742695,
+    "indist_score_skew": 0.054276353060680634,
+    "indist_score_kurt": -0.9062912521731366,
+    "ood_score_mean": -316.8409682053786,
+    "ood_score_std": 118.51159805586704,
+    "ood_score_skew": -0.810550341072211,
+    "ood_score_kurt": 0.320303119573202
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

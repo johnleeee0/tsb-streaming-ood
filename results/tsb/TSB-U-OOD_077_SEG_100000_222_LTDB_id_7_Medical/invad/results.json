@@ -1,0 +1,29 @@
+{
+  "method": "invad",
+  "dataset": "TSB-U-OOD_077_SEG_100000_222_LTDB_id_7_Medical",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:09:44",
+  "auroc": 0.5216,
+  "aupr": 0.5377,
+  "fpr95": 0.7778,
+  "det_acc": 0.5556,
+  "inference_ms": 0.64314,
+  "extended_metrics": {
+    "indist_score_mean": 0.2175569385290146,
+    "indist_score_std": 0.09198738634586334,
+    "indist_score_skew": 0.04656217247247696,
+    "indist_score_kurt": -1.0854527950286865,
+    "ood_score_mean": 0.22145020961761475,
+    "ood_score_std": 0.08383925259113312,
+    "ood_score_skew": 0.3750613331794739,
+    "ood_score_kurt": -0.8954644203186035
+  },
+  "n_test": 36,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 128,
+    "n_layers": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-OOD_062_SEG_650000_176_MITDB_id_7_Medica",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:59:50",
+  "auroc": 0.5722,
+  "aupr": 0.629,
+  "fpr95": 0.8667,
+  "det_acc": 0.6167,
+  "inference_ms": 0.33672,
+  "extended_metrics": {
+    "indist_score_mean": 0.43273935516481576,
+    "indist_score_std": 0.05770568564923324,
+    "indist_score_skew": 1.161736382607293,
+    "indist_score_kurt": 1.0624302172310491,
+    "ood_score_mean": 0.4698405351865963,
+    "ood_score_std": 0.10781558012750461,
+    "ood_score_skew": 1.6017368221541128,
+    "ood_score_kurt": 1.6485492110236786
+  },
+  "n_test": 60,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

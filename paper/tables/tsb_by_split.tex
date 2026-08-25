@@ -1,0 +1,30 @@
+% auto-generated from results/findings.md (per-split rankings)
+\begin{table}[t]\centering
+\caption{Mean AUROC by benchmark family: TSB-StreamingAD-U (\num{260}
+univariate datasets) versus TSB-StreamingAD-M (\num{267} multivariate datasets).
+Rows are ordered by the overall combined ranking of \cref{tab:tsb_main}. The
+feature-manifold leaders dominate both families; the post-hoc cluster is inverted
+in both, though marginally less so on the multivariate family. SRS is
+univariate-seasonal by construction and its multivariate run is pending
+(\emph{pend.}), so it is omitted from the multivariate column.}
+\label{tab:tsb_split}
+\small\begin{tabular}{lrr}\toprule
+Method & AUROC (TSB-U) & AUROC (TSB-M) \\\midrule
+mahalanobis & 0.865 & 0.788 \\
+dfm-pca & 0.852 & 0.774 \\
+dimmad & 0.798 & 0.697 \\
+invad & 0.781 & 0.700 \\
+catsight & 0.787 & 0.686 \\
+m2n2 & 0.773 & 0.695 \\
+deedee & 0.810 & 0.592 \\
+codit & 0.751 & 0.618 \\\midrule
+diffad & 0.523 & 0.539 \\
+msp & 0.305 & 0.433 \\
+srs & 0.352 & \emph{pend.} \\
+dice & 0.291 & 0.333 \\
+scale & 0.256 & 0.359 \\
+odin & 0.256 & 0.349 \\
+react & 0.253 & 0.351 \\
+energy & 0.253 & 0.348 \\
+gradnorm & 0.241 & 0.345 \\
+\bottomrule\end{tabular}\end{table}

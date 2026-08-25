@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-STABLE_056_SEG_200001_053_GHL_id_22_Sens",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:20:36",
+  "auroc": 0.3262,
+  "aupr": 0.391,
+  "fpr95": 0.75,
+  "det_acc": 0.2857,
+  "inference_ms": 0.6559,
+  "extended_metrics": {
+    "indist_score_mean": -20.31756591796875,
+    "indist_score_std": 5.670112133026123,
+    "indist_score_skew": -0.29132577776908875,
+    "indist_score_kurt": -1.3981711864471436,
+    "ood_score_mean": -24.272525787353516,
+    "ood_score_std": 1.8911614418029785,
+    "ood_score_skew": -0.7524725794792175,
+    "ood_score_kurt": -1.0855768918991089
+  },
+  "n_test": 112,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

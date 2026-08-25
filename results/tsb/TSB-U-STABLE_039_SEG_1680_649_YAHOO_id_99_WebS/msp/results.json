@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-U-STABLE_039_SEG_1680_649_YAHOO_id_99_WebS",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:33:44",
+  "auroc": 0.5102,
+  "aupr": 0.7071,
+  "fpr95": 1.0,
+  "det_acc": 0.3571,
+  "inference_ms": 1.31641,
+  "extended_metrics": {
+    "indist_score_mean": 0.14216022193431854,
+    "indist_score_std": 0.14736106991767883,
+    "indist_score_skew": 0.3136913478374481,
+    "indist_score_kurt": -1.8484289646148682,
+    "ood_score_mean": 0.18794839084148407,
+    "ood_score_std": 0.18017861247062683,
+    "ood_score_skew": 0.13034988939762115,
+    "ood_score_kurt": -1.8157249689102173
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "method_id": "msp",
+  "registry_id": "msp",
+  "status": "PASS",
+  "enhanced": false,
+  "validation_auroc": 0.9739,
+  "discrepancy_count": {
+    "CRITICAL": 0,
+    "MODERATE": 0,
+    "MINOR": 2
+  },
+  "checks": {
+    "forward_pass_ok": true,
+    "shape_ok": true,
+    "no_nan_inf": true,
+    "auroc_gt_0p5": true
+  },
+  "n_id": 200,
+  "n_ood": 50,
+  "seed": 42,
+  "date": "2026-06-25",
+  "notes": "VERIFIED against online official code (hendrycks/error-detection T.max(softmax); hendrycks/outlier-exposure -max(softmax)). Our 1-max(softmax) equals the official OOD score up to an additive constant (metric-invariant); T=1 default = vanilla. Real-data AUROC<0.5 is genuine softmax overconfidence (OOD more confident than ID in 14/18 TSB-U datasets), not a bug. Full report: methods/msp/MSP_VALIDATION.md."
+}

@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-DRIFT_037_SEG_22700_191_SMD_id_14_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:24:41",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 2.47208,
+  "extended_metrics": {
+    "indist_score_mean": 0.275012557818131,
+    "indist_score_std": 0.20895356140457103,
+    "indist_score_skew": 0.5791813975133294,
+    "indist_score_kurt": -0.9279207201065489,
+    "ood_score_mean": 110039.66175426137,
+    "ood_score_std": 39319.74228444605,
+    "ood_score_skew": -1.6799099865416003,
+    "ood_score_kurt": 1.3258131375542055
+  },
+  "n_test": 44,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

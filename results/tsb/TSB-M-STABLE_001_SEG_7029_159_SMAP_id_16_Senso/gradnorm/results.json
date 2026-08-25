@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-M-STABLE_001_SEG_7029_159_SMAP_id_16_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:13:49",
+  "auroc": 0.3889,
+  "aupr": 0.4574,
+  "fpr95": 1.0,
+  "det_acc": 0.4167,
+  "inference_ms": 9.83898,
+  "extended_metrics": {
+    "indist_score_mean": -188.03614616394043,
+    "indist_score_std": 178.7575714802795,
+    "indist_score_skew": -0.8384046642005055,
+    "indist_score_kurt": -0.6122686229279015,
+    "ood_score_mean": -660.6076469421387,
+    "ood_score_std": 1080.516161998021,
+    "ood_score_skew": -1.7205026677510455,
+    "ood_score_kurt": 1.0747682826796856
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

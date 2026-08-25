@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_040_SEG_200000_440_UCR_id_138_Medica",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:52:10",
+  "auroc": 0.4444,
+  "aupr": 0.6441,
+  "fpr95": 0.8333,
+  "det_acc": 0.5,
+  "inference_ms": 1.63182,
+  "extended_metrics": {
+    "indist_score_mean": 14.218529791438785,
+    "indist_score_std": 1.9390751496411234,
+    "indist_score_skew": -0.48600433458998826,
+    "indist_score_kurt": -0.403135906118381,
+    "ood_score_mean": 14.09510226828805,
+    "ood_score_std": 3.7438056701771303,
+    "ood_score_skew": 0.7541250810344025,
+    "ood_score_kurt": -1.138296779860156
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

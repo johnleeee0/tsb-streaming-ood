@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-OOD_071_SEG_130400_244_SVDB_id_8_Medical",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:56:33",
+  "auroc": 0.5337,
+  "aupr": 0.5446,
+  "fpr95": 0.9167,
+  "det_acc": 0.494,
+  "inference_ms": 0.3227,
+  "extended_metrics": {
+    "indist_score_mean": -3.2301948070526123,
+    "indist_score_std": 1.2265872955322266,
+    "indist_score_skew": -0.650691032409668,
+    "indist_score_kurt": -0.5182662010192871,
+    "ood_score_mean": -3.0892333984375,
+    "ood_score_std": 1.2172566652297974,
+    "ood_score_skew": -0.9937615394592285,
+    "ood_score_kurt": 1.0695915222167969
+  },
+  "n_test": 168,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "method": "odin",
+  "dataset": "TSB-M-STABLE_014_SEG_2856_009_MSL_id_8_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:09:31",
+  "auroc": 0.0,
+  "aupr": 0.4167,
+  "fpr95": 1.0,
+  "det_acc": 0.0,
+  "inference_ms": 17.06248,
+  "extended_metrics": {
+    "indist_score_mean": 0.7489379048347473,
+    "indist_score_std": 0.0004946038243360817,
+    "indist_score_skew": 0.7047432661056519,
+    "indist_score_kurt": -1.4998869895935059,
+    "ood_score_mean": 0.24858136475086212,
+    "ood_score_std": 0.35154715180397034,
+    "ood_score_skew": 0.7071068286895752,
+    "ood_score_kurt": -1.5
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1000.0,
+    "epsilon": 0.001
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-STABLE_043_SEG_12000_419_UCR_id_117_Faci",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:27:04",
+  "auroc": 0.5,
+  "aupr": 0.5833,
+  "fpr95": 0.5,
+  "det_acc": 0.5,
+  "inference_ms": 4.16407,
+  "extended_metrics": {
+    "indist_score_mean": 61.13196658190153,
+    "indist_score_std": 31.963389227505154,
+    "indist_score_skew": 0.0,
+    "indist_score_kurt": 0.0,
+    "ood_score_mean": 51.698503303527886,
+    "ood_score_std": 3.798438882757445,
+    "ood_score_skew": 0.0,
+    "ood_score_kurt": 0.0
+  },
+  "n_test": 4,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

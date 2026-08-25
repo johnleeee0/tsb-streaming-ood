@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-STABLE_001_SEG_10524_310_UCR_id_8_HumanA",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:24:01",
+  "auroc": 0.6327,
+  "aupr": 0.6495,
+  "fpr95": 0.7143,
+  "det_acc": 0.6429,
+  "inference_ms": 1.58474,
+  "extended_metrics": {
+    "indist_score_mean": 21.43337709106982,
+    "indist_score_std": 4.288886772732877,
+    "indist_score_skew": -0.1752994291094478,
+    "indist_score_kurt": -1.191773238475104,
+    "ood_score_mean": 23.64091785430506,
+    "ood_score_std": 2.518632486368499,
+    "ood_score_skew": 0.0030912953067847374,
+    "ood_score_kurt": -1.0187287911194873
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

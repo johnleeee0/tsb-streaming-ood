@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-DRIFT_073_SEG_15285_076_WSD_id_48_WebSer",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:05:14",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 0.63661,
+  "extended_metrics": {
+    "indist_score_mean": 0.45939874706437495,
+    "indist_score_std": 0.060262380434504124,
+    "indist_score_skew": 1.4727473503702682,
+    "indist_score_kurt": 0.6809300935054701,
+    "ood_score_mean": 0.7244211727741535,
+    "ood_score_std": 1.1102230246251565e-16,
+    "ood_score_skew": NaN,
+    "ood_score_kurt": NaN
+  },
+  "n_test": 14,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-DRIFT_060_SEG_23703_192_SMD_id_15_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:24:08",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 0.52878,
+  "extended_metrics": {
+    "indist_score_mean": 0.4494677953828823,
+    "indist_score_std": 0.012776462183520469,
+    "indist_score_skew": -0.40423394953467406,
+    "indist_score_kurt": -0.042390645138493,
+    "ood_score_mean": 0.805326397649352,
+    "ood_score_std": 0.0,
+    "ood_score_skew": NaN,
+    "ood_score_kurt": NaN
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

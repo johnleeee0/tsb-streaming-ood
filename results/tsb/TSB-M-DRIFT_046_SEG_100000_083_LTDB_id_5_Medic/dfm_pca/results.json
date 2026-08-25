@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-DRIFT_046_SEG_100000_083_LTDB_id_5_Medic",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T12:33:34",
+  "auroc": 0.9931,
+  "aupr": 0.9937,
+  "fpr95": 0.0741,
+  "det_acc": 0.6852,
+  "inference_ms": 2.18701,
+  "extended_metrics": {
+    "indist_score_mean": 0.924674427067792,
+    "indist_score_std": 0.1287152268463894,
+    "indist_score_skew": -0.26117402656004585,
+    "indist_score_kurt": -0.007797272177312742,
+    "ood_score_mean": 1.39208632045322,
+    "ood_score_std": 0.17354051051461408,
+    "ood_score_skew": 0.4357112032670266,
+    "ood_score_kurt": -0.7558895509982393
+  },
+  "n_test": 54,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

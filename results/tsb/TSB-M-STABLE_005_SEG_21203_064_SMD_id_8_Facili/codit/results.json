@@ -1,0 +1,28 @@
+{
+  "method": "codit",
+  "dataset": "TSB-M-STABLE_005_SEG_21203_064_SMD_id_8_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:21:55",
+  "auroc": 0.7222,
+  "aupr": 0.7579,
+  "fpr95": 1.0,
+  "det_acc": 0.6667,
+  "inference_ms": 35.18763,
+  "extended_metrics": {
+    "indist_score_mean": -0.5726348725344733,
+    "indist_score_std": 0.31450858586718394,
+    "indist_score_skew": 0.32112661679555315,
+    "indist_score_kurt": -1.5034668175822063,
+    "ood_score_mean": -0.26788146941179597,
+    "ood_score_std": 0.31936147206905957,
+    "ood_score_skew": -1.668996347656559,
+    "ood_score_kurt": 0.9902835441488373
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "eval_n": 5
+  }
+}

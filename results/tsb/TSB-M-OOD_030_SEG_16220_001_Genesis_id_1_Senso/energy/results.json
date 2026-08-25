@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-OOD_030_SEG_16220_001_Genesis_id_1_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T20:09:20",
+  "auroc": 0.0,
+  "aupr": 0.3136,
+  "fpr95": 1.0,
+  "det_acc": 0.4865,
+  "inference_ms": 0.64435,
+  "extended_metrics": {
+    "indist_score_mean": -4.716780662536621,
+    "indist_score_std": 1.8158258199691772,
+    "indist_score_skew": -0.9143259525299072,
+    "indist_score_kurt": 1.1744165420532227,
+    "ood_score_mean": -52487176.0,
+    "ood_score_std": 1753928.125,
+    "ood_score_skew": 0.06608869135379791,
+    "ood_score_kurt": 1.3938860893249512
+  },
+  "n_test": 74,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

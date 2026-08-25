@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-STABLE_078_SEG_8184_463_UCR_id_161_Envir",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:17:40",
+  "auroc": 0.1875,
+  "aupr": 0.4155,
+  "fpr95": 1.0,
+  "det_acc": 0.25,
+  "inference_ms": 4.4306,
+  "extended_metrics": {
+    "indist_score_mean": -5.07874059677124,
+    "indist_score_std": 2.737560510635376,
+    "indist_score_skew": -0.6068165898323059,
+    "indist_score_kurt": -1.1208579540252686,
+    "ood_score_mean": -10.304106712341309,
+    "ood_score_std": 5.0924882888793945,
+    "ood_score_skew": -0.6264455914497375,
+    "ood_score_kurt": -1.0670850276947021
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

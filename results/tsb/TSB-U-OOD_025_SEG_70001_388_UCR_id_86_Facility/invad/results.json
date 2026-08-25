@@ -1,0 +1,29 @@
+{
+  "method": "invad",
+  "dataset": "TSB-U-OOD_025_SEG_70001_388_UCR_id_86_Facility",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:41:40",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6923,
+  "inference_ms": 0.91877,
+  "extended_metrics": {
+    "indist_score_mean": 0.18941468000411987,
+    "indist_score_std": 0.0691283792257309,
+    "indist_score_skew": -0.7651077508926392,
+    "indist_score_kurt": -0.2843513488769531,
+    "ood_score_mean": 154.7063446044922,
+    "ood_score_std": 0.08206618577241898,
+    "ood_score_skew": 0.20542898774147034,
+    "ood_score_kurt": -1.690306305885315
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 128,
+    "n_layers": 2
+  }
+}

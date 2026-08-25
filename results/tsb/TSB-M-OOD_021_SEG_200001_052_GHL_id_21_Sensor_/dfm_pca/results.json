@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-OOD_021_SEG_200001_052_GHL_id_21_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T17:09:58",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6111,
+  "inference_ms": 4.89889,
+  "extended_metrics": {
+    "indist_score_mean": 1.3615965578291152,
+    "indist_score_std": 0.28189298635091653,
+    "indist_score_skew": -0.6773984966988624,
+    "indist_score_kurt": -0.9148404380269199,
+    "ood_score_mean": 3.1076227294074164,
+    "ood_score_std": 0.09614800834670821,
+    "ood_score_skew": 2.0784278555863427,
+    "ood_score_kurt": 2.863952535667611
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

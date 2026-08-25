@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_018_SEG_29931_500_UCR_id_198_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:35:49",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5556,
+  "inference_ms": 0.89258,
+  "extended_metrics": {
+    "indist_score_mean": 15.227806463667498,
+    "indist_score_std": 2.1651604563326723,
+    "indist_score_skew": -0.5410442891941799,
+    "indist_score_kurt": -0.385759639267667,
+    "ood_score_mean": 1272.8537019994885,
+    "ood_score_std": 414.9810323444861,
+    "ood_score_skew": 0.13623673742942874,
+    "ood_score_kurt": -1.2406485596507375
+  },
+  "n_test": 36,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

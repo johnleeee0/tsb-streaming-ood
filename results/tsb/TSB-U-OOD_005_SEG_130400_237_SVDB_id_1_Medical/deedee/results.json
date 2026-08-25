@@ -1,0 +1,25 @@
+{
+  "method": "deedee",
+  "dataset": "TSB-U-OOD_005_SEG_130400_237_SVDB_id_1_Medical",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:34:39",
+  "auroc": 0.802,
+  "aupr": 0.7805,
+  "fpr95": 0.5818,
+  "det_acc": 0.6818,
+  "inference_ms": 0.0902,
+  "extended_metrics": {
+    "indist_score_mean": 0.41289216838073667,
+    "indist_score_std": 0.06921292685505481,
+    "indist_score_skew": 1.7222360522653195,
+    "indist_score_kurt": 3.0446028142404087,
+    "ood_score_mean": 0.5037598097797287,
+    "ood_score_std": 0.091148496774941,
+    "ood_score_skew": 0.42464527242498634,
+    "ood_score_kurt": -0.9785347092802326
+  },
+  "n_test": 110,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

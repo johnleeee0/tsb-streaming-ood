@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_020_SEG_419919_550_SWaT_id_1_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:56:30",
+  "auroc": 0.4607,
+  "aupr": 0.6548,
+  "fpr95": 1.0,
+  "det_acc": 0.4951,
+  "inference_ms": 0.50425,
+  "extended_metrics": {
+    "indist_score_mean": 15.423954827297822,
+    "indist_score_std": 6.021022911420845,
+    "indist_score_skew": 0.2740831960362439,
+    "indist_score_kurt": 1.5831780855196733,
+    "ood_score_mean": 77.19160477822928,
+    "ood_score_std": 133.89536427869186,
+    "ood_score_skew": 1.874850238077232,
+    "ood_score_kurt": 1.7416588369380923
+  },
+  "n_test": 206,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

@@ -1,0 +1,29 @@
+{
+  "method": "m2n2",
+  "dataset": "TSB-U-DRIFT_002_SEG_4031_019_NAB_id_19_Facilit",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:47:40",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 2.59655,
+  "extended_metrics": {
+    "indist_score_mean": 0.8648504416147867,
+    "indist_score_std": 0.21458054636652565,
+    "indist_score_skew": -0.9661359898226003,
+    "indist_score_kurt": -0.7449489911218241,
+    "ood_score_mean": 373.6520555814107,
+    "ood_score_std": 369.8127354725232,
+    "ood_score_skew": 5.0166139459962344e-05,
+    "ood_score_kurt": -1.999928364397899
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 32,
+    "gamma": 0.999
+  }
+}

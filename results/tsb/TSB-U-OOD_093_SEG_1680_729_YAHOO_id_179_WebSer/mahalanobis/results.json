@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_093_SEG_1680_729_YAHOO_id_179_WebSer",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:58:30",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.07728,
+  "extended_metrics": {
+    "indist_score_mean": 30900.272103043895,
+    "indist_score_std": 309.28605616613095,
+    "indist_score_skew": 0.560166323841642,
+    "indist_score_kurt": -1.5000000000000262,
+    "ood_score_mean": 315510.63016265543,
+    "ood_score_std": 327102.84339329717,
+    "ood_score_skew": 0.7006023875612498,
+    "ood_score_kurt": -1.5000000000000002
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

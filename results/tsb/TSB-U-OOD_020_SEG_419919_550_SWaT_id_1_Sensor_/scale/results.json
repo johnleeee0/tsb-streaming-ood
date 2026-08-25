@@ -1,0 +1,27 @@
+{
+  "method": "scale",
+  "dataset": "TSB-U-OOD_020_SEG_419919_550_SWaT_id_1_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:57:10",
+  "auroc": 0.0574,
+  "aupr": 0.3198,
+  "fpr95": 1.0,
+  "det_acc": 0.4175,
+  "inference_ms": 0.31593,
+  "extended_metrics": {
+    "indist_score_mean": -19.160709381103516,
+    "indist_score_std": 10.558856964111328,
+    "indist_score_skew": -0.8402460813522339,
+    "indist_score_kurt": 0.42067456245422363,
+    "ood_score_mean": -120.49071502685547,
+    "ood_score_std": 182.14865112304688,
+    "ood_score_skew": -1.9951839447021484,
+    "ood_score_kurt": 2.056267261505127
+  },
+  "n_test": 206,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 85
+  }
+}

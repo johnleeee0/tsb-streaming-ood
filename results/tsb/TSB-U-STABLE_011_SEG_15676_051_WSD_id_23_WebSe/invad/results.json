@@ -1,0 +1,29 @@
+{
+  "method": "invad",
+  "dataset": "TSB-U-STABLE_011_SEG_15676_051_WSD_id_23_WebSe",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:23:34",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6818,
+  "inference_ms": 0.9837,
+  "extended_metrics": {
+    "indist_score_mean": 0.20447300374507904,
+    "indist_score_std": 0.06938852369785309,
+    "indist_score_skew": -0.09089967608451843,
+    "indist_score_kurt": -1.084456205368042,
+    "ood_score_mean": 0.8634430170059204,
+    "ood_score_std": 0.004041628446429968,
+    "ood_score_skew": 0.29624760150909424,
+    "ood_score_kurt": -1.2549247741699219
+  },
+  "n_test": 22,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 128,
+    "n_layers": 2
+  }
+}

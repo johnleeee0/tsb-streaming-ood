@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-OOD_011_SEG_16220_001_Genesis_id_1_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T22:21:21",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 1.0,
+  "inference_ms": 2.79625,
+  "extended_metrics": {
+    "indist_score_mean": 0.7360834201862072,
+    "indist_score_std": 0.16809293522789806,
+    "indist_score_skew": 0.9353247494118426,
+    "indist_score_kurt": 0.9324396403213733,
+    "ood_score_mean": 76189903.72413793,
+    "ood_score_std": 2075585.7630606503,
+    "ood_score_skew": -0.15566102829077785,
+    "ood_score_kurt": -1.6307376260372655
+  },
+  "n_test": 58,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

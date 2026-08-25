@@ -1,0 +1,9 @@
+{
+  "method": "react",
+  "dataset": "TSB-M-STABLE_081_SEG_150000_105_SVDB_id_22_Med",
+  "seed": 42,
+  "status": "FAILED",
+  "timestamp": "2026-08-25T00:35:59",
+  "error": "ValueError: non-finite scores or single-class test set",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\THESIS_FINAL\\runners\\pipeline.py\", line 142, in run_one\n    raise ValueError(\"non-finite scores or single-class test set\")\nValueError: non-finite scores or single-class test set\n"
+}

@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-M-STABLE_055_SEG_8310_150_SMAP_id_7_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:02:08",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.75,
+  "inference_ms": 2.90064,
+  "extended_metrics": {
+    "indist_score_mean": 3.143542528152466,
+    "indist_score_std": 0.26677043966843145,
+    "indist_score_skew": -0.022064603091484825,
+    "indist_score_kurt": -1.3050675106170253,
+    "ood_score_mean": 14.976657549540201,
+    "ood_score_std": 0.07028318224016358,
+    "ood_score_skew": -1.0740277610395546,
+    "ood_score_kurt": -0.06813806568860681
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "method": "m2n2",
+  "dataset": "TSB-U-OOD_092_SEG_2430_145_MSL_id_6_Sensor_tr_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:49:54",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 3.0927,
+  "extended_metrics": {
+    "indist_score_mean": 5641.2073974609375,
+    "indist_score_std": 4345.997921179612,
+    "indist_score_skew": 0.2760319669222765,
+    "indist_score_kurt": -1.5,
+    "ood_score_mean": 1290253056.0,
+    "ood_score_std": 77257161.17988949,
+    "ood_score_skew": 0.3911140642143347,
+    "ood_score_kurt": -1.5
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 32,
+    "gamma": 0.999
+  }
+}

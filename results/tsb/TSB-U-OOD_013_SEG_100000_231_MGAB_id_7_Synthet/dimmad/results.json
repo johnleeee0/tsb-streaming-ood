@@ -1,0 +1,28 @@
+{
+  "method": "dimmad",
+  "dataset": "TSB-U-OOD_013_SEG_100000_231_MGAB_id_7_Synthet",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:45:27",
+  "auroc": 0.564,
+  "aupr": 0.623,
+  "fpr95": 1.0,
+  "det_acc": 0.5,
+  "inference_ms": 2.83081,
+  "extended_metrics": {
+    "indist_score_mean": 3.728782827498759,
+    "indist_score_std": 2.1450635569725036,
+    "indist_score_skew": 0.684523922620114,
+    "indist_score_kurt": -0.686344336309682,
+    "ood_score_mean": 4.206410344045405,
+    "ood_score_std": 2.7682708604313584,
+    "ood_score_skew": 1.0476668243530403,
+    "ood_score_kurt": -0.2918890530761664
+  },
+  "n_test": 34,
+  "backbone_epochs": 40,
+  "method_params": {
+    "class_agg": "min",
+    "metric_agg": "median"
+  }
+}

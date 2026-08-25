@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-M-OOD_019_SEG_200001_036_GHL_id_5_Sensor_t",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T18:33:27",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.8,
+  "inference_ms": 1.3895,
+  "extended_metrics": {
+    "indist_score_mean": -6.063995838165283,
+    "indist_score_std": 1.1761975288391113,
+    "indist_score_skew": 0.37526747584342957,
+    "indist_score_kurt": -1.6323254108428955,
+    "ood_score_mean": -2.9782657623291016,
+    "ood_score_std": 0.30638670921325684,
+    "ood_score_skew": -1.2190520763397217,
+    "ood_score_kurt": 0.21707677841186523
+  },
+  "n_test": 40,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

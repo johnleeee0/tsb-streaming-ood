@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-STABLE_036_SEG_18236_064_WSD_id_36_WebSe",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T16:38:04",
+  "auroc": 0.75,
+  "aupr": 0.875,
+  "fpr95": 1.0,
+  "det_acc": 0.875,
+  "inference_ms": 2.68447,
+  "extended_metrics": {
+    "indist_score_mean": 22.372324502436044,
+    "indist_score_std": 1.562050715769437,
+    "indist_score_skew": -0.30109955238771263,
+    "indist_score_kurt": -1.0191749306527216,
+    "ood_score_mean": 83.80872129605956,
+    "ood_score_std": 63.15447184081673,
+    "ood_score_skew": 0.45796110067105017,
+    "ood_score_kurt": -1.3325306570176156
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

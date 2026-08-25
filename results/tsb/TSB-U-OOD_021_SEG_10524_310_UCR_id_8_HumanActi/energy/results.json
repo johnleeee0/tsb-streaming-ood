@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-U-OOD_021_SEG_10524_310_UCR_id_8_HumanActi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:39:26",
+  "auroc": 0.5,
+  "aupr": 0.7321,
+  "fpr95": 1.0,
+  "det_acc": 0.625,
+  "inference_ms": 2.83994,
+  "extended_metrics": {
+    "indist_score_mean": -7.420467376708984,
+    "indist_score_std": 1.981854796409607,
+    "indist_score_skew": -0.5606532692909241,
+    "indist_score_kurt": -1.0708774328231812,
+    "ood_score_mean": -9.3464937210083,
+    "ood_score_std": 5.805272579193115,
+    "ood_score_skew": 0.015917722135782242,
+    "ood_score_kurt": -1.969969630241394
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

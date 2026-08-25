@@ -1,0 +1,27 @@
+{
+  "method": "msp",
+  "dataset": "TSB-M-STABLE_045_SEG_230400_104_SVDB_id_21_Med",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:00:51",
+  "auroc": 0.3448,
+  "aupr": 0.4095,
+  "fpr95": 0.9394,
+  "det_acc": 0.5,
+  "inference_ms": 0.54548,
+  "extended_metrics": {
+    "indist_score_mean": 0.12148172408342361,
+    "indist_score_std": 0.17088532447814941,
+    "indist_score_skew": 1.1635898351669312,
+    "indist_score_kurt": -0.25328946113586426,
+    "ood_score_mean": 0.049480460584163666,
+    "ood_score_std": 0.10364367812871933,
+    "ood_score_skew": 2.434577465057373,
+    "ood_score_kurt": 5.09344482421875
+  },
+  "n_test": 66,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

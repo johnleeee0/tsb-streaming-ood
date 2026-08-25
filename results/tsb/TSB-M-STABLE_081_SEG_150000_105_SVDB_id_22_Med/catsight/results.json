@@ -1,0 +1,9 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-STABLE_081_SEG_150000_105_SVDB_id_22_Med",
+  "seed": 42,
+  "status": "FAILED",
+  "timestamp": "2026-08-25T00:36:01",
+  "error": "ValueError: array must not contain infs or NaNs",
+  "traceback": "^^^^^^^^^^^^^^^^^^^\n  File \"C:\\THESIS_FINAL\\models\\detectors\\catsight.py\", line 150, in fit\n    self.csp_filters, _ = compute_csp_filters(\n                          ~~~~~~~~~~~~~~~~~~~^\n        X1, X2,\n        ^^^^^^^\n        n_components=min(self.n_components, feat_dim),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        reg=self.reg,\n        ^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\THESIS_FINAL\\models\\detectors\\catsight.py\", line 68, in compute_csp_filters\n    eigenvalues, eigenvectors = linalg.eigh(C1, C1 + C2)\n                                ~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\THESIS\\.venv\\Lib\\site-packages\\scipy\\_lib\\_util.py\", line 1136, in wrapper\n    return f(*arrays, *other_args, **kwargs)\n  File \"C:\\THESIS\\.venv\\Lib\\site-packages\\scipy\\linalg\\_decomp.py\", line 487, in eigh\n    a1 = _asarray_validated(a, check_finite=check_finite)\n  File \"C:\\THESIS\\.venv\\Lib\\site-packages\\scipy\\_lib\\_util.py\", line 410, in _asarray_validated\n    a = toarray(a)\n  File \"C:\\THESIS\\.venv\\Lib\\site-packages\\numpy\\lib\\_function_base_impl.py\", line 684, in asarray_chkfinite\n    raise ValueError(\n        \"array must not contain infs or NaNs\")\nValueError: array must not contain infs or NaNs\n"
+}

@@ -1,0 +1,27 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-STABLE_079_SEG_9057_847_OPPORTUNITY_id_6",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T17:06:32",
+  "auroc": 0.52,
+  "aupr": 0.6311,
+  "fpr95": 0.8,
+  "det_acc": 0.6,
+  "inference_ms": 5.1175,
+  "extended_metrics": {
+    "indist_score_mean": 5.626806139945984,
+    "indist_score_std": 3.1244673519197272,
+    "indist_score_skew": -0.031492303370380066,
+    "indist_score_kurt": -1.291567109449633,
+    "ood_score_mean": 5.782397699356079,
+    "ood_score_std": 2.4932004126098137,
+    "ood_score_skew": 0.9708358454755552,
+    "ood_score_kurt": -0.42669433056710204
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 32
+  }
+}

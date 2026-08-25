@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-M-DRIFT_079_SEG_400000_026_MITDB_id_8_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T12:14:33",
+  "auroc": 0.6553,
+  "aupr": 0.6883,
+  "fpr95": 0.75,
+  "det_acc": 0.5625,
+  "inference_ms": 0.54218,
+  "extended_metrics": {
+    "indist_score_mean": 14.564960055143821,
+    "indist_score_std": 2.774303862874873,
+    "indist_score_skew": 1.4246146208759232,
+    "indist_score_kurt": 3.9133149415966066,
+    "ood_score_mean": 16.885194307687502,
+    "ood_score_std": 3.95164725413179,
+    "ood_score_skew": 0.36501788105200134,
+    "ood_score_kurt": -1.2744441202119974
+  },
+  "n_test": 144,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

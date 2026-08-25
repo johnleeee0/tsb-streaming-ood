@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_021_SEG_10524_310_UCR_id_8_HumanActi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:39:26",
+  "auroc": 0.8125,
+  "aupr": 0.8929,
+  "fpr95": 0.75,
+  "det_acc": 0.625,
+  "inference_ms": 2.51528,
+  "extended_metrics": {
+    "indist_score_mean": 20.166670829238946,
+    "indist_score_std": 2.939250833762987,
+    "indist_score_skew": -0.2421052880824927,
+    "indist_score_kurt": -1.0315543926505166,
+    "ood_score_mean": 25.984642943242324,
+    "ood_score_std": 3.75631111255291,
+    "ood_score_skew": -0.9683108566292661,
+    "ood_score_kurt": -0.8318047283840206
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

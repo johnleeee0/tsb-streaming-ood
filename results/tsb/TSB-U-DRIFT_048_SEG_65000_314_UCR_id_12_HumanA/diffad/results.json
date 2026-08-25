@@ -1,0 +1,30 @@
+{
+  "method": "diffad",
+  "dataset": "TSB-U-DRIFT_048_SEG_65000_314_UCR_id_12_HumanA",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:22:15",
+  "auroc": 0.7278,
+  "aupr": 0.745,
+  "fpr95": 0.7391,
+  "det_acc": 0.5652,
+  "inference_ms": 14.4513,
+  "extended_metrics": {
+    "indist_score_mean": 0.11670632854751918,
+    "indist_score_std": 0.008000488553558794,
+    "indist_score_skew": 0.2135932489208866,
+    "indist_score_kurt": -0.7515113917360612,
+    "ood_score_mean": 0.12422969791552295,
+    "ood_score_std": 0.008573268439539379,
+    "ood_score_skew": -0.16801249519434597,
+    "ood_score_kurt": -0.9742316429279909
+  },
+  "n_test": 46,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_steps": 20,
+    "n_epochs": 8,
+    "hidden_dim": 64,
+    "recon_samples": 2
+  }
+}

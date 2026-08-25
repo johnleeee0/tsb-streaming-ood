@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_016_SEG_2499_026_NAB_id_26_Traffic_t",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:55:15",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.9091,
+  "inference_ms": 0.90107,
+  "extended_metrics": {
+    "indist_score_mean": 1129.514023612749,
+    "indist_score_std": 198.86318252404618,
+    "indist_score_skew": 0.5419103475217529,
+    "indist_score_kurt": -0.745462355987041,
+    "ood_score_mean": 17285.325411249814,
+    "ood_score_std": 174.28419399787884,
+    "ood_score_skew": -1.1842700623251503,
+    "ood_score_kurt": 0.4119832884687957
+  },
+  "n_test": 22,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-STABLE_005_SEG_21203_064_SMD_id_8_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:21:53",
+  "auroc": 0.2222,
+  "aupr": 0.4027,
+  "fpr95": 1.0,
+  "det_acc": 0.3333,
+  "inference_ms": 2.063,
+  "extended_metrics": {
+    "indist_score_mean": -3156.605224609375,
+    "indist_score_std": 4459.27294921875,
+    "indist_score_skew": -0.7138485312461853,
+    "indist_score_kurt": -1.480940580368042,
+    "ood_score_mean": -56944.57421875,
+    "ood_score_std": 88484.8125,
+    "ood_score_skew": -1.2831535339355469,
+    "ood_score_kurt": 0.04680061340332031
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

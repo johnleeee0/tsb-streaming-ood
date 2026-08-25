@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-DRIFT_095_SEG_18380_112_WSD_id_84_WebSer",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T13:33:49",
+  "auroc": 0.0617,
+  "aupr": 0.345,
+  "fpr95": 1.0,
+  "det_acc": 0.3889,
+  "inference_ms": 3.46444,
+  "extended_metrics": {
+    "indist_score_mean": -782.4253607855903,
+    "indist_score_std": 148.10328083404718,
+    "indist_score_skew": -0.2288462622392167,
+    "indist_score_kurt": -1.3532735899347412,
+    "ood_score_mean": -2404.007826063368,
+    "ood_score_std": 1218.7324047196191,
+    "ood_score_skew": -0.6618733499475401,
+    "ood_score_kurt": -0.8391467316123578
+  },
+  "n_test": 18,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

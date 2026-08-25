@@ -1,0 +1,27 @@
+{
+  "method": "gradnorm",
+  "dataset": "TSB-U-OOD_068_SEG_100000_232_MGAB_id_8_Synthet",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:16:22",
+  "auroc": 0.5714,
+  "aupr": 0.6404,
+  "fpr95": 1.0,
+  "det_acc": 0.4643,
+  "inference_ms": 8.27803,
+  "extended_metrics": {
+    "indist_score_mean": -303.94974626813615,
+    "indist_score_std": 178.9586175976731,
+    "indist_score_skew": -1.0141201730225748,
+    "indist_score_kurt": 0.11540118597715132,
+    "ood_score_mean": -297.8094335283552,
+    "ood_score_std": 227.3016152659988,
+    "ood_score_skew": -1.201038664619882,
+    "ood_score_kurt": -0.0766805309480878
+  },
+  "n_test": 28,
+  "backbone_epochs": 40,
+  "method_params": {
+    "temperature": 1.0
+  }
+}

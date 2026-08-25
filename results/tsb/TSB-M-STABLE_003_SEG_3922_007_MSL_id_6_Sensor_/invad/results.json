@@ -1,0 +1,29 @@
+{
+  "method": "invad",
+  "dataset": "TSB-M-STABLE_003_SEG_3922_007_MSL_id_6_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:29:49",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.5,
+  "inference_ms": 2.82257,
+  "extended_metrics": {
+    "indist_score_mean": 0.33865758776664734,
+    "indist_score_std": 0.024827999994158745,
+    "indist_score_skew": -0.6911113858222961,
+    "indist_score_kurt": -0.9569895267486572,
+    "ood_score_mean": 19908241408.0,
+    "ood_score_std": 17650014208.0,
+    "ood_score_skew": 0.3647594749927521,
+    "ood_score_kurt": NaN
+  },
+  "n_test": 10,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_epochs": 10,
+    "hidden_dim": 128,
+    "n_layers": 2
+  }
+}

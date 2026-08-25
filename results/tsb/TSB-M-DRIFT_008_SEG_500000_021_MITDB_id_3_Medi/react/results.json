@@ -1,0 +1,27 @@
+{
+  "method": "react",
+  "dataset": "TSB-M-DRIFT_008_SEG_500000_021_MITDB_id_3_Medi",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-24T12:02:04",
+  "auroc": 0.375,
+  "aupr": 0.4762,
+  "fpr95": 0.75,
+  "det_acc": 0.25,
+  "inference_ms": 4.06535,
+  "extended_metrics": {
+    "indist_score_mean": -3.755436420440674,
+    "indist_score_std": 1.5289349555969238,
+    "indist_score_skew": -0.5776259303092957,
+    "indist_score_kurt": -1.2481073141098022,
+    "ood_score_mean": -3.85258150100708,
+    "ood_score_std": 0.7381113767623901,
+    "ood_score_skew": 0.041392117738723755,
+    "ood_score_kurt": -1.5897305011749268
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "percentile": 90
+  }
+}

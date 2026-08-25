@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-U-OOD_078_SEG_195000_355_UCR_id_53_HumanAc",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T15:10:05",
+  "auroc": 0.7778,
+  "aupr": 0.8056,
+  "fpr95": 0.3333,
+  "det_acc": 0.6667,
+  "inference_ms": 3.18145,
+  "extended_metrics": {
+    "indist_score_mean": 2.041407631429824,
+    "indist_score_std": 0.851027522390292,
+    "indist_score_skew": 0.3115291624524301,
+    "indist_score_kurt": -1.5,
+    "ood_score_mean": 4.045191598155085,
+    "ood_score_std": 1.4875907184407993,
+    "ood_score_skew": 0.7066964608615001,
+    "ood_score_kurt": -1.4999999999999996
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

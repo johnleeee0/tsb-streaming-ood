@@ -1,0 +1,28 @@
+{
+  "method": "dimmad",
+  "dataset": "TSB-U-DRIFT_012_SEG_18049_023_NAB_id_23_Facili",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:15:17",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.6149,
+  "inference_ms": 1.84877,
+  "extended_metrics": {
+    "indist_score_mean": 6.831313316886489,
+    "indist_score_std": 1.8570406429310884,
+    "indist_score_skew": -0.3802796598451288,
+    "indist_score_kurt": -0.5374068019031522,
+    "ood_score_mean": 115594486.0,
+    "ood_score_std": 14964345.796791306,
+    "ood_score_skew": 0.1754386965005499,
+    "ood_score_kurt": 2.3792185494048406
+  },
+  "n_test": 148,
+  "backbone_epochs": 40,
+  "method_params": {
+    "class_agg": "min",
+    "metric_agg": "median"
+  }
+}

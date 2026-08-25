@@ -1,0 +1,25 @@
+{
+  "method": "mahalanobis",
+  "dataset": "TSB-U-OOD_025_SEG_70001_388_UCR_id_86_Facility",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-22T14:41:06",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.8846,
+  "inference_ms": 1.07115,
+  "extended_metrics": {
+    "indist_score_mean": 12.380821476752267,
+    "indist_score_std": 9.25572545725988,
+    "indist_score_skew": 1.0710818384215401,
+    "indist_score_kurt": -0.10874680015944316,
+    "ood_score_mean": 864.1775349836466,
+    "ood_score_std": 0.1993226836725277,
+    "ood_score_skew": 0.22438573225515232,
+    "ood_score_kurt": -1.6779111660556492
+  },
+  "n_test": 26,
+  "backbone_epochs": 40,
+  "method_params": {}
+}

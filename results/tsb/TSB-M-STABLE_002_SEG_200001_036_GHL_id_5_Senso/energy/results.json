@@ -1,0 +1,27 @@
+{
+  "method": "energy",
+  "dataset": "TSB-M-STABLE_002_SEG_200001_036_GHL_id_5_Senso",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:25:03",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.8,
+  "inference_ms": 0.8516,
+  "extended_metrics": {
+    "indist_score_mean": -6.880448818206787,
+    "indist_score_std": 1.7745444774627686,
+    "indist_score_skew": 0.23901504278182983,
+    "indist_score_kurt": -1.6290665864944458,
+    "ood_score_mean": -2.9799132347106934,
+    "ood_score_std": 0.31024646759033203,
+    "ood_score_skew": -1.2457396984100342,
+    "ood_score_kurt": 0.31113457679748535
+  },
+  "n_test": 40,
+  "backbone_epochs": 40,
+  "method_params": {
+    "score_type": "energy"
+  }
+}

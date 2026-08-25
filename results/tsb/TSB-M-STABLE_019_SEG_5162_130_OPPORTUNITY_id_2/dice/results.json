@@ -1,0 +1,27 @@
+{
+  "method": "dice",
+  "dataset": "TSB-M-STABLE_019_SEG_5162_130_OPPORTUNITY_id_2",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:15:01",
+  "auroc": 0.3333,
+  "aupr": 0.4778,
+  "fpr95": 0.6667,
+  "det_acc": 0.3333,
+  "inference_ms": 3.69452,
+  "extended_metrics": {
+    "indist_score_mean": -1.9028711318969727,
+    "indist_score_std": 0.16051918268203735,
+    "indist_score_skew": -0.14818522334098816,
+    "indist_score_kurt": -1.4999998807907104,
+    "ood_score_mean": -1.9408011436462402,
+    "ood_score_std": 0.04493645578622818,
+    "ood_score_skew": -0.6449993252754211,
+    "ood_score_kurt": -1.5000001192092896
+  },
+  "n_test": 6,
+  "backbone_epochs": 40,
+  "method_params": {
+    "top_k": 20
+  }
+}

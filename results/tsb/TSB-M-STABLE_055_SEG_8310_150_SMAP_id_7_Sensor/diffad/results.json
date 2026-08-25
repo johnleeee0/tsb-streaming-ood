@@ -1,0 +1,30 @@
+{
+  "method": "diffad",
+  "dataset": "TSB-M-STABLE_055_SEG_8310_150_SMAP_id_7_Sensor",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T01:02:14",
+  "auroc": 0.6111,
+  "aupr": 0.7508,
+  "fpr95": 1.0,
+  "det_acc": 0.4167,
+  "inference_ms": 18.84938,
+  "extended_metrics": {
+    "indist_score_mean": 0.1247038251409928,
+    "indist_score_std": 0.004459584597824796,
+    "indist_score_skew": 1.5168025454057454,
+    "indist_score_kurt": 0.6965779565195125,
+    "ood_score_mean": 0.12518846554060778,
+    "ood_score_std": 0.012020817479317387,
+    "ood_score_skew": -0.589525308503266,
+    "ood_score_kurt": -0.8526624337560609
+  },
+  "n_test": 12,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_steps": 20,
+    "n_epochs": 8,
+    "hidden_dim": 64,
+    "recon_samples": 2
+  }
+}

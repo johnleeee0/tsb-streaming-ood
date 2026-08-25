@@ -1,0 +1,28 @@
+{
+  "method": "catsight",
+  "dataset": "TSB-M-STABLE_021_SEG_3922_007_MSL_id_6_Sensor_",
+  "seed": 42,
+  "status": "COMPLETE",
+  "timestamp": "2026-08-25T00:25:06",
+  "auroc": 1.0,
+  "aupr": 1.0,
+  "fpr95": 0.0,
+  "det_acc": 0.75,
+  "inference_ms": 5.32704,
+  "extended_metrics": {
+    "indist_score_mean": 1.0635203542028657,
+    "indist_score_std": 0.26828080214559225,
+    "indist_score_skew": -0.3898464151000888,
+    "indist_score_kurt": -1.325258054400649,
+    "ood_score_mean": 41680.55923008951,
+    "ood_score_std": 25321.252211833587,
+    "ood_score_skew": -0.8173043087471008,
+    "ood_score_kurt": -0.8718889501373002
+  },
+  "n_test": 8,
+  "backbone_epochs": 40,
+  "method_params": {
+    "n_components": 6,
+    "reg": 0.0001
+  }
+}

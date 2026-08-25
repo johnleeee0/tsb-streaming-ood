@@ -1,0 +1,9 @@
+{
+  "method": "dfm_pca",
+  "dataset": "TSB-U-STABLE_089_SEG_1680_637_YAHOO_id_87_WebS",
+  "seed": 42,
+  "status": "FAILED",
+  "timestamp": "2026-08-22T16:12:57",
+  "error": "ValueError: Class 0 has only 1 samples. Need at least 2 samples per class for PCA.",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\THESIS_FINAL\\runners\\pipeline.py\", line 130, in run_one\n    det.fit(dataset[\"train\"][\"x\"], dataset[\"train\"][\"y\"])\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\THESIS_FINAL\\models\\detectors\\dfm_pca.py\", line 62, in fit\n    raise ValueError(\n    ...<2 lines>...\n    )\nValueError: Class 0 has only 1 samples. Need at least 2 samples per class for PCA.\n"
+}
