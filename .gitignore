@@ -25,3 +25,4 @@ results/tsb/          # large per-run raw cache (scores.npy/labels.npy/results.j
 # ---- OS / editor ----
 .DS_Store
 Thumbs.db
+REVIEWER_GUIDE.md
