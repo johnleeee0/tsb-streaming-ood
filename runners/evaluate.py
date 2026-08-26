@@ -66,12 +66,23 @@ def ranking(df):
 def friedman(df):
     piv = df.pivot_table(index="method", columns="dataset", values="auroc", aggfunc="mean").dropna(axis=1)
     piv = piv.dropna()
-    if piv.shape[0] >= 3 and piv.shape[1] >= 2:
-        # Friedman: one measurement group PER METHOD (k groups, each of length N datasets).
-        # piv is methods (rows) x datasets (cols), so iterate rows, not columns.
-        s, p = friedmanchisquare(*[piv.loc[m].values for m in piv.index])
-        return f"chi2={s:.2f}, p={p:.3g} (k={piv.shape[0]} methods, N={piv.shape[1]} datasets)"
-    return "insufficient complete cells"
+    if piv.shape[0] < 3 or piv.shape[1] < 2:
+        return "insufficient complete cells"
+    # (a) Complete-case over ALL methods. If a method is unrun on a split (e.g. SRS on
+    #     TSB-M), complete-case pruning drops those columns -> N is that split's size.
+    s, p = friedmanchisquare(*[piv.loc[m].values for m in piv.index])
+    out = f"chi2={s:.2f}, p={p:.3g} (k={piv.shape[0]} methods, N={piv.shape[1]} datasets, complete-case)"
+    # (b) Full-coverage: drop methods missing on >10% of datasets (e.g. SRS), so all
+    #     splits are retained. Report only if it yields more datasets than (a).
+    full = df.pivot_table(index="method", columns="dataset", values="auroc", aggfunc="mean")
+    keep = full.index[full.notna().mean(axis=1) >= 0.90]
+    piv2 = full.loc[keep].dropna(axis=1)
+    if piv2.shape[0] >= 3 and piv2.shape[1] > piv.shape[1]:
+        s2, p2 = friedmanchisquare(*[piv2.loc[m].values for m in piv2.index])
+        dropped = sorted(set(full.index) - set(keep))
+        out += (f"; full-coverage chi2={s2:.2f}, p={p2:.3g} "
+                f"(k={piv2.shape[0]}, N={piv2.shape[1]}, excl. {','.join(dropped)})")
+    return out
 
 
 def tex_table(rank, path, caption, label):

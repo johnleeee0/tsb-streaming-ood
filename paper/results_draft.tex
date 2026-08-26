@@ -205,14 +205,15 @@ chance at any conventional level \citep{Demsar2006}. The magnitude of the
 statistic, orders of magnitude beyond the $\alpha = 0.05$ threshold, reflects the
 extreme and consistent spread between the feature-manifold leaders and the
 inverted post-hoc cluster visible in \cref{tab:tsb_main} and \cref{fig:heatmap}.
-We state one caveat honestly. The test uses complete-case pruning: only datasets
-on which \emph{all} \num{17} detectors produced a score enter the test. Because SRS
-is univariate-seasonal and its multivariate run is still pending, the complete-case
-pool reduces to $N = \num{250}$ datasets, all univariate; the significance result
-is therefore effectively univariate-complete. Given the identical rank ordering
-across both families (\cref{tab:tsb_split}) we do not expect the multivariate data
-to alter the conclusion, but the definitive combined-family Friedman test awaits
-the SRS multivariate run.
+We state one caveat honestly. This complete-case test admits only datasets on which
+\emph{all} \num{17} detectors produced a score; because SRS is univariate-seasonal
+and is not run on the multivariate split, that pool is $N = \num{250}$ univariate
+datasets. To obtain a combined-family test over the full corpus we repeat the
+Friedman test on the \num{16} detectors excluding SRS, which retains every
+multivariate dataset: it is likewise very highly significant, $\chi^2 =
+\num{2336.59}$, $p < \num{1e-16}$ ($k = \num{16}$, $N = \num{515}$ datasets,
+univariate and multivariate). The two tests agree, so the ranking is significant
+both univariate-complete and across the combined corpus.
 
 \subsection{Class-D appendix results}\label{sec:results-classd}
 Seven detectors could not be reproduced faithfully under the shared streaming
@@ -229,15 +230,15 @@ reason and disposition for each is recorded in \cref{tab:classd}; the audit
 narrative behind these verdicts is developed in \cref{sec:discussion} and
 \cref{app:fidelity}.
 
-For completeness we ran these seven on TSB-StreamingAD-U under the evaluation arm
-most appropriate to each (the multivariate arms are pending) and report the
-outcome in \cref{tab:class_d_appendix}. The result reinforces rather than
-complicates the headline: no detector in this group rises clearly above chance and
-none is a winner. Their mean AUROC clusters between \num{0.398} and \num{0.662},
-with the strongest arm (TD-IVDM as generic KDE density, \num{0.662}) still well
-below the feature-manifold leaders and the weakest (DIVERSIFY with an energy score,
-\num{0.398}) inverted; the augmented-training methods hover near \num{0.44}--\num{0.62}
-depending on whether the head only or the full network is fine-tuned. Evaluated
+For completeness we ran these seven on both TSB-StreamingAD-U and -M under the
+evaluation arm most appropriate to each and report the outcome in
+\cref{tab:class_d_appendix}. The result reinforces rather than complicates the
+headline: no detector in this group rises clearly above chance and none is a
+winner. Their mean AUROC clusters between \num{0.494} and \num{0.696}, with the
+strongest arm (TD-IVDM as generic KDE density, \num{0.696}) still well below the
+feature-manifold leaders and the weakest (DivOE, \num{0.494}) at chance; the
+augmented-training methods hover near \num{0.49}--\num{0.59} depending on whether
+the head only or the full network is fine-tuned. Evaluated
 even under their own favourable protocols, these methods do not challenge the
 feature-manifold family, and the two that reduce to feature-space distance/density
 (DriftLens, TD-IVDM) merely re-confirm the winning principle under other names.

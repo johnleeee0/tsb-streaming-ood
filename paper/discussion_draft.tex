@@ -266,23 +266,25 @@ both families, categories, and normalisation schemes.
   \item \textbf{CPU-only.} All experiments run on CPU; the inference-time comparisons
   (\cref{fig:efficiency}) are CPU latencies and would change in absolute terms,
   though not in ranking, on accelerated hardware.
-  \item \textbf{Friedman complete-case caveat.} Because SRS is univariate-seasonal
-  and its multivariate run is pending, the complete-case Friedman pool is $N =
-  \num{250}$ univariate datasets; the significance result is effectively
-  univariate-complete. The identical rank ordering across families
-  (\cref{tab:tsb_split}) makes a reversal on the combined pool very unlikely, but the
-  definitive combined-family test awaits the SRS multivariate run.
+  \item \textbf{Friedman complete-case caveat.} The \num{17}-detector complete-case
+  Friedman pool is $N = \num{250}$ univariate datasets, because SRS is
+  univariate-seasonal and is not run on the multivariate split. A combined-family test
+  over the full corpus (\num{16} detectors excluding SRS, $N = \num{515}$ univariate
+  and multivariate) is equally highly significant ($\chi^2 = \num{2336.59}$,
+  $p < \num{1e-16}$), so the conclusion holds across both splits; only an
+  SRS-inclusive combined test is out of scope.
   \item \textbf{Small Source-1 training windows.} The source-boundary split trains
   only on the pre-boundary Source-1 region, typically a small leading fraction of
   each file; the resulting ID pool is modest, which particularly constrains density
   estimators fit on few windows.
   \item \textbf{Class-D methods run under separate protocols.} The seven excluded
   detectors (\cref{tab:classd}) are reported in \cref{tab:class_d_appendix} under
-  their own protocol-appropriate arms on TSB-U only; their multivariate arms are
-  pending, and their behaviour under a protocol they \emph{are} designed for
-  (ordered streams, auxiliary outlier corpora, batch-level drift) remains untested
-  here. Reporting them separately is the honest choice, but it means the comparison
-  to the headline set is indicative, not like-for-like.
+  their own protocol-appropriate arms on both TSB-U and -M; even so, none rises
+  clearly above chance (mean AUROC \numrange{0.494}{0.696}). Their behaviour under a
+  protocol they \emph{are} designed for (ordered streams, auxiliary outlier corpora,
+  batch-level drift) remains untested here. Reporting them separately is the honest
+  choice, but it means the comparison to the headline set is indicative, not
+  like-for-like.
   \item \textbf{Single seed.} All splits and initialisations use seed \num{42}; a
   multi-seed study would attach confidence intervals to every AUROC.
 \end{enumerate}

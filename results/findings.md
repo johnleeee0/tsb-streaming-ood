@@ -115,22 +115,22 @@ msp (0.370), srs (0.352), dice (0.313), scale (0.308), odin (0.303), react (0.30
 
 ## Statistical test
 
-- Friedman: chi2=1674.97, p=0 (k=17 methods, N=250 datasets)
+- Friedman: chi2=1674.97, p=0 (k=17 methods, N=250 datasets, complete-case); full-coverage chi2=2336.59, p=0 (k=16, N=515, excl. srs)
 
 ## Class-D appendix detectors (mean AUROC by arm)
 
-Rows: 1731 across 7 detectors (ae_adwin_lstm, diversemix, diversify, divoe, driftlens, outlier_exposure, tdivdm).
+Rows: 3583 across 7 detectors (ae_adwin_lstm, diversemix, diversify, divoe, driftlens, outlier_exposure, tdivdm).
 
                                   mean_auroc  std_auroc    n
 method           arm                                        
-tdivdm           none                  0.662      0.181  161
-diversemix       head_only             0.620      0.275  158
-diversify        cosine_centroid       0.587      0.266  158
-driftlens        none                  0.573      0.368  146
-divoe            full_net              0.572      0.233  158
-outlier_exposure full_net              0.564      0.232  158
-ae_adwin_lstm    none                  0.556      0.211  160
-diversemix       full_net              0.550      0.246  158
-outlier_exposure head_only             0.442      0.259  158
-divoe            head_only             0.438      0.258  158
-diversify        energy                0.398      0.269  158
+tdivdm           none                  0.696      0.180  330
+diversemix       head_only             0.615      0.253  327
+ae_adwin_lstm    none                  0.572      0.198  324
+diversify        cosine_centroid       0.566      0.277  327
+diversemix       full_net              0.562      0.249  327
+outlier_exposure full_net              0.560      0.236  327
+driftlens        none                  0.543      0.337  313
+divoe            full_net              0.538      0.263  327
+diversify        energy                0.493      0.298  327
+outlier_exposure head_only             0.460      0.262  327
+divoe            head_only             0.449      0.267  327
