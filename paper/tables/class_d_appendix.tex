@@ -1,23 +1,23 @@
-% auto-generated from results/class_d_group{1,2,3}.csv (TSB-StreamingAD-U)
+% auto-generated from results/findings.md (combined TSB-StreamingAD-U + TSB-StreamingAD-M class-D arms)
 \begin{table}[t]\centering
-\caption{Class-D appendix detectors, evaluated under their own
-protocol-appropriate arms on TSB-StreamingAD-U (the multivariate arms are
-pending). These detectors are excluded from the headline ranking because they are
-not faithfully reproducible under the shared frozen-backbone protocol
-(\cref{tab:classd}); reported here under the arm most favourable to each, no
-detector rises clearly above chance and none is a winner.}
+\caption{Adapted-protocol detectors, evaluated under their own
+method-appropriate arms on the combined TSB-StreamingAD-U and -M corpus. These
+are legitimate OOD methods whose defining mechanism requires an adapted protocol
+rather than the unified frozen-backbone protocol (\cref{tab:classd}), so they are
+evaluated separately for fairness; reported here under the arm most favourable to
+each, no detector rises clearly above chance and none is a winner.}
 \label{tab:class_d_appendix}
 \small\begin{tabular}{llrrr}\toprule
 Method & Arm & Mean AUROC & Std & $n$ \\\midrule
-tdivdm & none & 0.662 & 0.181 & 161 \\
-diversemix & head-only & 0.620 & 0.275 & 158 \\
-diversify & cosine-centroid & 0.587 & 0.266 & 158 \\
-driftlens & none & 0.573 & 0.368 & 146 \\
-divoe & full-net & 0.572 & 0.233 & 158 \\
-outlier-exposure & full-net & 0.564 & 0.232 & 158 \\
-ae-adwin-lstm & none & 0.556 & 0.211 & 160 \\
-diversemix & full-net & 0.550 & 0.246 & 158 \\
-outlier-exposure & head-only & 0.442 & 0.259 & 158 \\
-divoe & head-only & 0.438 & 0.258 & 158 \\
-diversify & energy & 0.398 & 0.269 & 158 \\
+tdivdm & none & 0.696 & 0.180 & 330 \\
+diversemix & head-only & 0.615 & 0.253 & 327 \\
+ae-adwin-lstm & none & 0.572 & 0.198 & 324 \\
+diversify & cosine-centroid & 0.566 & 0.277 & 327 \\
+diversemix & full-net & 0.562 & 0.249 & 327 \\
+outlier-exposure & full-net & 0.560 & 0.236 & 327 \\
+driftlens & none & 0.543 & 0.337 & 313 \\
+divoe & full-net & 0.538 & 0.263 & 327 \\
+diversify & energy & 0.493 & 0.298 & 327 \\
+outlier-exposure & head-only & 0.460 & 0.262 & 327 \\
+divoe & head-only & 0.449 & 0.267 & 327 \\
 \bottomrule\end{tabular}\end{table}

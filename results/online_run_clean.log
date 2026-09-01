@@ -1,0 +1,343 @@
+Online-Mahalanobis streaming experiment: splits=['U'] n_per_cell=10 decay=0.999
+
+===== U/DRIFT: DRIFT_002_SEG_4031_019_NAB_id_19_Facility_tr_1007_1st_1171_AND_215_SMD =====
+[TSB] TSB-U-DRIFT_002_SEG_4031_019_NAB_id_19_Facility_tr_100
+  Raw series : 27734 timesteps, 1 channel(s), 2.0% anomalous points
+  Windows    : size=64, stride=32, 865 total (842 normal, 23 anomalous)
+  Source-1   : 35 normal windows (boundary row 1171)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 24 windows (4 pseudo-classes)
+  Val        : 16 windows (11 OOD / 5 ID)
+  Test       : 18 windows (12 OOD / 6 ID)
+  batch  auroc=0.6126 aupr=0.73 fpr95=0.9091 (0.06s) | online auroc=0.2253 aupr=0.5328 fpr95=0.9091 (5.58s) | n=34
+
+===== U/DRIFT: DRIFT_004_SEG_18380_105_WSD_id_77_WebService_tr_2348_1st_2448_AND_283_ =====
+[TSB] TSB-U-DRIFT_004_SEG_18380_105_WSD_id_77_WebService_tr_
+  Raw series : 19453 timesteps, 1 channel(s), 1.1% anomalous points
+  Windows    : size=64, stride=32, 606 total (580 normal, 26 anomalous)
+  Source-1   : 75 normal windows (boundary row 2448)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 52 windows (4 pseudo-classes)
+  Val        : 24 windows (13 OOD / 11 ID)
+  Test       : 25 windows (13 OOD / 12 ID)
+  batch  auroc=0.4849 aupr=0.5379 fpr95=0.7826 (0.03s) | online auroc=0.3428 aupr=0.4436 fpr95=1.0 (5.21s) | n=49
+
+===== U/DRIFT: DRIFT_006_SEG_18236_067_WSD_id_39_WebService_tr_4559_1st_13973_AND_577 =====
+[TSB] TSB-U-DRIFT_006_SEG_18236_067_WSD_id_39_WebService_tr_
+  Raw series : 19916 timesteps, 1 channel(s), 0.3% anomalous points
+  Windows    : size=64, stride=32, 621 total (608 normal, 13 anomalous)
+  Source-1   : 435 normal windows (boundary row 13973)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 304 windows (4 pseudo-classes)
+  Val        : 71 windows (6 OOD / 65 ID)
+  Test       : 73 windows (7 OOD / 66 ID)
+  batch  auroc=0.744 aupr=0.2141 fpr95=0.5649 (0.04s) | online auroc=0.6982 aupr=0.2047 fpr95=0.8779 (8.15s) | n=144
+
+===== U/DRIFT: DRIFT_007_SEG_18391_054_WSD_id_26_WebService_tr_2409_1st_2509_AND_586_ =====
+[TSB] TSB-U-DRIFT_007_SEG_18391_054_WSD_id_26_WebService_tr_
+  Raw series : 20071 timesteps, 1 channel(s), 0.3% anomalous points
+  Windows    : size=64, stride=32, 626 total (612 normal, 14 anomalous)
+  Source-1   : 77 normal windows (boundary row 2509)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 53 windows (4 pseudo-classes)
+  Val        : 19 windows (7 OOD / 12 ID)
+  Test       : 19 windows (7 OOD / 12 ID)
+  batch  auroc=0.7768 aupr=0.6018 fpr95=0.6667 (0.02s) | online auroc=0.375 aupr=0.3342 fpr95=1.0 (2.16s) | n=38
+
+===== U/DRIFT: DRIFT_009_SEG_18236_047_WSD_id_19_WebService_tr_4559_1st_16362_AND_741 =====
+[TSB] TSB-U-DRIFT_009_SEG_18236_047_WSD_id_19_WebService_tr_
+  Raw series : 19916 timesteps, 1 channel(s), 0.1% anomalous points
+  Windows    : size=64, stride=32, 621 total (615 normal, 6 anomalous)
+  Source-1   : 510 normal windows (boundary row 16362)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 357 windows (4 pseudo-classes)
+  Val        : 79 windows (3 OOD / 76 ID)
+  Test       : 80 windows (3 OOD / 77 ID)
+  batch  auroc=0.7135 aupr=0.3801 fpr95=0.6275 (0.04s) | online auroc=0.6939 aupr=0.1165 fpr95=0.6471 (14.06s) | n=159
+
+===== U/DRIFT: DRIFT_010_SEG_12000_521_UCR_id_219_Facility_tr_3000_1st_6527_AND_824_E =====
+[TSB] TSB-U-DRIFT_010_SEG_12000_521_UCR_id_219_Facility_tr_3
+  Raw series : 55066 timesteps, 1 channel(s), 10.1% anomalous points
+  Windows    : size=64, stride=32, 1719 total (1539 normal, 180 anomalous)
+  Source-1   : 202 normal windows (boundary row 6527)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 141 windows (4 pseudo-classes)
+  Val        : 120 windows (90 OOD / 30 ID)
+  Test       : 121 windows (90 OOD / 31 ID)
+  batch  auroc=0.9767 aupr=0.9928 fpr95=0.1311 (0.12s) | online auroc=0.541 aupr=0.7912 fpr95=0.8852 (27.57s) | n=241
+
+===== U/DRIFT: DRIFT_012_SEG_18049_023_NAB_id_23_Facility_tr_4512_1st_16551_AND_828_E =====
+[TSB] TSB-U-DRIFT_012_SEG_18049_023_NAB_id_23_Facility_tr_45
+  Raw series : 64704 timesteps, 1 channel(s), 6.9% anomalous points
+  Windows    : size=64, stride=32, 2021 total (1874 normal, 147 anomalous)
+  Source-1   : 516 normal windows (boundary row 16551)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 361 windows (4 pseudo-classes)
+  Val        : 150 windows (73 OOD / 77 ID)
+  Test       : 152 windows (74 OOD / 78 ID)
+  batch  auroc=0.9203 aupr=0.9426 fpr95=0.6323 (0.07s) | online auroc=0.7543 aupr=0.8243 fpr95=0.9355 (33.01s) | n=302
+
+===== U/DRIFT: DRIFT_013_SEG_4031_022_NAB_id_22_Facility_tr_1007_1st_2980_AND_823_Exa =====
+[TSB] TSB-U-DRIFT_013_SEG_4031_022_NAB_id_22_Facility_tr_100
+  Raw series : 47097 timesteps, 1 channel(s), 12.6% anomalous points
+  Windows    : size=64, stride=32, 1470 total (1276 normal, 194 anomalous)
+  Source-1   : 92 normal windows (boundary row 2980)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 64 windows (4 pseudo-classes)
+  Val        : 111 windows (97 OOD / 14 ID)
+  Test       : 111 windows (97 OOD / 14 ID)
+  batch  auroc=0.2916 aupr=0.817 fpr95=1.0 (0.08s) | online auroc=0.0142 aupr=0.7054 fpr95=1.0 (30.11s) | n=222
+
+===== U/DRIFT: DRIFT_014_SEG_18236_050_WSD_id_22_WebService_tr_4559_1st_12816_AND_285 =====
+[TSB] TSB-U-DRIFT_014_SEG_18236_050_WSD_id_22_WebService_tr_
+  Raw series : 19309 timesteps, 1 channel(s), 0.7% anomalous points
+  Windows    : size=64, stride=32, 602 total (594 normal, 8 anomalous)
+  Source-1   : 399 normal windows (boundary row 12816)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 279 windows (4 pseudo-classes)
+  Val        : 64 windows (4 OOD / 60 ID)
+  Test       : 64 windows (4 OOD / 60 ID)
+  batch  auroc=0.8875 aupr=0.4494 fpr95=0.3833 (0.05s) | online auroc=0.7854 aupr=0.3801 fpr95=0.8167 (18.63s) | n=128
+
+===== U/DRIFT: DRIFT_015_SEG_18236_095_WSD_id_67_WebService_tr_2182_1st_2282_AND_783_ =====
+[TSB] TSB-U-DRIFT_015_SEG_18236_095_WSD_id_67_WebService_tr_
+  Raw series : 19916 timesteps, 1 channel(s), 0.1% anomalous points
+  Windows    : size=64, stride=32, 621 total (600 normal, 21 anomalous)
+  Source-1   : 70 normal windows (boundary row 2282)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 49 windows (4 pseudo-classes)
+  Val        : 20 windows (10 OOD / 10 ID)
+  Test       : 22 windows (11 OOD / 11 ID)
+  batch  auroc=0.4059 aupr=0.5017 fpr95=0.9048 (0.03s) | online auroc=0.0454 aupr=0.3244 fpr95=1.0 (6.02s) | n=42
+
+===== U/OOD: OOD_001_SEG_18236_118_WSD_id_90_WebService_tr_4559_1st_6317_AND_188_SM =====
+[TSB] TSB-U-OOD_001_SEG_18236_118_WSD_id_90_WebService_tr_45
+  Raw series : 41939 timesteps, 1 channel(s), 2.0% anomalous points
+  Windows    : size=64, stride=32, 1309 total (1260 normal, 49 anomalous)
+  Source-1   : 196 normal windows (boundary row 6317)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 137 windows (4 pseudo-classes)
+  Val        : 53 windows (24 OOD / 29 ID)
+  Test       : 55 windows (25 OOD / 30 ID)
+  batch  auroc=0.8883 aupr=0.8832 fpr95=0.4407 (0.05s) | online auroc=0.6942 aupr=0.7235 fpr95=1.0 (9.08s) | n=108
+
+===== U/OOD: OOD_002_SEG_4031_024_NAB_id_24_Synthetic_tr_1007_1st_2787_AND_811_Exat =====
+[TSB] TSB-U-OOD_002_SEG_4031_024_NAB_id_24_Synthetic_tr_1007
+  Raw series : 47097 timesteps, 1 channel(s), 12.6% anomalous points
+  Windows    : size=64, stride=32, 1470 total (1278 normal, 192 anomalous)
+  Source-1   : 86 normal windows (boundary row 2787)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 60 windows (4 pseudo-classes)
+  Val        : 109 windows (96 OOD / 13 ID)
+  Test       : 109 windows (96 OOD / 13 ID)
+  batch  auroc=0.7764 aupr=0.9594 fpr95=0.7692 (0.08s) | online auroc=0.0755 aupr=0.7312 fpr95=1.0 (19.59s) | n=218
+
+===== U/OOD: OOD_003_SEG_10028_306_UCR_id_4_Medical_tr_2507_1st_8500_AND_607_YAHOO_ =====
+[TSB] TSB-U-OOD_003_SEG_10028_306_UCR_id_4_Medical_tr_2507_1
+  Raw series : 11708 timesteps, 1 channel(s), 0.1% anomalous points
+  Windows    : size=64, stride=32, 364 total (340 normal, 24 anomalous)
+  Source-1   : 264 normal windows (boundary row 8500)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 184 windows (4 pseudo-classes)
+  Val        : 52 windows (12 OOD / 40 ID)
+  Test       : 52 windows (12 OOD / 40 ID)
+  batch  auroc=0.9958 aupr=0.9889 fpr95=0.0125 (0.03s) | online auroc=0.9297 aupr=0.871 fpr95=0.425 (19.59s) | n=104
+
+===== U/OOD: OOD_004_SEG_149123_263_IOPS_id_4_WebService_tr_3482_1st_3582_AND_725_Y =====
+[TSB] TSB-U-OOD_004_SEG_149123_263_IOPS_id_4_WebService_tr_3
+  Raw series : 150544 timesteps, 1 channel(s), 0.5% anomalous points
+  Windows    : size=64, stride=32, 4703 total (4573 normal, 130 anomalous)
+  Source-1   : 110 normal windows (boundary row 3582)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 77 windows (4 pseudo-classes)
+  Val        : 81 windows (65 OOD / 16 ID)
+  Test       : 82 windows (65 OOD / 17 ID)
+  batch  auroc=0.6576 aupr=0.8979 fpr95=1.0 (0.04s) | online auroc=0.1448 aupr=0.6514 fpr95=1.0 (13.53s) | n=163
+
+===== U/OOD: OOD_005_SEG_130400_237_SVDB_id_1_Medical_tr_11587_1st_11687_AND_331_UC =====
+[TSB] TSB-U-OOD_005_SEG_130400_237_SVDB_id_1_Medical_tr_1158
+  Raw series : 1030400 timesteps, 1 channel(s), 1.1% anomalous points
+  Windows    : size=64, stride=32, 32199 total (31814 normal, 385 anomalous)
+  Source-1   : 364 normal windows (boundary row 11687)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 254 windows (4 pseudo-classes)
+  Val        : 247 windows (192 OOD / 55 ID)
+  Test       : 248 windows (193 OOD / 55 ID)
+  batch  auroc=0.6336 aupr=0.8774 fpr95=0.9818 (0.20s) | online auroc=0.0978 aupr=0.6036 fpr95=1.0 (53.98s) | n=495
+
+===== U/OOD: OOD_006_SEG_2430_147_MSL_id_8_Sensor_tr_590_1st_690_AND_640_YAHOO_id_9 =====
+[TSB] TSB-U-OOD_006_SEG_2430_147_MSL_id_8_Sensor_tr_590_1st_
+  Raw series : 4110 timesteps, 1 channel(s), 6.5% anomalous points
+  Windows    : size=64, stride=32, 127 total (86 normal, 41 anomalous)
+  Source-1   : 20 normal windows (boundary row 690)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 14 windows (4 pseudo-classes)
+  Val        : 23 windows (20 OOD / 3 ID)
+  Test       : 24 windows (21 OOD / 3 ID)
+  batch  auroc=0.8008 aupr=0.9611 fpr95=0.6667 (0.03s) | online auroc=0.3211 aupr=0.773 fpr95=0.6667 (3.79s) | n=47
+
+===== U/OOD: OOD_009_SEG_8184_504_UCR_id_202_Environment_tr_2046_1st_5549_AND_536_S =====
+[TSB] TSB-U-OOD_009_SEG_8184_504_UCR_id_202_Environment_tr_2
+  Raw series : 16824 timesteps, 1 channel(s), 0.9% anomalous points
+  Windows    : size=64, stride=32, 524 total (516 normal, 8 anomalous)
+  Source-1   : 172 normal windows (boundary row 5549)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 120 windows (4 pseudo-classes)
+  Val        : 30 windows (4 OOD / 26 ID)
+  Test       : 30 windows (4 OOD / 26 ID)
+  batch  auroc=0.8822 aupr=0.7117 fpr95=0.5 (0.03s) | online auroc=0.7163 aupr=0.45 fpr95=0.9231 (4.87s) | n=60
+
+===== U/OOD: OOD_011_SEG_4031_028_NAB_id_28_Facility_tr_1007_1st_3447_AND_634_YAHOO =====
+[TSB] TSB-U-OOD_011_SEG_4031_028_NAB_id_28_Facility_tr_1007_
+  Raw series : 5452 timesteps, 1 channel(s), 8.0% anomalous points
+  Windows    : size=64, stride=32, 169 total (149 normal, 20 anomalous)
+  Source-1   : 106 normal windows (boundary row 3447)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 74 windows (4 pseudo-classes)
+  Val        : 26 windows (10 OOD / 16 ID)
+  Test       : 26 windows (10 OOD / 16 ID)
+  batch  auroc=0.4031 aupr=0.4095 fpr95=0.9062 (0.03s) | online auroc=0.2562 aupr=0.2815 fpr95=1.0 (4.59s) | n=52
+
+===== U/OOD: OOD_012_SEG_18236_099_WSD_id_71_WebService_tr_4559_1st_14411_AND_675_Y =====
+[TSB] TSB-U-OOD_012_SEG_18236_099_WSD_id_71_WebService_tr_45
+  Raw series : 19657 timesteps, 1 channel(s), 0.3% anomalous points
+  Windows    : size=64, stride=32, 613 total (604 normal, 9 anomalous)
+  Source-1   : 449 normal windows (boundary row 14411)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 314 windows (4 pseudo-classes)
+  Val        : 71 windows (4 OOD / 67 ID)
+  Test       : 73 windows (5 OOD / 68 ID)
+  batch  auroc=0.9786 aupr=0.897 fpr95=0.1778 (0.04s) | online auroc=0.9086 aupr=0.6926 fpr95=0.3704 (12.86s) | n=144
+
+===== U/OOD: OOD_013_SEG_100000_231_MGAB_id_7_Synthetic_tr_25000_1st_35544_AND_412_ =====
+[TSB] TSB-U-OOD_013_SEG_100000_231_MGAB_id_7_Synthetic_tr_25
+  Raw series : 130000 timesteps, 1 channel(s), 0.3% anomalous points
+  Windows    : size=64, stride=32, 4061 total (4028 normal, 33 anomalous)
+  Source-1   : 1109 normal windows (boundary row 35544)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 776 windows (4 pseudo-classes)
+  Val        : 182 windows (16 OOD / 166 ID)
+  Test       : 184 windows (17 OOD / 167 ID)
+  batch  auroc=0.6414 aupr=0.3942 fpr95=0.955 (0.10s) | online auroc=0.6446 aupr=0.3166 fpr95=0.982 (50.71s) | n=366
+
+===== U/STABLE: STABLE_002_SEG_18236_048_WSD_id_20_WebService_tr_4559_1st_11813_AND_07 =====
+[TSB] TSB-U-STABLE_002_SEG_18236_048_WSD_id_20_WebService_tr
+  Raw series : 33521 timesteps, 1 channel(s), 0.2% anomalous points
+  Windows    : size=64, stride=32, 1046 total (1040 normal, 6 anomalous)
+  Source-1   : 368 normal windows (boundary row 11813)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 257 windows (4 pseudo-classes)
+  Val        : 58 windows (3 OOD / 55 ID)
+  Test       : 59 windows (3 OOD / 56 ID)
+  batch  auroc=0.997 aupr=0.9484 fpr95=0.009 (0.04s) | online auroc=0.997 aupr=0.9484 fpr95=0.009 (15.27s) | n=117
+
+===== U/STABLE: STABLE_003_SEG_1680_580_YAHOO_id_30_WebService_tr_500_1st_236_AND_761_ =====
+[TSB] TSB-U-STABLE_003_SEG_1680_580_YAHOO_id_30_WebService_t
+  Raw series : 3360 timesteps, 1 channel(s), 0.5% anomalous points
+  Windows    : size=64, stride=32, 104 total (79 normal, 25 anomalous)
+  Source-1   : 6 normal windows (boundary row 236)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 4 windows (4 pseudo-classes)
+  Val        : 13 windows (12 OOD / 1 ID)
+  Test       : 14 windows (13 OOD / 1 ID)
+  batch  auroc=0.32 aupr=0.9218 fpr95=1.0 (0.03s) | online auroc=0.02 aupr=0.8154 fpr95=1.0 (3.07s) | n=27
+
+===== U/STABLE: STABLE_004_SEG_1680_561_YAHOO_id_11_WebService_tr_500_1st_359_AND_637_ =====
+[TSB] TSB-U-STABLE_004_SEG_1680_561_YAHOO_id_11_WebService_t
+  Raw series : 3360 timesteps, 1 channel(s), 0.3% anomalous points
+  Windows    : size=64, stride=32, 104 total (87 normal, 17 anomalous)
+  Source-1   : 10 normal windows (boundary row 359)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 7 windows (4 pseudo-classes)
+  Val        : 9 windows (8 OOD / 1 ID)
+  Test       : 11 windows (9 OOD / 2 ID)
+  batch  auroc=0.4314 aupr=0.8537 fpr95=1.0 (0.02s) | online auroc=0.0196 aupr=0.6935 fpr95=1.0 (2.79s) | n=20
+
+===== U/STABLE: STABLE_008_SEG_10000_153_Stock_id_5_Finance_tr_500_1st_1_AND_164_Stock =====
+  SKIP FILE (ValueError: Only 0 Source-1 normal windows found (need >= 4).  Try a smaller window_size/stride or set boundary_split: false.)
+~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\THESIS_FINAL\runners\online_experiment.py", line 107, in _process_file
+    dataset = load_tsb(
+        data_path=path, window_size=window, stride=stride, n_pseudo_classes=4,
+        train_frac=0.70, seed=SEED, normalize="per_series",
+        boundary_split=True, ordered_eval=True, dataset_name=dataset_id,
+    )
+  File "C:\THESIS_FINAL\data\tsb_loader.py", line 260, in load_tsb
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Only 0 Source-1 normal windows found (need >= 4).  Try a smaller window_size/stride or set boundary_split: false.
+
+
+===== U/STABLE: STABLE_009_SEG_1680_686_YAHOO_id_136_WebService_tr_500_1st_755_AND_693 =====
+[TSB] TSB-U-STABLE_009_SEG_1680_686_YAHOO_id_136_WebService_
+  Raw series : 3107 timesteps, 1 channel(s), 0.2% anomalous points
+  Windows    : size=64, stride=32, 96 total (84 normal, 12 anomalous)
+  Source-1   : 22 normal windows (boundary row 755)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 15 windows (4 pseudo-classes)
+  Val        : 9 windows (6 OOD / 3 ID)
+  Test       : 10 windows (6 OOD / 4 ID)
+  batch  auroc=0.7024 aupr=0.7969 fpr95=0.5714 (0.02s) | online auroc=0.2857 aupr=0.535 fpr95=1.0 (2.49s) | n=19
+
+===== U/STABLE: STABLE_010_SEG_18391_054_WSD_id_26_WebService_tr_2409_1st_2509_AND_089 =====
+[TSB] TSB-U-STABLE_010_SEG_18391_054_WSD_id_26_WebService_tr
+  Raw series : 35820 timesteps, 1 channel(s), 0.9% anomalous points
+  Windows    : size=64, stride=32, 1118 total (1063 normal, 55 anomalous)
+  Source-1   : 77 normal windows (boundary row 2509)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 53 windows (4 pseudo-classes)
+  Val        : 39 windows (27 OOD / 12 ID)
+  Test       : 40 windows (28 OOD / 12 ID)
+  batch  auroc=0.7076 aupr=0.8136 fpr95=0.6667 (0.05s) | online auroc=0.1015 aupr=0.5156 fpr95=1.0 (8.76s) | n=79
+
+===== U/STABLE: STABLE_014_SEG_1680_555_YAHOO_id_5_WebService_tr_500_1st_730_AND_626_Y =====
+[TSB] TSB-U-STABLE_014_SEG_1680_555_YAHOO_id_5_WebService_tr
+  Raw series : 3100 timesteps, 1 channel(s), 0.5% anomalous points
+  Windows    : size=64, stride=32, 95 total (83 normal, 12 anomalous)
+  Source-1   : 21 normal windows (boundary row 730)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 14 windows (4 pseudo-classes)
+  Val        : 9 windows (6 OOD / 3 ID)
+  Test       : 10 windows (6 OOD / 4 ID)
+  batch  auroc=0.5357 aupr=0.7264 fpr95=0.8571 (0.02s) | online auroc=0.2262 aupr=0.5067 fpr95=1.0 (2.16s) | n=19
+
+===== U/STABLE: STABLE_018_SEG_59000_490_UCR_id_188_Medical_tr_14750_1st_47530_AND_519 =====
+[TSB] TSB-U-STABLE_018_SEG_59000_490_UCR_id_188_Medical_tr_1
+  Raw series : 89066 timesteps, 1 channel(s), 0.4% anomalous points
+  Windows    : size=64, stride=32, 2782 total (2766 normal, 16 anomalous)
+  Source-1   : 1484 normal windows (boundary row 47530)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 1038 windows (4 pseudo-classes)
+  Val        : 231 windows (8 OOD / 223 ID)
+  Test       : 231 windows (8 OOD / 223 ID)
+  batch  auroc=0.6585 aupr=0.0702 fpr95=0.8946 (0.13s) | online auroc=0.3422 aupr=0.0415 fpr95=0.9731 (40.14s) | n=462
+
+===== U/STABLE: STABLE_021_SEG_10686_032_WSD_id_4_WebService_tr_4559_1st_11822_AND_097 =====
+[TSB] TSB-U-STABLE_021_SEG_10686_032_WSD_id_4_WebService_tr_
+  Raw series : 28769 timesteps, 1 channel(s), 0.3% anomalous points
+  Windows    : size=64, stride=32, 898 total (882 normal, 16 anomalous)
+  Source-1   : 132 normal windows (boundary row 4272)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 92 windows (4 pseudo-classes)
+  Val        : 28 windows (8 OOD / 20 ID)
+  Test       : 28 windows (8 OOD / 20 ID)
+  batch  auroc=0.6156 aupr=0.4987 fpr95=0.975 (0.04s) | online auroc=0.4375 aupr=0.2654 fpr95=1.0 (2.98s) | n=56
+
+===== U/STABLE: STABLE_022_SEG_7415_371_UCR_id_69_Medical_tr_1853_1st_6200_AND_427_UCR =====
+[TSB] TSB-U-STABLE_022_SEG_7415_371_UCR_id_69_Medical_tr_185
+  Raw series : 49027 timesteps, 1 channel(s), 0.4% anomalous points
+  Windows    : size=64, stride=32, 1531 total (1520 normal, 11 anomalous)
+  Source-1   : 192 normal windows (boundary row 6200)
+  Split      : boundary (Source-1 only), normalize=per_series
+  Train      : 134 windows (4 pseudo-classes)
+  Val        : 34 windows (5 OOD / 29 ID)
+  Test       : 35 windows (6 OOD / 29 ID)
+  batch  auroc=0.6818 aupr=0.4577 fpr95=0.8276 (0.02s) | online auroc=0.7132 aupr=0.581 fpr95=0.9655 (4.55s) | n=69
+
+DONE: 58/58 variant runs produced a finite AUROC -> C:\THESIS_FINAL\results\online_incremental.csv
+
+Wrote C:\THESIS_FINAL\results\online_findings.md
+  wrote C:\THESIS_FINAL\results\figures\online_vs_batch.{png,pdf}
+  wrote C:\THESIS_FINAL\results\tables\online_incremental.tex
+EXIT=0

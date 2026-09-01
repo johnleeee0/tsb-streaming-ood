@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Batch (fit-once) vs.\ online incremental-covariance Mahalanobis under a true streaming protocol: mean per-window AUROC on the temporally-ordered TSB-StreamingAD-U evaluation stream. $\Delta = \text{online} - \text{batch}$.}
+\label{tab:online_incremental}
+\begin{tabular}{lrrrr}
+\toprule
+Category & $n$ & Batch AUROC & Online AUROC & $\Delta$ \\
+\midrule
+DRIFT & 10 & 0.681 & 0.448 & -0.234 \\
+OOD & 10 & 0.766 & 0.479 & -0.287 \\
+STABLE & 9 & 0.628 & 0.349 & -0.279 \\
+\midrule
+\textbf{Overall} & 29 & 0.694 & 0.428 & -0.266 \\
+\bottomrule
+\end{tabular}
+\end{table}

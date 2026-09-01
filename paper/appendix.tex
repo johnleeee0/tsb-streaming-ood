@@ -4,87 +4,127 @@
 
 Every detector implementation was audited against its published description and,
 where a repository exists, against its official code, before any experiment was run.
-Of the twenty-three candidate detectors, five matched their specification up to
-cosmetic, metric-preserving differences (MSP, ODIN, Mahalanobis/MDS, DFM-PCA, SRS);
-ten exhibited moderate or major deviations (DriftLens, TD-IVDM, DiMMAD, DEEDEE,
-CODiT, M2N2, DIVERSIFY, InvAD, CatSight, AE-ADWIN-LSTM); and eight were \emph{not}
-faithful reproductions (ReAct, DICE, GradNorm, SCALE, Outlier Exposure, DivOE,
-DiffAD, DiverseMix). \Cref{tab:audit} summarises the verdicts by detector.
+All twenty-four audited candidates are legitimate OOD methods from the literature;
+seventeen were faithful or admitted a validated, paper-faithful correction and are
+evaluated under the unified streaming protocol, while the remaining seven require an
+adapted, method-appropriate protocol and are evaluated separately for fairness
+(\cref{tab:classd}, \cref{tab:class_d_appendix}). \Cref{tab:audit} summarises the
+per-method fidelity verdict and evaluation protocol.
 
 \begin{table}[h]
 \centering
-\caption{Faithfulness audit verdicts for all twenty-three candidate detectors. The
-verdict states the severity of the discrepancy found between the implementation and
-the source paper (and official code where available). ``Minor'' denotes
-cosmetic/monotone differences that do not change threshold-free metrics; ``Moderate''
-and ``Major'' denote discrepancies that can change rankings; ``Not verified'' denotes
-a discrepancy that materially changes the OOD score.}
+\caption{Per-method fidelity verdict and evaluation protocol for the twenty-four
+audited candidate detectors. All twenty-four are legitimate OOD methods from the
+literature audited for fidelity; the final column indicates the \emph{evaluation
+protocol}, not exclusion. The \emph{fidelity verdict} records the audit outcome:
+\textsc{Faithful} --- the implementation matches the source paper (and official
+code where available) as-is; \textsc{Corrected} --- a discrepancy that materially
+changed the OOD score was repaired with a validated, paper-faithful fix (an
+\texttt{\_enh} variant, \cref{sec:methods}); \textsc{Adaptation} --- the faithful
+mechanism was recovered but relabelled or restricted to remain well-defined on the
+frozen-backbone protocol. The \emph{evaluation} column states the protocol under which
+the detector is evaluated: \emph{Unified} for the seventeen compatible with the shared
+fair-comparison streaming protocol, or \emph{Adapted} for the seven whose defining
+mechanism requires a method-appropriate protocol (auxiliary-outlier training, an
+ordered stream, a retrained feature extractor, or batch-level scoring) and are
+reported separately (\cref{tab:classd}, \cref{tab:class_d_appendix}). All five
+post-hoc/activation/gradient methods that a prior draft marked ``not verified'' (ReAct,
+DICE, SCALE, GradNorm) and DiffAD were either corrected or confirmed faithful and are
+evaluated under the unified protocol; the three augmented-training methods (Outlier
+Exposure, DivOE, DiverseMix) require an auxiliary-outlier training regime the unified
+protocol cannot provide, so they are evaluated under adapted arms.}
 \label{tab:audit}
 \small
-\begin{tabular}{lll}
+\begin{tabular}{lll l}
 \toprule
-Detector & Cluster & Verdict \\
+Detector & Cluster & Fidelity verdict & Evaluation \\
 \midrule
-MSP & post-hoc softmax & Verified, minor deviations \\
-ODIN & post-hoc softmax & Verified, minor deviations \\
-Mahalanobis (MDS) & feature distance & Verified, minor deviations \\
-DFM-PCA & feature density & Verified, minor deviations \\
-SRS & ts-specific & Verified, minor deviation \\
-DriftLens & drift/embedding & Verified, moderate deviation \\
-TD-IVDM & concept drift & Verified, moderate deviation \\
-DiMMAD & feature distance & Verified, moderate deviation \\
-DEEDEE & ts-specific & Verified, major deviation \\
-CODiT & ts-specific & Verified, moderate deviation (orientation) \\
-M2N2 & test-time adaptation & Verified, moderate deviation (order-dependent) \\
-DIVERSIFY & ts-specific & Verified, major deviation \\
-InvAD & ts-specific & Verified, major deviation \\
-CatSight & concept drift & Verified, moderate deviation \\
-AE-ADWIN-LSTM & concept drift & Verified, major deviation \\
-ReAct & activation shaping & Not verified (score family) \\
-DICE & activation shaping & Not verified (abs-sum + MSP) \\
-GradNorm & gradient & Not verified (wrong statistic) \\
-SCALE & activation shaping & Not verified (wrong layer) \\
-Outlier Exposure & augmented training & Not verified (no outlier training) \\
-DivOE & augmented training & Not verified (no synthesis/training) \\
-DiffAD & reconstruction & Not verified (input-independent reverse) \\
-DiverseMix & augmented training & Not verified (score inverted) \\
+\multicolumn{4}{l}{\emph{Unified-protocol methods (17)}} \\
+\midrule
+MSP & post-hoc softmax & Faithful & Unified \\
+ODIN & post-hoc softmax & Faithful & Unified \\
+Energy (EBO) & post-hoc logit & Faithful & Unified \\
+ReAct & activation shaping & Corrected (\texttt{react\_enh}) & Unified \\
+DICE & activation shaping & Faithful (\texttt{dice\_enh}) & Unified \\
+SCALE & activation shaping & Corrected (\texttt{scale\_enh}) & Unified \\
+GradNorm & gradient & Corrected (\texttt{gradnorm\_enh}) & Unified \\
+Mahalanobis (MDS) & feature distance & Corrected (within-class scatter) & Unified \\
+DFM-PCA & feature density & Faithful & Unified \\
+DiMMAD & feature distance & Adaptation (metric ensemble) & Unified \\
+CatSight & concept drift & Adaptation (orientation fixed) & Unified \\
+InvAD & ts-specific & Adaptation (reconstruction restored) & Unified \\
+M2N2 & test-time adaptation & Adaptation (EMA-leak fixed) & Unified \\
+DEEDEE & ts-specific & Faithful (\texttt{deedee\_fix}) & Unified \\
+CODiT & ts-specific & Faithful (on-protocol) & Unified \\
+SRS & ts-specific & Faithful (seasonal ratio) & Unified \\
+DiffAD & reconstruction & Faithful (\texttt{diffad\_fix}) & Unified \\
+\midrule
+\multicolumn{4}{l}{\emph{Adapted-protocol methods (7)}} \\
+\midrule
+Outlier Exposure & augmented training & Faithful rebuild & Adapted \\
+DivOE & augmented training & Faithful rebuild & Adapted \\
+DiverseMix & augmented training & Faithful rebuild & Adapted \\
+DriftLens & drift/embedding & Adaptation (relabel) & Adapted \\
+TD-IVDM & concept drift & Adaptation (relabel) & Adapted \\
+AE-ADWIN-LSTM & concept drift & Faithful rebuild & Adapted \\
+DIVERSIFY & ts-specific & Adaptation (relabel) & Adapted \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{The six corrected variants.}
-Six discrepancies admitted a paper-faithful correction, implemented and validated as
-\texttt{\_enh} variants that enter the main sweep as an original-versus-enhanced
-ablation (\cref{tab:ablation_deltas}). \texttt{gradnorm\_enh} computes the $L_1$ norm
-of the last-layer-weight gradient of the KL-to-uniform objective and negates it
-(matching the published confidence orientation). \texttt{dice\_enh} sums the signed
-top-$k$ contributions and computes energy. \texttt{react\_enh} computes energy after
-activation clipping. \texttt{scale\_enh} applies activation scaling at the
-penultimate layer. \texttt{dimmad\_enh} drops the binary set metrics (Hamming,
-Jaccard, Dice) that are ill-defined on continuous features.
-\texttt{diversemix\_enh} negates the score to match the training objective; on the
-synthetic validation task this raised AUROC from \num{0.188} to \num{0.812}, yet on
-real streaming data the same correction lowered mean AUROC from \num{0.633} to
-\num{0.367} --- the regime-dependent orientation result discussed in the main text.
+\paragraph{The corrected and adapted main-set variants.}
+Several main-benchmark discrepancies admitted a paper-faithful correction,
+implemented and validated as \texttt{\_enh} variants (\cref{sec:discussion}). Four
+required a \textsc{Corrected} fix. \texttt{gradnorm\_enh} computes the $L_1$ norm of
+the last-layer-weight gradient of the KL-to-uniform objective and negates it
+(matching the published confidence orientation). \texttt{react\_enh} computes energy
+after activation clipping. \texttt{scale\_enh} applies activation scaling at the
+penultimate layer. Mahalanobis was corrected to a within-class-scatter
+(tied-covariance) estimate. A further group is \textsc{Adaptation}: \texttt{dice\_enh}
+sums the signed top-$k$ contributions and computes energy (faithful to
+\citet{Sun2022}); \texttt{dimmad\_enh} drops the binary set metrics (Hamming,
+Jaccard, Dice) that are ill-defined on continuous features; and CatSight, InvAD, and
+M2N2 recover their faithful mechanism after orientation, reduction, and EMA-leak
+fixes respectively. None of these corrections lifts a post-hoc detector into
+competitiveness with the feature-space methods.
+
+\paragraph{The adapted-protocol orientation cautionary result.}
+The augmented-training method \texttt{diversemix\_enh} (evaluated under its adapted
+protocol, \cref{tab:class_d_appendix}) negates the score to match the training
+objective; on the synthetic validation task this raised AUROC from \num{0.188} to
+\num{0.812}, yet on real streaming data the same correction lowered mean AUROC from
+\num{0.633} to \num{0.367} --- the regime-dependent orientation result discussed in
+the main text, and the reason we do not post-hoc sign-fit inverted detectors.
 
 \paragraph{The feature-space relabelling.}
-The audit also established that the per-sample implementations of DriftLens
-(PCA-Mahalanobis), TD-IVDM (KDE density), DiMMAD (distance ensemble), DFM-PCA (PCA
-reconstruction), and Mahalanobis are all variants of distance/density estimation in
-the frozen feature space. The robust winning signal is therefore feature-space
-distance/density surfacing under several names, which reframes the headline result.
+The audit also established that the per-sample implementations of DiMMAD (distance
+ensemble), DFM-PCA (PCA reconstruction), and Mahalanobis --- together with the
+adapted-protocol methods DriftLens (PCA-Mahalanobis) and TD-IVDM (KDE density) --- are all
+variants of distance/density estimation in the frozen feature space. The robust
+winning signal is therefore feature-space distance/density surfacing under several
+names, which reframes the headline result; it is also why DriftLens and TD-IVDM,
+whose native protocols are batch/window-level, are evaluated under their adapted
+arms rather than as duplicate per-window top-ranks in the unified leaderboard.
 
 \paragraph{The systemic finding.}
-At least seven detectors --- GradNorm, DiverseMix, DiffAD, AE-ADWIN-LSTM, CatSight,
-CODiT, and the M2N2 EMA path --- contained a score negation or orientation choice
-rationalised post-hoc by an observation on small training data rather than following
-the principled score from the paper. Several score below chance on the real sweep
-precisely because the fitted orientation does not generalise. Together with the
-absent OE/DivOE training, GradNorm's wrong statistic, DiffAD's input-independent
-reverse process, and the relabelling above, this means an unaudited ranking would
+Across the audit, numerous detectors contained a score negation or orientation
+choice rationalised post-hoc by an observation on small training data rather than
+following the principled score from the paper. In the unified-protocol set this affected
+GradNorm, DiffAD, CatSight, CODiT, and the M2N2 EMA path, each repaired to its
+paper-defined orientation before evaluation; in the adapted-protocol set it affected
+DiverseMix and AE-ADWIN-LSTM. Together with the absent OE/DivOE auxiliary-outlier
+training, GradNorm's wrong statistic, DiffAD's input-independent reverse process, and
+the feature-space relabelling above, this means an unaudited ranking would
 substantially reflect implementation artifacts. This is the central methodological
 finding and the rationale for the verify-before-experiment gate.
 
+% TODO(combined-U+M): The original-versus-corrected ablation section below is
+% commented out pending regeneration of tables/ablation_deltas.tex and
+% figures/ablation_delta.png from the finalized combined TSB-U + TSB-M run. The
+% prior numbers (chi^2=8.687/16.722; top-five SRS/Mahalanobis/DriftLens/TD-IVDM/
+% DFM-PCA) are stale (DriftLens and TD-IVDM are now protocol-incompatible class-D
+% exclusions). Restore with regenerated combined assets before final submission.
+\iffalse
 \section{Original-versus-Corrected Ablation}\label{app:ablation}
 
 \Cref{tab:ablation_deltas} (reproduced in the main text) reports the mean-AUROC
@@ -106,6 +146,7 @@ still lands below chance, while the diversification correction reverses on real 
 feature-space methods.}
 \label{fig:app_ablation}
 \end{figure}
+\fi
 
 \section{ROC Curves and Score-Distribution Case Study}\label{app:roc}
 
@@ -135,12 +176,12 @@ producing an AUROC below chance --- the mechanism analysed in the main text.}
 All experiments fix the random seed to \num{42} and run on CPU under Python~3.13 with
 PyTorch, NumPy, SciPy, and scikit-learn. The backbone is a 1-D ResNet trained for
 \num{40} epochs with cross-entropy over temporal pseudo-classes. The benchmark
-comprises \num{36} datasets (\num{18} TSB-StreamingAD-U and \num{18}
-TSB-StreamingAD-M, six per DRIFT/OOD/STABLE cell), \num{22} detectors, and \num{772}
+comprises \num{527} datasets (\num{260} TSB-StreamingAD-U and \num{267}
+TSB-StreamingAD-M), \num{17} evaluated detectors, and \num{8668}
 completed runs. Per-run configurations and metrics are stored alongside the aggregate
 results matrix, and the tables and figures in this manuscript are regenerated
-directly from it. The reduced epoch budget and the stratified subsample of \num{36}
-of the \num{600} available files are recorded explicitly as scoping decisions; SRS is
-excluded on TSB-StreamingAD-M because it hangs on multivariate input, and Outlier
-Exposure and DivOE are reported as energy baselines because faithful
-auxiliary-outlier training is not available.
+directly from it. The reduced epoch budget is recorded explicitly as a scoping
+decision; SRS is univariate-seasonal and its multivariate run is pending, so it is
+evaluated on TSB-StreamingAD-U only; and the seven adapted-protocol detectors
+(\cref{tab:classd}) are evaluated under their native arms and reported separately in
+\cref{tab:class_d_appendix}.

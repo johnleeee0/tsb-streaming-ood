@@ -1,0 +1,4 @@
+file,outcome,status,category,n_channels,window,n_train,n_test,auroc,aupr,srs_seconds,total_seconds,wall_seconds,error,stderr_tail
+STABLE_044_SEG_2303_015_MSL_id_14_Sensor_tr_575_1st_1250_AND_016_MSL_id_15_Sensor_tr_500_1st_780.csv,COMPLETED,COMPLETE,STABLE,55,128,12,6,0.3333,0.5,30.06,49.9,58.8,,
+STABLE_015_SEG_2625_008_MSL_id_7_Sensor_tr_656_1st_1630_AND_016_MSL_id_15_Sensor_tr_500_1st_780.csv,COMPLETED,COMPLETE,STABLE,55,128,16,8,0.5,0.5,24.52,26.57,32.1,,
+STABLE_014_SEG_2856_009_MSL_id_8_Sensor_tr_714_1st_1390_AND_013_MSL_id_12_Sensor_tr_554_1st_1200.csv,COMPLETED,COMPLETE,STABLE,55,128,14,6,0.3333,0.6667,20.51,22.54,27.9,,

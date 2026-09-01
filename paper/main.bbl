@@ -1,0 +1,272 @@
+\begin{thebibliography}{39}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ahuja et~al.(2019)Ahuja, Ndiour, Kalyanpur, and Tickoo]{Ahuja2019}
+Nilesh~A. Ahuja, Ibrahima Ndiour, Trushant Kalyanpur, and Omesh Tickoo.
+\newblock Probabilistic modeling of deep features for out-of-distribution and
+  adversarial detection.
+\newblock \emph{arXiv preprint arXiv:1909.11786}, 2019.
+
+\bibitem[Anonymous(2023)]{CatSight2023}
+Anonymous.
+\newblock {CatSight}: Common spatial pattern analysis for distributional change
+  detection in multivariate sensor data.
+\newblock \emph{Preprint}, 2023.
+
+\bibitem[Anonymous(2024{\natexlab{a}})]{Diversification2024}
+Anonymous.
+\newblock How does diversification help out-of-distribution detection? a
+  provable framework.
+\newblock In \emph{International Conference on Machine Learning (ICML)},
+  2024{\natexlab{a}}.
+
+\bibitem[Anonymous(2024{\natexlab{b}})]{M2N22024}
+Anonymous.
+\newblock {M2N2}: Memory-based test-time adaptation for multivariate
+  time-series anomaly detection.
+\newblock \emph{Preprint}, 2024{\natexlab{b}}.
+
+\bibitem[Anonymous(2025{\natexlab{a}})]{AEADWINLSTM2025}
+Anonymous.
+\newblock Combining autoencoder reconstruction, {ADWIN} change detection and
+  {LSTM} prediction for evolving multivariate time series.
+\newblock \emph{Preprint}, 2025{\natexlab{a}}.
+
+\bibitem[Anonymous(2025{\natexlab{b}})]{DEEDEE2025}
+Anonymous.
+\newblock {DEEDEE}: Detecting out-of-distribution environment dynamics from
+  trajectory statistics.
+\newblock \emph{arXiv preprint arXiv:2510.21638}, 2025{\natexlab{b}}.
+
+\bibitem[Anonymous(2025{\natexlab{c}})]{InvAD2025}
+Anonymous.
+\newblock Invad: Invertible neural networks for out-of-distribution anomaly
+  detection in multivariate time series.
+\newblock \emph{Preprint}, 2025{\natexlab{c}}.
+
+\bibitem[Anonymous(2025{\natexlab{d}})]{TDIVDM2025}
+Anonymous.
+\newblock Time-division and variable-density multiscale concept drift detection
+  for time series.
+\newblock \emph{Neurocomputing}, 2025{\natexlab{d}}.
+
+\bibitem[Bagnall et~al.(2018)Bagnall, Dau, Lines, Flynn, Large, Bostrom,
+  Southam, and Keogh]{Bagnall2018}
+Anthony Bagnall, Hoang~Anh Dau, Jason Lines, Michael Flynn, James Large, Aaron
+  Bostrom, Paul Southam, and Eamonn Keogh.
+\newblock The {UEA} multivariate time series classification archive, 2018.
+\newblock In \emph{arXiv preprint arXiv:1811.00075}, 2018.
+
+\bibitem[Belkhouja et~al.(2023)Belkhouja, Yan, and Doppa]{Belkhouja2023}
+Taha Belkhouja, Yan Yan, and Janardhan~Rao Doppa.
+\newblock Out-of-distribution detection in time-series domain: A novel seasonal
+  ratio scoring approach.
+\newblock \emph{ACM Transactions on Intelligent Systems and Technology},
+  15\penalty0 (1):\penalty0 1--24, 2023.
+
+\bibitem[Chaini et~al.(2025)]{DiMMAD2025}
+Siddharth Chaini et~al.
+\newblock {DiMMAD}: Distance-metric ensembles for detecting unknown-unknown
+  transient events as out-of-distribution anomalies.
+\newblock \emph{Preprint}, 2025.
+
+\bibitem[Dau et~al.(2019)Dau, Bagnall, Kamgar, Yeh, Zhu, Gharghabi,
+  Ratanamahatana, and Keogh]{Dau2019}
+Hoang~Anh Dau, Anthony Bagnall, Kaveh Kamgar, Chin-Chia~Michael Yeh, Yan Zhu,
+  Shaghayegh Gharghabi, Chotirat~Ann Ratanamahatana, and Eamonn Keogh.
+\newblock The {UCR} time series archive.
+\newblock \emph{IEEE/CAA Journal of Automatica Sinica}, 6\penalty0
+  (6):\penalty0 1293--1305, 2019.
+
+\bibitem[Dem{\v{s}}ar(2006)]{Demsar2006}
+Janez Dem{\v{s}}ar.
+\newblock Statistical comparisons of classifiers over multiple data sets.
+\newblock \emph{Journal of Machine Learning Research}, 7:\penalty0 1--30, 2006.
+
+\bibitem[Djurisic et~al.(2023)Djurisic, Bozanic, Ashok, and Liu]{Djurisic2023}
+Andrija Djurisic, Nebojsa Bozanic, Arjun Ashok, and Rosanne Liu.
+\newblock Extremely simple activation shaping for out-of-distribution
+  detection.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2023.
+
+\bibitem[Greco et~al.(2025)Greco, Vacchetti, Apiletti, and
+  Cerquitelli]{Greco2025}
+Salvatore Greco, Bartolomeo Vacchetti, Daniele Apiletti, and Tania Cerquitelli.
+\newblock {DriftLens}: Unsupervised concept drift detection in deep learning
+  embeddings.
+\newblock \emph{arXiv preprint arXiv:2406.17813}, 2025.
+
+\bibitem[Gungor et~al.(2025)Gungor, Rios, Ahuja, and Rosing]{Gungor2025}
+Onat Gungor, Amanda Rios, Nilesh Ahuja, and Tajana Rosing.
+\newblock {TS-OOD}: Evaluating time-series out-of-distribution detection and
+  prospective directions for progress.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial
+  Intelligence}, 2025.
+\newblock arXiv:2502.15901.
+
+\bibitem[Hein et~al.(2019)Hein, Andriushchenko, and Bitterwolf]{Hein2019}
+Matthias Hein, Maksym Andriushchenko, and Julian Bitterwolf.
+\newblock Why {ReLU} networks yield high-confidence predictions far away from
+  the training data.
+\newblock \emph{IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2019.
+
+\bibitem[Hendrycks and Gimpel(2017)]{Hendrycks2017}
+Dan Hendrycks and Kevin Gimpel.
+\newblock A baseline for detecting misclassified and out-of-distribution
+  examples in neural networks.
+\newblock \emph{International Conference on Learning Representations (ICLR)},
+  2017.
+
+\bibitem[Hendrycks et~al.(2019)Hendrycks, Mazeika, and
+  Dietterich]{Hendrycks2019}
+Dan Hendrycks, Mantas Mazeika, and Thomas Dietterich.
+\newblock Deep anomaly detection with outlier exposure.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Huang et~al.(2021)Huang, Geng, and Li]{Huang2021}
+Rui Huang, Andrew Geng, and Yixuan Li.
+\newblock On the importance of gradients for detecting distributional shifts in
+  the wild.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  34:\penalty0 677--689, 2021.
+
+\bibitem[Kaur et~al.(2023)Kaur, Sridhar, Park, Jha, Roy, Lee, and
+  Sokolsky]{Kaur2023}
+Ramneet Kaur, Kaustubh Sridhar, Sangdon Park, Susmit Jha, Anirban Roy, Insup
+  Lee, and Oleg Sokolsky.
+\newblock {CODiT}: Conformal out-of-distribution detection in time-series data
+  for cyber-physical systems.
+\newblock In \emph{ACM/IEEE International Conference on Cyber-Physical Systems
+  (ICCPS)}, pages 120--131, 2023.
+
+\bibitem[Lee et~al.(2018)Lee, Lee, Lee, and Shin]{Lee2018}
+Kimin Lee, Kibok Lee, Honglak Lee, and Jinwoo Shin.
+\newblock A simple unified framework for detecting out-of-distribution samples
+  and adversarial attacks.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  31, 2018.
+
+\bibitem[Liang et~al.(2018)Liang, Li, and Srikant]{Liang2018}
+Shiyu Liang, Yixuan Li, and R.~Srikant.
+\newblock Enhancing the reliability of out-of-distribution image detection in
+  neural networks.
+\newblock \emph{International Conference on Learning Representations (ICLR)},
+  2018.
+
+\bibitem[Liu et~al.(2025)Liu, Lee, and Paparrizos]{LiuTSBAutoAD2025}
+Qinghua Liu, Seunghak Lee, and John Paparrizos.
+\newblock {TSB-AutoAD}: Towards automated solutions for time-series anomaly
+  detection.
+\newblock In \emph{Proceedings of the VLDB Endowment}, volume~18, pages
+  4364--4379, 2025.
+
+\bibitem[Liu et~al.(2020)Liu, Wang, Owens, and Li]{Liu2020}
+Weitang Liu, Xiaoyun Wang, John Owens, and Yixuan Li.
+\newblock Energy-based out-of-distribution detection.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  33:\penalty0 21464--21475, 2020.
+
+\bibitem[Lu et~al.(2024)Lu, Wang, Sun, Chen, Ji, Yang, and Xie]{Lu2024}
+Wang Lu, Jindong Wang, Xinwei Sun, Yiqiang Chen, Xiangyang Ji, Qiang Yang, and
+  Xing Xie.
+\newblock Diversify: A general framework for time series out-of-distribution
+  detection and generalization.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine Intelligence
+  (TPAMI)}, 2024.
+
+\bibitem[Montiel et~al.(2021)Montiel, Halford, Mastelini, et~al.]{Montiel2021}
+Jacob Montiel, Max Halford, Saulo~Martiello Mastelini, et~al.
+\newblock River: Machine learning for streaming data in python.
+\newblock \emph{Journal of Machine Learning Research}, 22\penalty0
+  (110):\penalty0 1--8, 2021.
+
+\bibitem[Nguyen et~al.(2015)Nguyen, Yosinski, and Clune]{Nguyen2015}
+Anh Nguyen, Jason Yosinski, and Jeff Clune.
+\newblock Deep neural networks are easily fooled: High confidence predictions
+  for unrecognizable images.
+\newblock \emph{IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2015.
+
+\bibitem[Paszke et~al.(2019)Paszke, Gross, Massa, et~al.]{Paszke2019}
+Adam Paszke, Sam Gross, Francisco Massa, et~al.
+\newblock Pytorch: An imperative style, high-performance deep learning library.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  2019.
+
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort,
+  et~al.]{Pedregosa2011}
+Fabian Pedregosa, Ga{\"e}l Varoquaux, Alexandre Gramfort, et~al.
+\newblock Scikit-learn: Machine learning in python.
+\newblock \emph{Journal of Machine Learning Research}, 12:\penalty0 2825--2830,
+  2011.
+
+\bibitem[Rios et~al.(2022)Rios, Ahuja, Ndiour, Genc, Itti, and
+  Tickoo]{Rios2022}
+Amanda Rios, Nilesh Ahuja, Ibrahima Ndiour, Utku Genc, Laurent Itti, and Omesh
+  Tickoo.
+\newblock {incDFM}: Incremental deep feature modeling for continual novelty
+  detection.
+\newblock In \emph{European Conference on Computer Vision (ECCV)}, 2022.
+
+\bibitem[Sun and Li(2022)]{Sun2022}
+Yiyou Sun and Yixuan Li.
+\newblock {DICE}: Leveraging sparsification for out-of-distribution detection.
+\newblock In \emph{European Conference on Computer Vision (ECCV)}, pages
+  691--708, 2022.
+
+\bibitem[Sun et~al.(2021)Sun, Guo, and Li]{Sun2021}
+Yiyou Sun, Chuan Guo, and Yixuan Li.
+\newblock {ReAct}: Out-of-distribution detection with rectified activations.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  34:\penalty0 144--157, 2021.
+
+\bibitem[Tuli et~al.(2022)Tuli, Casale, and Jennings]{Tuli2022}
+Shreshth Tuli, Giuliano Casale, and Nicholas~R. Jennings.
+\newblock {TranAD}: Deep transformer networks for anomaly detection in
+  multivariate time series data.
+\newblock \emph{Proceedings of the VLDB Endowment}, 15\penalty0 (6):\penalty0
+  1201--1214, 2022.
+
+\bibitem[Van~Looveren et~al.(2020)Van~Looveren, Klaise, Vacanti,
+  et~al.]{VanLooveren2020}
+Arnaud Van~Looveren, Janis Klaise, Giovanni Vacanti, et~al.
+\newblock Alibi detect: Algorithms for outlier, adversarial and drift
+  detection.
+\newblock \emph{Journal of Open Source Software}, 2020.
+
+\bibitem[Xiao et~al.(2023)Xiao, Gou, Tai, Zhang, and Zhou]{Xiao2023}
+Chunjing Xiao, Zehua Gou, Wenxin Tai, Kunpeng Zhang, and Fan Zhou.
+\newblock Imputation-based time series anomaly detection with conditional
+  weight-incremental diffusion (diffad).
+\newblock \emph{Proceedings of the ACM SIGKDD Conference on Knowledge Discovery
+  and Data Mining}, 2023.
+
+\bibitem[Xu et~al.(2024)Xu, Chen, Franchi, and Yao]{Xu2024}
+Kai Xu, Rongyu Chen, Gianni Franchi, and Angela Yao.
+\newblock Scaling for training time and post-hoc out-of-distribution detection
+  enhancement.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2024.
+\newblock arXiv:2310.00227.
+
+\bibitem[Zhang et~al.(2023)Zhang, Yang, Wang, et~al.]{Zhang2023}
+Jingyang Zhang, Jingkang Yang, Pengyun Wang, et~al.
+\newblock {OpenOOD} v1.5: Enhanced benchmark for out-of-distribution detection.
+\newblock \emph{arXiv preprint arXiv:2306.09301}, 2023.
+
+\bibitem[Zhu et~al.(2023)Zhu, Geng, Yao, Liu, Niu, Sugiyama, and Han]{Zhu2023}
+Jianing Zhu, Yu~Geng, Jiangchao Yao, Tongliang Liu, Gang Niu, Masashi Sugiyama,
+  and Bo~Han.
+\newblock Diversified outlier exposure for out-of-distribution detection via
+  informative extrapolation.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2023.
+
+\end{thebibliography}

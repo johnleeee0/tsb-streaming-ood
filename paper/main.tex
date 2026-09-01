@@ -33,30 +33,32 @@ or a service outage. A large family of modality-agnostic OOD detectors has been
 developed for vision and language, yet their reliability under \emph{streaming
 distributional shift} --- the realistic setting in which a deployed model
 gradually encounters a new source distribution --- remains under-explored. We
-present a comprehensive, fair, and reproducible evaluation of twenty-two OOD
-detectors on the two target families of the TSB-StreamingAD benchmark,
-TSB-StreamingAD-U (univariate) and TSB-StreamingAD-M (multivariate), in which
-each recording concatenates two source signals and OOD is defined at the window
-level under a leakage-free source-boundary training split. Across \num{36}
-datasets and \num{772} completed runs at seed \num{42}, distance- and
+present a comprehensive, fair, and reproducible evaluation of seventeen OOD
+detectors (of twenty-four audited candidates) on the two target families of the
+TSB-StreamingAD benchmark, TSB-StreamingAD-U (univariate) and TSB-StreamingAD-M
+(multivariate), in which each recording concatenates two source signals and OOD
+is defined at the window level under a leakage-free source-boundary training
+split. Across \num{527} datasets (\num{260} univariate and \num{267}
+multivariate) and \num{8668} completed runs at seed \num{42}, distance- and
 density-based detectors that model the in-distribution feature manifold dominate
 post-hoc softmax and logit detectors: Mahalanobis distance (mean AUROC
-\num{0.874}) and DriftLens (\num{0.857}) lead, whereas thirteen detectors,
-including maximum-softmax-probability (\num{0.386}) and gradient-norm
-(\num{0.267}), fall below chance, several with \emph{inverted} scores. A Friedman
-test confirms the ranking is highly significant ($\chi^2 = 61.15$, $p =
-\num{8.5e-6}$). We trace the failure of output-head scores to an overconfidence
+\num{0.826}) and DFM-PCA (\num{0.812}) lead, whereas every post-hoc softmax,
+logit, and gradient detector --- including maximum-softmax-probability
+(\num{0.370}) and gradient-norm (\num{0.294}) --- together with the seasonal SRS
+(\num{0.352}) falls below chance, several with \emph{inverted} scores. A Friedman
+test confirms the ranking is highly significant ($\chi^2 = \num{2336.59}$, $p <
+\num{1e-16}$). We trace the failure of output-head scores to an overconfidence
 mechanism amplified by global normalisation, and we show that the winning
 detectors are also Pareto-optimal in the accuracy--efficiency plane (top accuracy
-at $\sim$\SI{1}{\milli\second} per window). A faithfulness audit against the
-original papers and official code reveals pervasive implementation drift in the
-post-hoc detectors, yet an original-versus-corrected ablation shows that repairing
-these issues does \emph{not} make them competitive --- the feature-space ranking
-is unchanged. We further report a cautionary negative result: the correct
-orientation of energy-based scores is regime-dependent, so a correction validated
-on synthetic data can reverse on real data. Our findings corroborate and extend to
-the streaming setting the recommendation that deep feature modeling is the most
-promising direction for time-series OOD detection.
+at roughly \SIrange{1}{4}{\milli\second} per window). A faithfulness audit against
+the original papers and official code reveals pervasive implementation drift in
+the post-hoc detectors, yet even paper-faithful corrected variants do \emph{not}
+become competitive --- the feature-space ranking is unchanged. We further report a
+cautionary negative result: the correct orientation of energy-based scores is
+regime-dependent, so a correction validated on synthetic data can reverse on real
+data. Our findings corroborate and extend to the streaming setting the
+recommendation that deep feature modeling is the most promising direction for
+time-series OOD detection.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -91,40 +93,45 @@ appeared.
 
 We close that gap with what is, to our knowledge, the most comprehensive fair
 evaluation of OOD detectors on streaming time series to date. We evaluate
-twenty-two detectors --- spanning post-hoc softmax/logit, feature distance/density,
+seventeen detectors --- spanning post-hoc softmax/logit, feature distance/density,
 reconstruction, contrastive/self-supervised, drift/changepoint, and
 time-series-specific families --- on the two target benchmark families
-TSB-StreamingAD-U and TSB-StreamingAD-M, comprising \num{36} datasets and
-\num{772} completed runs. Crucially, we precede the evaluation with a
+TSB-StreamingAD-U and TSB-StreamingAD-M, comprising \num{527} datasets and
+\num{8668} completed runs. Crucially, we precede the evaluation with a
 method-by-method audit of every implementation against its source paper and, where
-available, its official code, and we treat the corrected variants as an explicit
-original-versus-enhanced ablation rather than silently substituting them. Our
+available, its official code. All twenty-four are legitimate OOD methods from the
+literature; seventeen are evaluated under a single unified streaming protocol, while
+the remaining seven require adapted, method-appropriate protocols
+(auxiliary-outlier training, ordered streams, a retrained feature extractor, or
+batch-level scoring) and are evaluated and reported separately for fairness. Our
 contributions are:
 
 \begin{enumerate}
-  \item \textbf{A streaming benchmark of twenty-two detectors.} We evaluate every
-  registered detector on TSB-StreamingAD-U and TSB-StreamingAD-M under a single,
-  leakage-free source-boundary protocol, reporting AUROC, AUPR, FPR@95, detection
-  accuracy, and inference cost (\cref{sec:results}). Distance- and density-based
-  detectors dominate: Mahalanobis distance (\num{0.874}) and DriftLens
-  (\num{0.857}) attain the highest mean AUROC, while thirteen detectors fall below
-  the \num{0.5} chance line, several with inverted scores.
-  \item \textbf{A faithfulness audit as a first-class result.} We cross-validate
-  all twenty-three candidate implementations against their published descriptions,
-  finding that only five match up to cosmetic differences, ten exhibit moderate or
-  major deviations, and eight are not faithful reproductions
-  (\cref{sec:setup,app:fidelity}). We implement six paper-faithful corrected variants and
-  show, through an original-versus-corrected ablation, that the corrections do not
-  rescue the post-hoc family.
-  \item \textbf{A mechanistic explanation, with the multivariate--univariate
+  \item \textbf{A streaming benchmark of seventeen detectors.} We evaluate every
+  detector that passes the faithfulness gate on TSB-StreamingAD-U and
+  TSB-StreamingAD-M under a single, leakage-free source-boundary protocol,
+  reporting AUROC, AUPR, FPR@95, detection accuracy, and inference cost
+  (\cref{sec:results}). Distance- and density-based detectors dominate: Mahalanobis
+  distance (\num{0.826}) and DFM-PCA (\num{0.812}) attain the highest mean AUROC,
+  while every post-hoc softmax, logit, and gradient detector falls below the
+  \num{0.5} chance line, several with inverted scores.
+  \item \textbf{A faithfulness audit as a first-class result.} We audit all
+  twenty-four candidate implementations against their published descriptions and,
+  where available, their official code (\cref{sec:setup,app:fidelity}); all
+  twenty-four are legitimate OOD methods, seventeen evaluated under the unified
+  streaming protocol and the remaining seven under adapted, method-appropriate
+  protocols reported separately for fairness (\cref{sec:results-classd}). Several
+  variants required validated, paper-faithful corrections; even so, the corrected
+  post-hoc detectors remain uncompetitive (\cref{sec:discussion}).
+  \item \textbf{A mechanistic explanation, with the univariate--multivariate
   contrast.} We attribute the post-hoc failure to output-head overconfidence on
   far-out inputs, amplified by global normalisation, and we document a
   normalisation dichotomy in which feature methods peak under global normalisation
   while post-hoc methods invert under both schemes (\cref{sec:discussion}). We
-  further show that TSB-M is \emph{easier} than TSB-U for feature methods, and
-  explain why.
+  further show that the univariate family is modestly \emph{easier} than the
+  multivariate family for the feature methods, and explain why.
   \item \textbf{A deployment recommendation and a negative result.} We identify
-  Mahalanobis distance and DriftLens as Pareto-optimal --- simultaneously the most
+  Mahalanobis distance and DFM-PCA as Pareto-optimal --- simultaneously the most
   accurate and among the fastest --- and recommend them as defaults for streaming
   deployment. We additionally report that the principled orientation of
   energy-based scores is regime-dependent, a cautionary negative result that
@@ -135,7 +142,9 @@ The remainder of the manuscript proceeds as follows. \Cref{sec:related} organise
 the detector landscape into analytic clusters and positions this work.
 \Cref{sec:datasets} describes every dataset family used, with special emphasis on
 the two target benchmark families. \Cref{sec:methods} formalises the task and
-catalogues every benchmarked detector, including the six corrected variants.
+catalogues all twenty-four detectors by algorithmic family, including the
+paper-faithful corrected and adapted variants, and explains the unified-versus-adapted
+evaluation split.
 \Cref{sec:setup} details the hardware, reproducibility, metrics, protocol, and the
 verification gate. \Cref{sec:results} reports the results. \Cref{sec:discussion}
 analyses which methods generalise, which fail, and why. \Cref{sec:conclusion}
@@ -192,22 +201,29 @@ specific test window, a defect we encounter in audit.
 Outlier Exposure \citep{Hendrycks2019} and its diversified variant \citep{Zhu2023}
 train the classifier against an auxiliary outlier set to force uniform predictions
 off-distribution; a provable diversification framework \citep{Diversification2024}
-formalises when this helps. The defining mechanism is auxiliary-outlier training;
-when that training is absent, the methods collapse to energy baselines, as we find.
+formalises when this helps. The defining mechanism is auxiliary-outlier training,
+which the unified frozen-backbone streaming protocol cannot supply; we therefore
+evaluate these three methods under adapted protocols (auxiliary-outlier fine-tuning
+arms) reported in \cref{sec:results-classd}, where a faithful rebuild without an
+auxiliary corpus reduces to an energy baseline.
 
 \paragraph{Drift, changepoint, and time-series-specific methods.}
 A distinct lineage exploits temporal structure directly. Seasonal-ratio scoring
 \citep{Belkhouja2023} compares observed values to seasonality-aware expectations via
 STL decomposition and conditional VAEs; conformal temporal non-conformity
-\citep{Kaur2023} provides false-detection guarantees; DIVERSIFY \citep{Lu2024}
-learns environment-invariant representations adversarially; InvAD \citep{InvAD2025}
+\citep{Kaur2023} provides false-detection guarantees; InvAD \citep{InvAD2025}
 uses invertible networks; M2N2 \citep{M2N22024} performs memory-based test-time
-adaptation; DiMMAD \citep{DiMMAD2025} ensembles distance metrics; TD-IVDM
-\citep{TDIVDM2025} and DEEDEE \citep{DEEDEE2025} target concept drift; DriftLens
-\citep{Greco2025} tracks distributional change in deep embeddings; CatSight
-\citep{CatSight2023} and an autoencoder--ADWIN--LSTM hybrid \citep{AEADWINLSTM2025}
-monitor multivariate streams. These methods are rarely compared head-to-head under
-a single protocol; the benchmark and library efforts of \citet{Zhang2023},
+adaptation; DiMMAD \citep{DiMMAD2025} ensembles distance metrics; DEEDEE
+\citep{DEEDEE2025} targets concept drift; and CatSight \citep{CatSight2023} applies
+common-spatial-pattern analysis to multivariate streams. A further group requires
+evaluation protocols the unified streaming setting cannot realise: DIVERSIFY
+\citep{Lu2024} learns environment-invariant representations adversarially by
+retraining the extractor; TD-IVDM \citep{TDIVDM2025} uses multi-scale ordered windows;
+DriftLens \citep{Greco2025} tracks batch-level distributional change in deep
+embeddings; and an autoencoder--ADWIN--LSTM hybrid \citep{AEADWINLSTM2025} needs an
+ordered stream. We evaluate these four under adapted, method-appropriate protocols
+(reported in \cref{sec:results-classd}). These methods are rarely compared head-to-head
+under a single protocol; the benchmark and library efforts of \citet{Zhang2023},
 \citet{VanLooveren2020}, and \citet{Montiel2021} aggregate implementations but not a
 fair like-for-like comparison on streaming OOD. We provide exactly such a
 comparison, and find that several of these ``time-series-specific'' detectors are,
@@ -218,7 +234,7 @@ Our study sits in the empirical-benchmark lineage of \citet{LiuTSBAutoAD2025} an
 \citet{Gungor2025}: confidence comes from breadth and statistical rigour, not from
 proposing a new method. We extend \citet{Gungor2025} along three axes --- a
 streaming distributional-shift regime in place of static semantic shift, a method
-pool of twenty-two detectors in place of eight, and a verify-before-experiment gate
+pool of twenty-four audited detectors in place of eight, and a verify-before-experiment gate
 that treats implementation faithfulness as a measured quantity rather than an
 assumption.
 
@@ -237,9 +253,9 @@ from the TSB-StreamingAD anomaly-detection benchmark. Each file has one or more
 numeric feature columns followed by a binary \texttt{Label} column (0 = normal, 1 =
 anomalous). The full TSB-StreamingAD-U and TSB-StreamingAD-M families contain
 \num{300} files each; the per-file statistics reported below are computed over all
-\num{600} files, while the headline detector sweep uses a stratified subsample of
-\num{36} datasets (\num{18} per family; six per DRIFT/OOD/STABLE cell) to remain
-tractable on CPU.
+\num{600} files, while the headline detector sweep covers \num{527} datasets
+(\num{260} univariate and \num{267} multivariate) spanning the DRIFT/OOD/STABLE
+categories.
 
 \paragraph{Two-source construction.}
 Each file is built by concatenating \emph{two source recordings}. Source~1 (S1) is a
@@ -320,9 +336,20 @@ streaming-specific failure modes, which is itself a finding we discuss in
 
 \section{Methods}\label{sec:methods}
 
-We first formalise the task and metrics, then catalogue every benchmarked detector
-by cluster. For the six detectors whose audit produced a paper-faithful correction
-we describe both the original and the corrected (\texttt{\_enh}) variant.
+We first formalise the task and metrics, then catalogue every audited detector by
+algorithmic family. All twenty-four detectors are legitimate OOD methods from the
+literature and are described here as first-class methods within their natural
+family; for those whose audit produced a paper-faithful correction we describe both
+the original and the corrected (\texttt{\_enh}) variant. The distinction relevant to
+this study is not methodological but procedural. Seventeen detectors can be evaluated
+under a single \emph{unified} fair-comparison streaming protocol --- a shared frozen
+ResNet backbone, per-window shuffled evaluation, and no auxiliary outlier corpus ---
+while the other seven \emph{require} an \emph{adapted} protocol: auxiliary-outlier
+training, an ordered stream, a retrained feature extractor, or batch-level scoring.
+The latter seven are therefore evaluated under those method-appropriate adapted
+protocols and reported separately for fairness (\cref{sec:results-classd},
+\cref{tab:class_d_appendix}); this is an evaluation constraint, not an exclusion, and
+we flag each method's evaluation arm as we describe it.
 
 \subsection{Problem formulation}\label{sec:problem}
 
@@ -373,6 +400,15 @@ $x - \varepsilon\,\mathrm{sign}(\nabla_x \mathrm{CE})$ to sharpen ID/OOD separat
 then scores $1 - \max_c \mathrm{softmax}$. It inherits MSP's assumption and adds a
 gradient computation, roughly multiplying cost by the perturbation steps.
 
+\paragraph{Energy (EBO).}
+The energy score \citep{Liu2020} replaces softmax confidence with the negative
+log-sum-exp of the logits, $s(X) = -T\log\sum_c \exp(f_\theta(X)_c / T)$, a
+temperature-free, training-free logit statistic. It is faithful as implemented and
+enters the benchmark directly; it is also the clean baseline that the
+auxiliary-outlier-training methods (Outlier Exposure, DivOE) reduce to when their
+defining auxiliary training is unavailable under the unified protocol
+(\cref{sec:m-augmented}). Cost is a single forward pass.
+
 \paragraph{ReAct (original and \texttt{react\_enh}).}
 ReAct \citep{Sun2021} clips activations at a global percentile ($p=90$) before
 scoring. The original implementation computes MSP on the clipped logits; the
@@ -413,8 +449,11 @@ With class-conditional means $\mu_c$ and tied covariance $\Sigma$ on ID pre-logi
 features, $s(X) = \min_c \sqrt{(\phi(X)-\mu_c)^\top \Sigma^{-1}(\phi(X)-\mu_c)}$
 \citep{Lee2018}. Relative to the original we omit the FGSM perturbation and the
 multi-layer ensemble exactly as \citet{Gungor2025} prescribe for multivariate time
-series. It assumes ID features are approximately Gaussian; cost is one matrix
-solve per window ($\sim$\SI{1}{\milli\second}). We expect it to lead.
+series. \textbf{Implementation note.} The audited variant mis-estimated the tied
+covariance; the corrected variant uses the within-class scatter (tied-covariance)
+estimate of \citet{Lee2018}, and it is the corrected form that enters the benchmark.
+It assumes ID features are approximately Gaussian; cost is one matrix solve per
+window ($\sim$\SI{1}{\milli\second}). We expect it to lead.
 
 \paragraph{DFM-PCA.}
 A principal-component model is fit per ID class; $s(X) = \min_c \lVert \phi(X) -
@@ -431,28 +470,74 @@ ill-defined; the corrected \texttt{dimmad\_enh} restricts the ensemble to contin
 metrics (Euclidean, Manhattan, Mahalanobis, cosine, correlation, Canberra,
 Bray--Curtis). It is reported only in its corrected form.
 
-\subsection{Drift, changepoint, and embedding-monitoring detectors}\label{sec:m-drift}
+\subsection{Augmented-training detectors}\label{sec:m-augmented}
+These methods sharpen OOD separation by training the classifier against an auxiliary
+outlier set so that it emits (near-)uniform predictions off-distribution. Their
+defining mechanism is auxiliary-outlier training, which the unified frozen-backbone
+protocol cannot supply; we therefore evaluate all three under an adapted protocol ---
+head-only or full-network fine-tuning arms with a synthesised or held-out outlier
+corpus --- reported in \cref{sec:results-classd} (\cref{tab:class_d_appendix}).
 
-\paragraph{DriftLens.}
-DriftLens \citep{Greco2025} is a batch-level drift detector based on the
-Fr\'echet distance between embedding distributions. The per-sample score used here
-returns the squared Mahalanobis distance to the baseline distribution in PCA space ---
-i.e.\ effectively a PCA-whitened Mahalanobis detector, which we report as such and
-treat as a finding. Cost is sub-millisecond.
+\paragraph{Outlier Exposure (OE).}
+Outlier Exposure \citep{Hendrycks2019} fine-tunes the classifier to produce a uniform
+softmax on auxiliary outliers while preserving ID accuracy, then scores with a
+confidence/energy statistic. Our rebuild is faithful to \citet{Hendrycks2019}; when
+the auxiliary corpus required by the method is unavailable, the training term vanishes
+and OE reduces exactly to the clean Energy (EBO) baseline (\cref{sec:m-posthoc}). It
+is evaluated under the adapted auxiliary-training arms.
 
-\paragraph{TD-IVDM.}
-The published TD-IVDM \citep{TDIVDM2025} is a multi-scale time-division/variable-density
-concept-drift method. The per-sample implementation fits a Gaussian KDE on
-PCA-whitened ($\le 20$-dim) features and scores by negative log-density --- a generic
-feature-space density baseline, which we frame as such.
+\paragraph{DivOE.}
+DivOE \citep{Zhu2023} extends Outlier Exposure with informative extrapolation,
+synthesising harder auxiliary outliers by PGD perturbation to diversify the exposure
+set. The rebuild is faithful; like OE it needs an auxiliary outlier set plus the PGD
+synthesis loop, so it is evaluated under the adapted fine-tuning arms and, absent the
+auxiliary corpus, coincides with the Energy baseline.
 
-\paragraph{CatSight and AE-ADWIN-LSTM.}
-CatSight \citep{CatSight2023} applies common-spatial-pattern analysis;
-AE-ADWIN-LSTM \citep{AEADWINLSTM2025} combines autoencoder reconstruction, ADWIN
-change detection, and LSTM prediction. Both contain hand-coded score negations
-justified post-hoc on small samples, and AE-ADWIN-LSTM applies its temporal
-components to shuffled windows where they are meaningless. We retain them as
-originally implemented and report their behaviour as a finding.
+\paragraph{DiverseMix.}
+DiverseMix \citep{Diversification2024} operationalises the provable-diversification
+framework, combining a real auxiliary-outlier set with mixup interpolation and
+end-to-end training. The rebuild is faithful to the framework; because it requires a
+genuine auxiliary corpus and end-to-end optimisation it is evaluated under the adapted
+arms. \textbf{Implementation note.} Its principled score negation (matching the
+training objective) raises synthetic-validation AUROC but reverses on real streaming
+data --- the regime-dependent orientation cautionary result we analyse in
+\cref{sec:discussion}.
+
+\subsection{Concept-drift and embedding-monitoring detectors}\label{sec:m-drift}
+
+\paragraph{CatSight (adaptation).}
+CatSight \citep{CatSight2023} applies common-spatial-pattern analysis to detect
+concept drift in multivariate streams. \textbf{Implementation note.} The original
+per-sample score asserted an orientation that inverted the CSP distance; the audit
+restored the paper-faithful orientation, and CatSight is evaluated under the unified
+protocol as this adaptation. Cost is sub-millisecond.
+
+\paragraph{DriftLens (adaptation).}
+DriftLens \citep{Greco2025} performs unsupervised concept-drift detection in deep
+embeddings, scoring the Fr\'echet (Wasserstein-2) distance between a reference and a
+current batch of embedding distributions. Its native score is batch/window-level, so
+it is evaluated under an adapted batch-level protocol (\cref{sec:results-classd}).
+\textbf{Implementation note.} Under per-window shuffled evaluation its faithful
+per-sample reduction is a PCA-whitened Mahalanobis detector, correlating at
+$\rho \approx 0.999$ with Mahalanobis proper; we report it under its native
+batch-level arm rather than as a per-window duplicate of the top-ranked Mahalanobis.
+
+\paragraph{TD-IVDM (adaptation).}
+TD-IVDM \citep{TDIVDM2025} is a multi-scale time-division/variable-density
+concept-drift method that compares density across ordered multi-scale windows. It
+requires ordered multi-scale windows, so it is evaluated under an adapted arm
+(\cref{sec:results-classd}). \textbf{Implementation note.} Reduced to a single
+per-window score it becomes a generic Gaussian-KDE feature-space density estimator,
+another instance of the feature-space density principle surfacing under a different
+name.
+
+\paragraph{AE-ADWIN-LSTM.}
+The autoencoder--ADWIN--LSTM hybrid \citep{AEADWINLSTM2025} combines autoencoder
+reconstruction, ADWIN change detection over the reconstruction-error stream, and LSTM
+one-step prediction, flagging drift when the change detector fires. All three
+components require an \emph{ordered} stream; the rebuild is faithful, and it is
+evaluated under an adapted ordered-stream arm (\cref{sec:results-classd}) because the
+unified per-window shuffled evaluation renders the temporal components inert.
 
 \subsection{Reconstruction, contrastive, and time-series-specific detectors}\label{sec:m-ts}
 
@@ -462,43 +547,58 @@ learns per-class patterns, and scores via two conditional VAEs. It operates on t
 raw series (backbone-independent) and is the one genuinely faithful, mechanistically
 distinct time-series method. Cost is high ($\sim$\SI{29}{\milli\second} per sample).
 
-\paragraph{CODiT.}
+\paragraph{CODiT (corrected, on-protocol).}
 CODiT \citep{Kaur2023} combines a transform-classification head, conformal
-$p$-values, and Fisher combination. Its score orientation is asserted (OOD has lower
-cross-entropy, hence higher $p$), the reverse of the standard conformal convention;
-we flag this as a moderate deviation.
+$p$-values, and a Fisher combination over multiple random-transform draws.
+\textbf{Implementation note.} The audited base variant used a single identity
+transform, omitted the multi-draw Fisher combination, and inverted the score
+orientation; the corrected variant restores the multi-draw nonconformity, the Fisher
+combination, and the paper-faithful orientation. It enters the main benchmark in this
+faithful on-protocol form.
 
-\paragraph{DIVERSIFY.}
-The published DIVERSIFY \citep{Lu2024} learns domain-invariant representations
-adversarially. The implementation performs $k$-means clustering of frozen features
-with an inverse-distance diversity term and scores distance to the nearest centroid
---- a multi-centroid feature-space distance detector, reinforcing the feature-space
-collapse finding.
+\paragraph{InvAD (adaptation).}
+InvAD \citep{InvAD2025} scores anomalies from an affine-coupling invertible network
+with a reconstruction term over the frozen features. \textbf{Implementation note.}
+The audited base variant reassembled the forward output bit-for-bit, so the
+reconstruction error was identically zero and the score collapsed to a scaled MSP;
+the corrected adaptation restores an input-dependent reconstruction signal by
+breaking invertibility at reconstruction time, as the official method prescribes. It
+enters the main benchmark as this adaptation.
 
-\paragraph{InvAD.}
-InvAD \citep{InvAD2025} uses an affine-coupling invertible network, so
-$\text{reconstruct}(\text{decompose}(x)) = x$ by construction and the
-reconstruction-error signal is $\approx 0$; the score reduces to
-$0.4\,(1 - \max_c \mathrm{softmax})$ of a small head --- effectively MSP.
+\paragraph{M2N2 (adaptation).}
+M2N2 \citep{M2N22024} performs memory-based test-time adaptation with an EMA
+detrending path. \textbf{Implementation note.} The audited variant leaked validation
+statistics into test scoring through a mutated EMA state; the corrected adaptation
+snapshots the fit-time trend and resets it at the start of each scoring pass, making
+the splits independent. It enters the main benchmark as this adaptation; the EMA path
+remains mildly order-dependent, which we note.
 
-\paragraph{M2N2.}
-M2N2 \citep{M2N22024} performs memory-based test-time adaptation. Its EMA path
-contains an order-dependent score choice that we flag; we retain it as implemented.
+\paragraph{DiffAD (corrected).}
+DiffAD \citep{Xiao2023} performs imputation-based reconstruction via a conditional
+diffusion model. \textbf{Implementation note.} The audited base variant ran the
+reverse process from pure noise --- unconditioned on the input --- and negated the
+score; the corrected \texttt{diffad\_fix} variant partially noises the input and
+denoises it back (input-conditioned imputation) and reports the non-negated
+reconstruction error, faithful to \citet{Xiao2023}. It enters the main benchmark in
+this faithful form.
 
-\paragraph{DiffAD.}
-DiffAD \citep{Xiao2023} performs imputation-based reconstruction via diffusion. The
-implementation starts the reverse process from pure noise, unconditioned on the input,
-so the ``reconstruction'' is an input-independent sample from the learned ID
-distribution, and the score is then negated. We report it as not faithfully
-reconstructing the input.
+\paragraph{DEEDEE (\texttt{deedee\_fix}).}
+DEEDEE \citep{DEEDEE2025} detects out-of-distribution environment dynamics from
+trajectory statistics, summarising a window by compact descriptors of its temporal
+trajectory (including adjacent-dimension statistics) and scoring deviation from the
+ID trajectory model. \textbf{Implementation note.} The audited variant was corrected
+and validated as \texttt{deedee\_fix}, faithful to \citet{DEEDEE2025}; it operates
+per-window on the frozen features and is evaluated under the unified protocol. Cost is
+the lowest in the benchmark ($\sim$\SI{1}{\milli\second} per window).
 
-\paragraph{DiverseMix and Outlier Exposure / DivOE.}
-Outlier Exposure \citep{Hendrycks2019} and DivOE \citep{Zhu2023} are defined by
-auxiliary-outlier training, which is absent in the implementations; both reduce to
-energy baselines and cannot be faithfully fixed without an auxiliary outlier source.
-DiverseMix \citep{Diversification2024} returns an energy score whose sign was inverted
-relative to its training objective; we discuss its correction as a cautionary
-negative result in \cref{sec:discussion}.
+\paragraph{DIVERSIFY (adaptation).}
+DIVERSIFY \citep{Lu2024} is a general framework for time-series OOD detection and
+generalisation that learns environment-invariant representations adversarially by
+retraining the feature extractor to expose and then flatten latent distribution
+shifts. Its native form retrains the extractor and defines no intrinsic post-hoc
+score on a frozen backbone, so it is evaluated under an adapted protocol
+(cosine-centroid and energy scoring arms over its learned representation,
+\cref{sec:results-classd}) rather than under the unified frozen-backbone protocol.
 
 \section{Experimental Setup}\label{sec:setup}
 
@@ -506,9 +606,8 @@ negative result in \cref{sec:discussion}.
 All experiments run on CPU. The software environment is Python~3.13 with
 PyTorch~\citep{Paszke2019}, scikit-learn~\citep{Pedregosa2011}, NumPy, and SciPy. All
 splits, shuffles, and initialisations use random seed \num{42}. The benchmark
-comprises \num{36} datasets (\num{18} TSB-U + \num{18} TSB-M; six per
-DRIFT/OOD/STABLE cell), \num{22} detectors, and \num{772} completed runs; every run
-records its exact configuration. The detector source code, configurations, and the
+comprises \num{527} datasets (\num{260} TSB-U + \num{267} TSB-M), \num{17} evaluated
+detectors, and \num{8668} completed runs; every run records its exact configuration. The detector source code, configurations, and the
 aggregate results matrix are released with the thesis.
 
 \subsection{Backbone and protocol}
@@ -528,246 +627,33 @@ configuration to remain tractable on CPU.
 No detector enters the sweep until its implementation has been audited against its
 source paper and, where available, its official repository, and has produced a
 finite, correctly oriented score on the synthetic validation set (\cref{sec:aux}).
-Six detectors required paper-faithful corrections (\cref{sec:methods}); these enter
-as an explicit original-versus-enhanced ablation rather than as silent
-substitutions. This gate is itself a contribution: it converts implementation
-faithfulness from an unstated assumption into a measured precondition. Detectors
-that could not be faithfully fixed (Outlier Exposure, DivOE) are reported as
-documented limitations; the one univariate-seasonal detector that hangs on
-multivariate input (SRS) is excluded on TSB-M and evaluated only where defined.
+Several detectors required paper-faithful corrections or adaptations
+(\cref{sec:methods}); these enter as explicit corrected (\texttt{\_enh}) variants
+rather than as silent substitutions. This gate is itself a contribution: it converts implementation
+faithfulness from an unstated assumption into a measured precondition.
 
-\section{Results}\label{sec:results}
+\paragraph{Unified and adapted evaluation protocols.}
+All twenty-four audited detectors are legitimate OOD methods; they differ only in
+\emph{how} they can be evaluated. Seventeen are compatible with the \emph{unified}
+fair-comparison protocol above --- the shared frozen ResNet backbone, per-window
+shuffled evaluation, and no auxiliary outlier corpus --- and form the unified-protocol
+leaderboard (\cref{sec:results}). The remaining seven \emph{require} an \emph{adapted}
+protocol because their defining mechanism presupposes a resource the unified protocol
+withholds: auxiliary-outlier training (Outlier Exposure, DivOE, DiverseMix), an
+ordered stream (AE-ADWIN-LSTM), a retrained feature extractor (DIVERSIFY), or
+batch-level scoring (DriftLens, and the multi-scale-ordered TD-IVDM). These seven are
+evaluated under their native, method-appropriate arms and reported separately in
+\cref{sec:results-classd} (\cref{tab:class_d_appendix}) so that neither group is
+judged under a protocol it was not designed for; this separation is an evaluation
+constraint for fairness, not a statement that the seven are lesser methods. Separately,
+the univariate-seasonal detector SRS is evaluated on TSB-StreamingAD-U only, its
+multivariate run being pending.
 
-\subsection{Overall ranking}
-\Cref{tab:tsb_main} reports the overall mean AUROC across all \num{36} datasets, and
-\cref{fig:heatmap} visualises performance by category. The ordering is unambiguous
-and the spread is enormous. Distance- and density-based detectors lead: Mahalanobis
-distance attains the best mean AUROC (\num{0.874}), followed by DriftLens
-(\num{0.857}), TD-IVDM (\num{0.852}), DFM-PCA (\num{0.821}), SRS (\num{0.790}), M2N2
-(\num{0.784}), and the corrected DiMMAD (\num{0.782}); DIVERSIFY follows at
-\num{0.718}. Below these, a single transitional detector (DiverseMix, \num{0.507})
-sits at chance, and then \emph{thirteen} detectors fall below \num{0.5}: InvAD
-(\num{0.432}), MSP (\num{0.386}), CODiT (\num{0.384}), ODIN (\num{0.294}), Outlier
-Exposure (\num{0.279}), the corrected SCALE (\num{0.270}), GradNorm (\num{0.267}),
-ReAct (\num{0.267}), DiffAD (\num{0.262}), DICE (\num{0.261}), DivOE (\num{0.260}),
-AE-ADWIN-LSTM (\num{0.231}), and CatSight (\num{0.221}). An AUROC well below
-\num{0.5} is not mere weakness but \emph{inversion}: these detectors separate ID
-from OOD with the wrong sign. The post-hoc softmax/logit cluster occupies the entire
-bottom of the table.
+\input{results_draft.tex}
 
-\input{tables/tsb_main.tex}
+\input{extended_analysis_draft.tex}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.95\textwidth]{tsb_heatmap_category.png}
-\caption{Mean AUROC of every detector (rows, ordered by overall mean) on the three
-TSB-StreamingAD categories DRIFT, OOD, and STABLE (columns). Brighter cells denote
-higher AUROC. The top rows --- feature distance/density and drift detectors --- are
-bright across all three categories, while the bottom rows --- post-hoc softmax,
-logit, and activation detectors --- are uniformly dark, indicating scores at or
-below the \num{0.5} chance line. STABLE is the most discriminating column for the
-feature methods, where Mahalanobis (\num{0.910}) and SRS (\num{0.900}) peak.}
-\label{fig:heatmap}
-\end{figure}
-
-\subsection{Univariate versus multivariate}
-\Cref{tab:tsb_u} reports the TSB-StreamingAD-U ranking and \cref{fig:splitbar}
-contrasts the two families. The leading cluster is stable across both regimes, but
-the multivariate family is \emph{easier} for the feature detectors. On TSB-M,
-DriftLens (\num{0.888}), Mahalanobis (\num{0.882}), TD-IVDM (\num{0.879}), and
-DFM-PCA (\num{0.869}) all exceed their univariate scores, whereas on TSB-U the order
-is led by Mahalanobis (\num{0.867}), SRS (\num{0.849}), M2N2 (\num{0.842}),
-DriftLens (\num{0.826}), and TD-IVDM (\num{0.825}). The seasonal-ratio detector SRS
-is strong on univariate-seasonal data (\num{0.849}) but drops on multivariate
-(\num{0.666}), consistent with its univariate-seasonal design; M2N2 shows the same
-univariate preference (\num{0.842} on U versus \num{0.725} on M). The post-hoc
-cluster remains inverted in both regimes.
-
-\input{tables/tsb_by_split.tex}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.85\textwidth]{tsb_split_bar.png}
-\caption{Mean AUROC on TSB-StreamingAD-U (univariate) versus TSB-StreamingAD-M
-(multivariate) for each detector. The feature distance/density and drift detectors
-(left group) are higher on the multivariate family --- multivariate channels give
-their feature geometry more signal to separate --- whereas the seasonal detector SRS
-and the test-time-adaptation detector M2N2 prefer the univariate-seasonal family.
-The post-hoc cluster (right group) is below the \num{0.5} chance line in both.}
-\label{fig:splitbar}
-\end{figure}
-
-\subsection{Per-category behaviour}
-The category breakdown in \cref{fig:heatmap} confirms the difficulty axis designed
-into the benchmark. For the leading detectors, STABLE is handled best (Mahalanobis
-\num{0.910}, TD-IVDM \num{0.926}, SRS \num{0.900}), confirming strong false-positive
-control on near-stationary controls; OOD --- the strong-shift category --- is also
-well separated (Mahalanobis \num{0.828}, TD-IVDM \num{0.843}); and DRIFT, the subtle
-near-distribution category, is where even the best detectors are most stressed
-(Mahalanobis \num{0.885}, DriftLens \num{0.898}). The inverted post-hoc detectors,
-by contrast, are darkest on STABLE (e.g.\ MSP \num{0.292}, CatSight \num{0.126}),
-revealing that they over-flag the very control cases a calibrated detector should
-leave alone.
-
-\subsection{The normalisation dichotomy}
-\Cref{fig:norm} reports mean AUROC under global versus per-series normalisation, and
-the split is dramatic. Feature methods peak under \emph{global} normalisation:
-Mahalanobis reaches \num{0.920} global versus \num{0.793} per-series, TD-IVDM
-\num{0.913} versus \num{0.745}, SRS \num{0.899} versus \num{0.690}, and DriftLens
-\num{0.899} versus \num{0.783}. The post-hoc methods are \emph{inverted under both}
-schemes --- e.g.\ MSP \num{0.328} global and \num{0.489} per-series, ODIN
-\num{0.222} and \num{0.420} --- and in fact tend to be \emph{less} inverted under
-per-series normalisation, the mirror image of the feature methods. This dichotomy is
-the empirical signature of the mechanism analysed in \cref{sec:discussion}.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.85\textwidth]{tsb_norm_dichotomy.png}
-\caption{Mean AUROC under global (Source-1) normalisation versus per-series
-normalisation, for each detector. Feature distance/density and drift detectors
-(upper points) gain sharply under global normalisation, which preserves the
-amplitude/level gap of the second source; post-hoc softmax/logit detectors (lower
-points) remain inverted under both, and are slightly less inverted under per-series
-normalisation. The two clusters move in opposite directions, a dichotomy rather than
-a shared preprocessing preference.}
-\label{fig:norm}
-\end{figure}
-
-\subsection{Efficiency tradeoff}
-\Cref{fig:efficiency} plots mean AUROC against per-sample inference time. The Pareto
-front is held by Mahalanobis, DriftLens, and TD-IVDM, which combine top accuracy
-with roughly \SI{1}{\milli\second} per window (\num{1.022}, \num{0.921}, and
-\num{1.039}\,\si{\milli\second} respectively, per \cref{tab:tsb_main}). SRS pays a
-large cost for its accuracy ($\sim$\SI{29}{\milli\second}), and DiffAD is expensive
-($\sim$\SI{15}{\milli\second}) without being accurate. For streaming deployment,
-where both accuracy and latency matter, the feature-space detectors are therefore the
-clear default --- they dominate the front on both axes simultaneously.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.8\textwidth]{tsb_efficiency.png}
-\caption{Accuracy versus inference cost (time axis on log scale). Each point is a
-detector; the upper-left region is best. Mahalanobis, DriftLens, and TD-IVDM hold
-the Pareto front, attaining the highest mean AUROC at roughly \SI{1}{\milli\second}
-per window, whereas SRS ($\sim$\SI{29}{\milli\second}) and DiffAD
-($\sim$\SI{15}{\milli\second}) are far slower without a corresponding accuracy gain.}
-\label{fig:efficiency}
-\end{figure}
-
-\subsection{Statistical significance}
-A Friedman test across the \num{22} detectors over the datasets is highly
-significant: $\chi^2 = 61.15$, $p = \num{8.5e-6}$ ($k=22$, $N=22$), so the
-differences in detector ranking are not attributable to chance at any conventional
-level \citep{Demsar2006}. The size of the test statistic, far beyond the
-$\alpha=0.05$ threshold, reflects the extreme spread between the feature-space
-leaders and the inverted post-hoc cluster visible in \cref{tab:tsb_main}.
-
-\subsection{Original-versus-corrected ablation}
-\Cref{tab:ablation_deltas} reports the effect of the six paper-faithful corrections
-on mean AUROC. The corrections do not rescue the post-hoc family. The largest
-positive correction is GradNorm ($+0.122$, from \num{0.368} to \num{0.489}), which
-fixes a genuinely wrong statistic yet still lands below chance; ReAct improves
-marginally ($+0.019$) and DICE not at all ($+0.000$); SCALE and DiMMAD move slightly
-\emph{down} ($-0.025$, $-0.007$); and DiverseMix drops sharply ($-0.266$, from
-\num{0.633} to \num{0.367}). The ranking of the top detectors is unchanged before and
-after correction, and the Friedman test remains significant in both cases. We reach a
-two-part conclusion neither half alone would support: the implementations contained
-real, conclusion-relevant bugs, \emph{and} the headline finding is robust to fixing
-them.
-
-\input{tables/ablation_deltas.tex}
-
-\section{Discussion}\label{sec:discussion}
-
-\subsection{Why feature distance and density win}
-The central result of this benchmark is that detectors which model the
-in-distribution \emph{feature} manifold dominate detectors that read the output
-head, and the mechanism is clean. Under global normalisation the second source
-retains its amplitude and level gap, so S2 windows arrive at the backbone many
-standard deviations outside the training manifold. A deep ReLU network is provably
-free to be arbitrarily confident on such far-out inputs \citep{Hein2019, Nguyen2015};
-it therefore emits a high maximum softmax probability for an OOD window, which a
-post-hoc detector reads as \emph{in}-distribution, inverting the score. Feature-space
-detectors are immune because they compare intermediate representations, not the
-overconfident output head: even when the head saturates, the feature vector still
-records the distributional gap. The normalisation dichotomy of \cref{fig:norm} is the
-direct fingerprint of this mechanism --- the larger the preserved level gap (global
-normalisation), the better the feature methods separate and the worse the post-hoc
-methods invert.
-
-\subsection{Why TSB-M is easier than TSB-U for feature methods}
-The multivariate family is consistently easier for the feature/drift cluster
-(\cref{fig:splitbar}): DriftLens, Mahalanobis, TD-IVDM, and DFM-PCA all score higher
-on TSB-M (\numlist{0.888;0.882;0.879;0.869}) than on TSB-U. We attribute this to two
-factors. First, multivariate windows carry more channels (median \num{19} versus
-\num{1}), giving the feature geometry a higher-dimensional space in which a
-distributional shift is easier to separate from the ID cloud. Second, TSB-M has a
-roughly ten-times higher anomaly rate (median \SI{5.23}{\percent} versus
-\SI{0.53}{\percent}), so OOD windows are more numerous and the shift more pronounced.
-The seasonal detector SRS and the test-time-adaptation detector M2N2 are the
-exceptions, preferring the univariate-seasonal family by design, which is why SRS is
-excluded from TSB-M where it hangs on multivariate input.
-
-\subsection{Why post-hoc methods fail, and survive correction}
-The post-hoc softmax, logit, and activation detectors fail because their defining
-assumption --- a calibrated output head off-distribution --- is exactly the
-assumption that breaks under streaming shift. The audit (\cref{app:fidelity})
-showed that part of the failure was confounded by implementation drift: GradNorm
-computed the wrong statistic against the wrong variable, ReAct/DICE/SCALE scored
-with the wrong score family, and at least seven detectors hard-coded a score negation
-rationalised post-hoc on a handful of training samples. Yet the ablation
-(\cref{tab:ablation_deltas}) shows that repairing the clearest cases does not lift any
-post-hoc detector into competitiveness. The drift made the post-hoc family look worse
-than it truly is, but the gap to deep feature modeling is genuine, not an artifact.
-This is the verify-before-experiment mandate vindicated: only by separating the bug
-from the phenomenon can either be trusted.
-
-\subsection{A regime-dependent orientation: a cautionary negative result}
-One correction is itself a finding. DiverseMix returns an energy score whose sign we
-corrected to match its training objective; on the synthetic validation task this
-raised AUROC from \num{0.19} to \num{0.81}, an apparently decisive fix. On the real
-streaming data the same correction \emph{reversed} the outcome, lowering mean AUROC
-from \num{0.633} to \num{0.367} (\cref{tab:ablation_deltas}). The principled,
-training-objective-consistent orientation is thus not the empirically correct one
-under streaming shift. We read this not as a defeat but as evidence that the correct
-orientation of energy-based OOD scores is \emph{regime-dependent}: it cannot be fixed
-once on synthetic data and trusted everywhere. This disciplines our own methodology
-as much as the code we audited, and it identifies orientation stability as a concrete
-open problem for energy-based time-series OOD detection.
-
-\subsection{The feature-space relabelling}
-A publication-relevant subtlety is that several detectors marketed as distinct ---
-DriftLens (per-sample PCA-Mahalanobis), TD-IVDM (KDE density), DiMMAD (distance
-ensemble), DFM-PCA (PCA reconstruction), and Mahalanobis itself --- are, in their
-per-sample implementations, all variants of distance/density estimation in the
-frozen feature space. The earlier impression that ``a diverse set of methods wins''
-is therefore partly an artifact of relabelling: the robust signal is feature-space
-distance/density, surfacing under several names. This sharpens rather than weakens
-the headline --- it identifies a single winning principle rather than a coincidence
-of unrelated methods.
-
-\subsection{Assumptions that break, and tradeoffs}
-Three assumptions separate winners from losers. Post-hoc methods assume head
-calibration off-distribution (broken). Reconstruction methods assume the
-reconstruction is input-driven (broken in DiffAD, which samples unconditionally).
-Augmented-training methods assume auxiliary-outlier training (absent in OE/DivOE,
-collapsing them to energy baselines). The feature methods assume only that OOD
-windows leave the ID feature cloud, an assumption that holds whenever a genuine shift
-exists. The practical tradeoff is favourable: the feature methods are not only the
-most accurate but also the cheapest at $\sim$\SI{1}{\milli\second}, so the usual
-accuracy--latency tension does not arise here.
-
-\subsection{Threats to validity}
-We state the scope honestly. The sweep is CPU-only, uses a stratified subsample of
-\num{36} of the \num{600} available files, trains \num{40}-epoch (reduced) backbones,
-and uses a single seed (\num{42}); SRS is excluded on TSB-M because it hangs on
-multivariate input; and Outlier Exposure and DivOE are not faithfully implemented,
-serving as energy baselines. The synthetic validation set does not exercise the
-streaming-specific inversion (the DiverseMix correction passed there yet failed on
-real data), so synthetic validation is necessary but not sufficient. These are
-scoping decisions, and they define the natural next experiments rather than
-undermining the present conclusions, which rest on the strongly significant Friedman
-result and the consistent rank ordering across both families.
+\input{discussion_draft.tex}
 
 \section{Conclusions}\label{sec:conclusion}
 
@@ -775,42 +661,61 @@ We set out to test whether the central recommendation of TS-OOD \citep{Gungor202
 --- that deep feature modeling beats post-hoc softmax scoring for time-series OOD
 detection --- survives the move from static semantic shift to streaming
 distributional shift, and whether it holds across a detector pool far broader than
-the original eight. After auditing twenty-three implementations for faithfulness and
-evaluating twenty-two on the two target families TSB-StreamingAD-U and
-TSB-StreamingAD-M across \num{36} datasets and \num{772} runs, the answer is clear.
-Distance- and density-based detectors that model the in-distribution feature manifold
---- Mahalanobis distance (\num{0.874}) and DriftLens (\num{0.857}) foremost --- lead
-the ranking, while thirteen post-hoc and mis-specified detectors fall below the
-\num{0.5} chance line, several with inverted scores; the Friedman test confirms the
-ordering is highly significant ($\chi^2 = 61.15$, $p = \num{8.5e-6}$). The same
-feature-space detectors are Pareto-optimal in accuracy versus inference cost,
-attaining top accuracy at $\sim$\SI{1}{\milli\second} per window.
+the original eight. After auditing twenty-four candidate implementations for
+faithfulness and evaluating seventeen on the two target families TSB-StreamingAD-U
+and TSB-StreamingAD-M across \num{527} datasets and \num{8668} runs, the answer is
+clear. Distance- and density-based detectors that model the in-distribution feature
+manifold --- Mahalanobis distance (\num{0.826}) and DFM-PCA (\num{0.812}) foremost
+--- lead the ranking, while every post-hoc softmax, logit, and gradient detector
+(and the seasonal SRS) falls below the \num{0.5} chance line, several with inverted
+scores; the Friedman test confirms the ordering is highly significant ($\chi^2 =
+\num{2336.59}$, $p < \num{1e-16}$). The same feature-space detectors are
+Pareto-optimal in accuracy versus inference cost, attaining top accuracy at roughly
+\SIrange{1}{4}{\milli\second} per window.
 
-Two findings sharpen the picture. First, the multivariate family is easier than the
-univariate family for the feature cluster, because more channels and a denser anomaly
-rate give the feature geometry more shift to separate. Second, a faithfulness audit
-revealed pervasive implementation drift in the post-hoc family, yet an
-original-versus-corrected ablation showed that repairing it leaves the ranking
-unchanged --- the post-hoc failure is real, not a bug. A cautionary negative result
-accompanies this: the correct orientation of energy-based scores is regime-dependent,
-so a fix validated on synthetic data can reverse on real data.
+Two findings sharpen the picture. First, the univariate family is modestly easier
+than the multivariate family for the feature cluster. Second, a faithfulness audit
+revealed pervasive implementation drift in the post-hoc family, yet even
+paper-faithful corrected variants remain below chance --- the post-hoc failure is
+real, not a bug. A cautionary negative result accompanies this: the correct
+orientation of energy-based scores is regime-dependent, so a fix validated on
+synthetic data can reverse on real data.
 
 For practitioners deploying OOD detection on streaming time series, the
-recommendation is concrete: \emph{default to Mahalanobis distance or DriftLens},
-choose the normalisation scheme according to the expected shift type (global for
-amplitude/level shifts, per-series for morphological shifts), and do not rely on
-post-hoc softmax or logit scores, which invert under exactly the far-out inputs they
-are meant to flag.
+recommendation is concrete: \emph{default to fit-once batch Mahalanobis distance or
+DFM-PCA}, choose the normalisation scheme according to the expected shift type
+(global for amplitude/level shifts, per-series for morphological shifts), and do not
+rely on post-hoc softmax or logit scores, which invert under exactly the far-out
+inputs they are meant to flag. The ``fit-once'' qualifier is load-bearing: our
+online-streaming test (\cref{sec:results-online}) shows that letting the Mahalanobis
+covariance self-update online, rather than fitting it once and freezing it,
+collapses the detector, so a naive incremental covariance is not a safe substitute.
 
-Several directions follow. A full-budget sweep over all \num{600} TSB-StreamingAD
-files would replace the stratified subsample with a definitive matrix. A multi-seed
-study would attach confidence intervals to every AUROC. Re-training the backbone with
-a multi-positive contrastive (MPC) loss is expected to lift the activation-based
-detectors specifically, per \citet{Gungor2025}. An orientation-stability study would
-resolve the regime-dependent inversion of energy-based scores without hand-tuning.
-Finally, an online deployment of the Pareto-optimal feature-space detectors, with
-incremental covariance updates, would test their promise under true streaming
-conditions.
+This work also settles two questions we had previously flagged as open. First, the
+orientation stability of the sub-chance post-hoc scores is now a measured result
+rather than a conjecture: the extended analyses (\cref{sec:results-orientation})
+show the inversion is systematic (post-hoc detectors below chance on
+\SIrange{58}{73}{\percent} of datasets) and regime-dependent, roughly
+\SI{20}{\percent} more prevalent under global than per-series normalisation. Second,
+we tested the online-deployment idea directly and report it as a negative result
+(\cref{sec:results-online}): an incremental-covariance Mahalanobis run under a true
+streaming protocol \emph{underperforms} the fit-once batch detector (mean AUROC
+\num{0.428} vs \num{0.694}, $\Delta = \num{-0.266}$, losing on \num{26} of \num{29}
+datasets), because unsupervised per-window updates absorb the anomalous windows into
+the running in-distribution model.
+
+Two directions remain genuinely open. A multi-seed study would attach confidence
+intervals to every AUROC, replacing the single-seed point estimates. Re-training the
+backbone with a multi-positive contrastive (MPC) loss is expected to lift the
+activation-based detectors specifically, per \citet{Gungor2025}, testing whether the
+post-hoc collapse is intrinsic to the confidence premise or an artifact of the
+pseudo-class backbone. A full SRS multivariate sweep, by contrast, is now deferred as
+low-value future work rather than a gap: the Friedman complete-case gap is already
+closed by the \num{16}-detector ex-SRS full-coverage test ($\chi^2 = \num{2336.59}$,
+$N = \num{515}$), and a feasibility probe confirms that SRS does run on
+TSB-StreamingAD-M but at near-chance AUROC and with an STL cost that scales in the
+training-window count, making a full-scale sweep prohibitive for little expected
+information.
 
 \section*{Acknowledgements}
 This work was carried out as part of the MSc thesis of Stylianos Giannoulis at the
